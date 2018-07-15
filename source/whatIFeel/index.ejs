@@ -1,0 +1,27 @@
+---
+layout: post
+slug: "WhatIFeel"
+title: "WhatIFeel"
+noDate: "true"
+comments: "false"
+---
+<link rel="stylesheet" href="./ins.css">
+<ul class="feel-content" id="feelContent">
+    <li class="content-item">
+        <span class="content-time"></span>
+        <span class="content-spec"></span>
+    </li>
+</ul>
+
+<script>
+  (function() {
+    var loadScript = function(path) {
+      var $script = document.createElement('script')
+      document.getElementsByTagName('body')[0].appendChild($script)
+      $script.setAttribute('src', path)
+    }
+    setTimeout(function() {
+      loadScript('./ins.js')
+    }, 0)
+  })()
+</script>
