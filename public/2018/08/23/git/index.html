@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>......</title>
+  <title>git新操作备注 | ......</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="......">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="使用git进行工程的操作，长期下来git pull 、git add 、git push、就可以完成日常所需，但是近期有些其他的操作，记录下来都是亲身测试有效的">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git新操作备注">
+<meta property="og:url" content="http://yoursite.com/2018/08/23/git/index.html">
 <meta property="og:site_name" content="......">
+<meta property="og:description" content="使用git进行工程的操作，长期下来git pull 、git add 、git push、就可以完成日常所需，但是近期有些其他的操作，记录下来都是亲身测试有效的">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-23T06:34:22.822Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="......">
+<meta name="twitter:title" content="git新操作备注">
+<meta name="twitter:description" content="使用git进行工程的操作，长期下来git pull 、git add 、git push、就可以完成日常所需，但是近期有些其他的操作，记录下来都是亲身测试有效的">
   
     <link rel="alternative" href="/atom.xml" title="......" type="application/atom+xml">
   
@@ -150,16 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-git" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/23/git/">git新操作备注</a>
+    <h1 class="article-title" itemprop="name">
+      git新操作备注
     </h1>
   
 
@@ -173,11 +176,112 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>使用git进行工程的操作，长期下来git pull 、git add 、git push、就可以完成日常所需，但是近期有些其他的操作，记录下来都是亲身测试有效的</p>
-        
-          <a class="article-more-a" href="/2018/08/23/git/#more">more >></a>
-        
+<a id="more"></a>
+<h3 id="1-开个新分支"><a href="#1-开个新分支" class="headerlink" title="1.开个新分支"></a>1.开个新分支</h3><p>（1）如果新建一个以develop内容为基础的分支</p>
+<ul>
+<li>git checkout develop </li>
+<li>git checkout -b yx0628develop_new</li>
+</ul>
+<p>不断修改不断的保存也是可以生成log的</p>
+<ul>
+<li>git add .  //这是提交全部修改，慎重 </li>
+<li>git commit -m’全部修改提交’</li>
+</ul>
+<p>（2）把新分支的代码合并到develop<br> 前提：先把新分支yx0628develop_new的代码add完毕，commit完毕</p>
+<ul>
+<li>git checkout develop  </li>
+<li>git merge yx0628develop_new<br>无冲突</li>
+<li>git push<br>有冲突</li>
+<li>解决冲突</li>
+<li>git add 冲突文件</li>
+<li>git commit -m’随便你想写什么’</li>
+<li>git push</li>
+</ul>
+<p>###2.代码迁移仓库（保留log）<br>不保留log等提交的记录的迁移就不说了，soeasy！<br>目标：把A仓库的代码迁移到B仓库并且保存所有的git log，B仓库已经存在了哦，哪怕是个空仓库。</p>
+<p>再说这个之前先说点其他。在使用git的时候我们可能见到这样的命令。不想看解说想直接看步骤的，<a href="#1">直接步骤</a></p>
+<blockquote>
+<pre><code>git pull origin master //拉取远程master分支的代码
+git push origin master //把代码推到远程master分支上去
+</code></pre></blockquote>
+<p>有没有人好奇为什么是origin，而不是其他名字，比如git pull orginal master或者git pull origin2 master;</p>
+<p>解答上面的问题很简单，请在你的工程中输入</p>
+<blockquote>
+<pre><code>git remote
+</code></pre><p>发现了什么呢？默认就有一个origin，代表远程仓库。origin是有地址，地址就是当前仓库的git地址，是个url哦。所以为什么git push origin master就自动相应的推到的远程仓库的master分支了。</p>
+</blockquote>
+<p></p><h2 id="1">下面是正确的操作步骤，(看准情况分类很重要，就两种)</h2><br>不管哪种情况请从情况1开始看哈哈：<p></p>
+<p></p><h2>情况1：</h2><br><strong>B仓库是一个空仓库，除了默认的master分支，没有任何分支</strong>。把A的branch1,branch2,branch3…依次迁入B，B也就有branch1,branch2,branch3,<p></p>
+<ul>
+<li>进入A工程</li>
+<li><p>git remote     </p>
+<blockquote>
+<p>原因：看下当前远程仓库有啥名字，然后取个崭新的名字，不重复的名字，名字是过渡，不必纠结。这里取名origin2</p>
+</blockquote>
+</li>
+<li><p>git remote add origin2 master</p>
+<blockquote>
+<p>不纠结照抄这就话</p>
+</blockquote>
+</li>
+<li><p>git remote set-url origin2 <a href="mailto:git@git.hub.com" target="_blank" rel="noopener">git@git.hub.com</a>:B.git</p>
+<blockquote>
+<p>原因：后面的B仓库地址url才是关键，origin2只是过渡，百人百种起法</p>
+</blockquote>
+</li>
+<li><p><span id="jump">进入A工程的branch1分支上</span></p>
+</li>
+<li><p>git pull </p>
+<blockquote>
+<p>原因：拉取一下最新代码</p>
+</blockquote>
+</li>
+<li><p>git checkout -b branchB1 </p>
+<blockquote>
+<p>原因：branchB1是基于A工程branch1开的新分支，代码跟A工程branch1一毛一样，<strong>但是这个名字branchB1非常重要，非常重要</strong>，原因只有一个：这个分支会被推到B工程，结果就是B工程下面就有这个分支。所以你懂的，万一你的B工程下面已经有了该分支名字，你这个做了好多工作的branchB1是根本推不上去的，是不是很疯狂</p>
+</blockquote>
+</li>
+<li><p>git push origin2</p>
+<blockquote>
+<p>结果：这一步能不能成功就看上一步，不多说，就看你取名字瞎不瞎</p>
+</blockquote>
+</li>
+</ul>
+<p>如果上面的结束，说明已经成功迁移出一个分支了。常见问题：</p>
+<p>疑问1:问其他的分支怎么做，请重复</p>
+<ul>
+<li>进入A工程的branch2分支上</li>
+<li>git pull </li>
+<li>git checkout -b branchB2</li>
+<li>git push origin2<br>branch2 变成branchB2然后被推到B仓库</li>
+</ul>
+<p>疑问2:你还问我第三个分支怎么迁移，不解释啦实在不行哎我还能说啥。</p>
+<p>疑问3: 我打眼一看B工程中的分支名字都是branchB1,branchB2….怎么破，<br>改分支的名字直接登陆git.hub.com,打开工程你会看到branches这个，点进去可以修改.至于改名字，代码都迁移过去了，改个名字还很远吗</p>
+<p></p><h2>情况2：</h2><br><strong>B仓库不是一个空仓库，里面各种各样乱七八糟的分支</strong>。把A的branch1,branch2,branch3…一次迁入B，B也就有branch1,branch2,branch3,<p></p>
+<p>呃呃呃呃呃，<br>步骤跟上面一毛一样，能不能推成功，就看你起名字的功夫了。什么名字，就是你最后要推到B工程上去的分支名字，注意在这里 <a href="#jump">点击跳转</a></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -197,16 +301,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/23/git/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/23/git/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/25/react_hoc_2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">高阶组件入门（2)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -226,235 +389,14 @@
 
 
 
-
   
-    <article id="post-react_hoc_2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/25/react_hoc_2/">高阶组件入门（2)</a>
-    </h1>
   
 
-        
-        <a href="/2018/06/25/react_hoc_2/" class="archive-article-date">
-  	<time datetime="2018-06-25T12:44:11.109Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="（一）前篇回顾"><a href="#（一）前篇回顾" class="headerlink" title="（一）前篇回顾"></a>（一）前篇回顾</h2><p>上篇文章<a href="https://github.com/iuap-design/blog/issues/241" target="_blank" rel="noopener">React高阶组件操作入门（一）</a>介绍了高阶组件的实现方式之一：PP（属性代理）。</p>
-<p>其实在第一篇提到，高阶组件的使用就是涉及到两个问题：</p>
-<p>1.高阶组件EnhanceComponent能否将props,state,function传递给wrappedComponent？<br>2.组件wrappedComponent能否将props,state,function传递给EnhancedComponent？</p>
-        
-          <a class="article-more-a" href="/2018/06/25/react_hoc_2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hoc-react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/25/react_hoc_2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-react_hoc_1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/25/react_hoc_1/">高阶组件入门（1)</a>
-    </h1>
   
 
-        
-        <a href="/2018/06/25/react_hoc_1/" class="archive-article-date">
-  	<time datetime="2018-06-25T12:44:11.108Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>高阶组件最大的特点就是重用组件逻辑。它并不是由React API定义出来的功能，而是由React的组合特性衍生出来的一种设计模式。<br>之前看过几篇文章介绍高阶组件，这篇文章就是动手操作一番，有时候还不得不吐槽，说好能获得到的属性跟方法为什么没有获取到？</p>
-        
-          <a class="article-more-a" href="/2018/06/25/react_hoc_1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hoc-react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/25/react_hoc_1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/25/hello-world/">Hello World</a>
-    </h1>
   
 
-        
-        <a href="/2018/06/25/hello-world/" class="archive-article-date">
-  	<time datetime="2018-06-25T12:44:11.107Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-        
-          <a class="article-more-a" href="/2018/06/25/hello-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/25/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -477,8 +419,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
