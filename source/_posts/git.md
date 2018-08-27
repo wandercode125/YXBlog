@@ -65,7 +65,7 @@ tags:
  - git remote set-url origin2 git@git.hub.com:B.git
     > 原因：后面的B仓库地址url才是关键，origin2只是过渡，百人百种起法
 
- -  <span id="jump">进入A工程的branch1分支上</span>
+ -  进入A工程的branch1分支上
  - git pull 
    > 原因：拉取一下最新代码
 
@@ -95,7 +95,7 @@ branch2 变成branchB2然后被推到B仓库
 **B仓库不是一个空仓库，里面各种各样乱七八糟的分支**。把A的branch1,branch2,branch3...一次迁入B，B也就有branch1,branch2,branch3,
 
 呃呃呃呃呃，
-步骤跟上面一毛一样，能不能推成功，就看你起名字的功夫了。什么名字，就是你最后要推到B工程上去的分支名字，注意在这里 [点击跳转](#jump)
+步骤跟上面一毛一样，能不能推成功，就看你起名字的功夫了。什么名字，就是你最后要推到B工程上去的分支名字，注意在这里.
 
 
 
