@@ -707,7 +707,6 @@ We can write the following helper to accomplish this:
 This wasn't difficult, was it? Redux doesn't provide such a helper function by default because there are many ways to write it. Maybe you want it to automatically convert plain JS objects to Immutable objects to hydrate the server state. Maybe you want to merge the returned state with the current state. There may be different approaches to a “catch all” handler. All of this depends on the conventions you choose for your team on a specific project.
 The Redux reducer API is (state, action) => newState, but how you create those reducers is up to you.
 
-    �
 这并不难，不是吗?
 
 Redux默认情况下不提供这样的帮助helper，因为有很多方法可以编写它。也许您希望它自动将普通JS对象转换为不可变对象，以适应服务器状态。也许您希望将返回的状态与当前状态合并。也有很多不同的方式来使用‘catch all’handler。所有这些都取决于您根据特定项目中选择的约定。
