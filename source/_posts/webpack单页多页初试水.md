@@ -1,5 +1,5 @@
 ---
-title: webpack单页多页初试水
+title: webpack单页应用和多页应用搭建初试水（一）
 date: 2018-08-27 16:05:40
 tags:
 ---
