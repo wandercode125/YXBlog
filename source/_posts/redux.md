@@ -2,6 +2,8 @@
 title: redux
 date: 2018-08-24 10:00:30
 tags:
+categories: 翻译
+
 ---
 
 

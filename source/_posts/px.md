@@ -2,6 +2,7 @@
 title: 屏幕尺寸，分辨率，像素，PPI之间到底什么关系？
 date: 2018-08-31 12:03:35
 tags: css
+categories: 工作
 ---
 px到底是什么，大小是什么？
 <!-- more -->

@@ -2,6 +2,8 @@
 title: webpack单页应用和多页应用搭建初试水（一）
 date: 2018-08-27 16:05:40
 tags:
+categories: self
+
 ---
 虽然之前研究过一些webpack配置，但是也没有着手去做过。再者平时的demo也都是基于react的，所以不得不使用webpack，这里就随便写个单页和多页的webpack。
 

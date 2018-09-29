@@ -5,10 +5,10 @@
 # Site
 title: ......
 subtitle:
-description:
+description: 并没什么大不了
 keywords:
 author: ......
-language:
+language: zh-Hans
 timezone:
 
 # URL
@@ -73,8 +73,9 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-#theme: landscape
-theme: yilia2
+# theme: landscape
+# theme: yilia2
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
