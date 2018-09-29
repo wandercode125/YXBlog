@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="（一）前篇回顾上篇文章React高阶组件操作入门（一）介绍了高阶组件的实现方式之一：PP（属性代理）。 其实在第一篇提到，高阶组件的使用就是涉及到两个问题： 1.高阶组件EnhanceComponent能否将props,state,function传递给wrappedComponent？2.组件wrappedComponent能否将props,state,function传递给EnhancedCo">
+<meta name="keywords" content="react,react-hoc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高阶组件入门（2)">
+<meta property="og:url" content="http://yoursite.com/2018/06/25/react_hoc_2/index.html">
+<meta property="og:site_name" content="......">
+<meta property="og:description" content="（一）前篇回顾上篇文章React高阶组件操作入门（一）介绍了高阶组件的实现方式之一：PP（属性代理）。 其实在第一篇提到，高阶组件的使用就是涉及到两个问题： 1.高阶组件EnhanceComponent能否将props,state,function传递给wrappedComponent？2.组件wrappedComponent能否将props,state,function传递给EnhancedCo">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20171107205438033?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171107205535216?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171107211149475?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171107211424840?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171107211543953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2018-09-29T11:10:38.433Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高阶组件入门（2)">
+<meta name="twitter:description" content="（一）前篇回顾上篇文章React高阶组件操作入门（一）介绍了高阶组件的实现方式之一：PP（属性代理）。 其实在第一篇提到，高阶组件的使用就是涉及到两个问题： 1.高阶组件EnhanceComponent能否将props,state,function传递给wrappedComponent？2.组件wrappedComponent能否将props,state,function传递给EnhancedCo">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171107205438033?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/25/react_hoc_2/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>高阶组件入门（2) | ......</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">......</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/25/react_hoc_2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="......">
+      <meta itemprop="description" content="并没什么大不了">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="......">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">高阶组件入门（2)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-06-25 20:44:11" itemprop="dateCreated datePublished" datetime="2018-06-25T20:44:11+08:00">2018-06-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-09-29 19:10:38" itemprop="dateModified" datetime="2018-09-29T19:10:38+08:00">2018-09-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工作/" itemprop="url" rel="index"><span itemprop="name">工作</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="（一）前篇回顾"><a href="#（一）前篇回顾" class="headerlink" title="（一）前篇回顾"></a>（一）前篇回顾</h2><p>上篇文章<a href="https://github.com/iuap-design/blog/issues/241" target="_blank" rel="noopener">React高阶组件操作入门（一）</a>介绍了高阶组件的实现方式之一：PP（属性代理）。</p>
+<p>其实在第一篇提到，高阶组件的使用就是涉及到两个问题：</p>
+<p>1.高阶组件EnhanceComponent能否将props,state,function传递给wrappedComponent？<br>2.组件wrappedComponent能否将props,state,function传递给EnhancedComponent？</p>
+<a id="more"></a>
+<p>在第一篇文章就是解答了第一个问题，答案是能！！HOC将HOCd的props,state,function,当作props传给WrappedComponent组件，WrappedComponent通过this.props取到这些内容，如下图：</p>
+<pre><code>图1-1 EnhacedComponent组件传值
+</code></pre><p><img src="http://img.blog.csdn.net/20171107205438033?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<pre><code>图1-2 WrappedComponent组件接收
+</code></pre><p><img src="http://img.blog.csdn.net/20171107205535216?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="（二）Inheritance-Inversion（反向继承）"><a href="#（二）Inheritance-Inversion（反向继承）" class="headerlink" title="（二）Inheritance Inversion（反向继承）"></a>（二）Inheritance Inversion（反向继承）</h2><p><strong>反向继承可以解决上述的第二个疑问：</strong><br>组件wrappedComponent能否将props,state,function传递给EnhancedComponent？</p>
+<p>这里是指EnhacedComponent继承了WrappedComponent组件的生命周期、state和function。按照上篇文章提到的两点用途出发来深入理解II。</p>
+<ul>
+<li>渲染劫持（Render Highjacking） </li>
+<li>操作 state</li>
+</ul>
+<p> （2.1）渲染劫持</p>
+<blockquote>
+<p>本质就是EnhacedComponent继承了WrappedComponent组件的生命周期函数，尤其是render()函数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//Wrappedcomponent</span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">class Usual extends Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state = &#123;</span><br><span class="line">      usual: &apos;usual&apos;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    console.log(&apos;didMount&apos;)</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  render() &#123;</span><br><span class="line">    console.log(this.props);</span><br><span class="line"></span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        Usual</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Usual;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//下面是HOC</span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">const iiHoc = WrappedComponent =&gt; class extends WrappedComponent &#123;</span><br><span class="line">	  constructor(props)&#123;</span><br><span class="line">	  	super(props);</span><br><span class="line">	  	this.state = &#123;</span><br><span class="line">	  		...this.state,</span><br><span class="line">	  	&#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	</span><br><span class="line">	  alertFunc = () =&gt;&#123;</span><br><span class="line">	  	alert(&quot;HOC&quot;);</span><br><span class="line">	  &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">      </span><br><span class="line">      return &lt;div&gt;&#123;super.render()&#125;&lt;/div&gt;</span><br><span class="line">     </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default iiHoc;</span><br></pre></td></tr></table></figure>
+<p>这样会正常的渲染出来 Usual</p>
+<p>（2.2）操作 state</p>
+<blockquote>
+<p>本质就是EnhacedComponent继承了WrappedComponent组件的state</p>
+</blockquote>
+<pre><code>如图2-2-1通过this.state获取到WrappedComponent的state
+</code></pre><p><img src="http://img.blog.csdn.net/20171107211149475?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<blockquote>
+<p>但是，关键是在EnhacedComponent的constructor中没有定义自己的state！！</p>
+</blockquote>
+<p>若是定义就会出现的问题如下图2-2-2所示</p>
+<pre><code>图2-2-2 EnhancedComponent的constructor中定义state,那么this.state的取值
+</code></pre><p><img src="http://img.blog.csdn.net/20171107211424840?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>EnhacedComponent的state覆盖了Wrapped Component的state。这时候的怎么让两者并存呢？如下图2-2-3所示</p>
+<pre><code>图2-2-3 EnhacedComponent的state与WrappedComponent的state并存
+</code></pre><p><img src="http://img.blog.csdn.net/20171107211543953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>（2.3）function的继承<br>这里就不多说，通过this.functionName()就可以调用到WrappedComponent中的方法。<strong>但是有一个注意的：若是EnhancedComponent中的方法与WrappedComponent的方法重名，那么EnhacedComponent函数覆盖Wrapped Component函数。</strong></p>
+<h2 id="（三）此处看一下父组件与高阶组件对比"><a href="#（三）此处看一下父组件与高阶组件对比" class="headerlink" title="（三）此处看一下父组件与高阶组件对比"></a>（三）此处看一下父组件与高阶组件对比</h2><p>有些同学可能会觉得高阶组件有些类似父组件的使用。例如，我们完全可以把高阶组件中的逻辑放到一个父组件中去执行，执行完成的结果再传递给子组件。从逻辑的执行流程上来看，高阶组件确实和父组件比较相像，但是高阶组件强调的是逻辑的抽象。高阶组件是一个函数，函数关注的是逻辑；父组件是一个组件，组件主要关注的是UI/DOM。如果逻辑是与DOM直接相关的，那么这部分逻辑适合放到父组件中实现；如果逻辑是与DOM不直接相关的，那么这部分逻辑适合使用高阶组件抽象，如数据校验、请求发送等。</p>
+<h2 id="（四）使用高阶组件遇到的问题"><a href="#（四）使用高阶组件遇到的问题" class="headerlink" title="（四）使用高阶组件遇到的问题"></a>（四）使用高阶组件遇到的问题</h2><p>（4.1）静态方法丢失<br>无论PP还是II的方式，WrappedComponent的静态方法都不会复制，如果要用需要我们单独复制。因为高阶组件返回的新组件，是不包含被包装组件的静态方法。<br>具体的解决方案如下</p>
+<blockquote>
+<p><a href="https://segmentfault.com/a/1190000010845410" target="_blank" rel="noopener">静态方法解决方式</a></p>
+</blockquote>
+<p>（4.2）refs不会传递。<br>意思就是HOC里指定的ref，并不会传递到子组件，如果你要使用最好写回调函数通过props传下去。</p>
+<p>（4.3）不要在render方法内部使用高阶组件。<br>简单来说react的差分算法会去比较 NowElement === OldElement, 来决定要不要替换这个elementTree。。因为高阶组件每次都会返回一个新的组件，在render中使用会导致每次渲染出来的组件都不相等（===），于是每次render，组件都会卸载（unmount），然后重新挂载（mount），既影响了效率，又丢失了组件及其子组件的状态。高阶组件最适合使用的地方是在组件定义的外部，这样就不会受到组件生命周期的影响了。</p>
+<p>（4.4）最重要的原则就是，注意高阶组件不会修改子组件，也不拷贝子组件的行为。<br>高阶组件只是通过组合的方式将子组件包装在容器组件中，是一个无副作用的纯函数</p>
+<p>（4.5）要给hoc添加class名，便于debugger。<br>当我们在chrome里应用React-Developer-Tools的时候，组件结构可以一目了然，所以DisplayName最好还是加上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const getDisplayName = component =&gt; component.displayName || component.name</span><br><span class="line">function hoc(WrappedComponent)&#123;</span><br><span class="line">    return class HOC extends Component &#123;</span><br><span class="line">        static displayName = `HOC($&#123;getDisplayName(WrappedComponent)&#125;)`</span><br><span class="line">        constructor(props) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        componentWillMount() &#123; </span><br><span class="line"></span><br><span class="line">        render() &#123;</span><br><span class="line">          return ()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default hoc;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://segmentfault.com/a/1190000010845410" target="_blank" rel="noopener">refs不会传递解决方法</a></p>
+</blockquote>
+<h2 id="（五）依然存留的疑问"><a href="#（五）依然存留的疑问" class="headerlink" title="（五）依然存留的疑问"></a>（五）依然存留的疑问</h2><p>1.上述两个问题中的第二个问题：.组件wrappedComponent能否将props,state,function传递给EnhancedComponent？中没有解答是wrappedComponent能否将props传递给EnhancedComponent，这个没有找到资料，也许这是没有必要的操作。根据后续的深入开发以及学习中，也许会解答这个问题。<br>2.属性的校验<br>我们知道PropsTypes有着属性校验，那么EnhacedComponent与WrappedComponent之间的传值可以走属性校验吗？</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+            <a href="/tags/react-hoc/" rel="tag"># react-hoc</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/25/react_hoc_1/" rel="next" title="高阶组件入门（1)">
+                <i class="fa fa-chevron-left"></i> 高阶组件入门（1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/23/git/" rel="prev" title="git新操作备注">
+                git新操作备注 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="......" />
+            
+              <p class="site-author-name" itemprop="name">......</p>
+              <p class="site-description motion-element" itemprop="description">并没什么大不了</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）前篇回顾"><span class="nav-number">1.</span> <span class="nav-text">（一）前篇回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）Inheritance-Inversion（反向继承）"><span class="nav-number">2.</span> <span class="nav-text">（二）Inheritance Inversion（反向继承）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（三）此处看一下父组件与高阶组件对比"><span class="nav-number">3.</span> <span class="nav-text">（三）此处看一下父组件与高阶组件对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（四）使用高阶组件遇到的问题"><span class="nav-number">4.</span> <span class="nav-text">（四）使用高阶组件遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（五）依然存留的疑问"><span class="nav-number">5.</span> <span class="nav-text">（五）依然存留的疑问</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">......</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
