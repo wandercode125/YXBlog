@@ -58,6 +58,6 @@ $(document).ready(function() {
   initAffix();
   resizeListener();
   // Fixed wrong top alignment if page scrolled to the bottom after cleared cache and browser refresh.
-  sidebarInner.affix('checkPosition');
+  // sidebarInner.affix('checkPosition');
 
 });

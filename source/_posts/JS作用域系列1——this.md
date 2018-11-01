@@ -41,10 +41,26 @@ categories: 工作
 
 > 总的来说可以将执行上下文看作是一个对象
     EC = {
+        Scope:{/*VO以及所有父执行上下文中的VO*/}
         VO:{/*函数中的arguments对象、参数、内部变量以及函数声明*/}
         this:{},
-        Scope:{/*VO以及所有父执行上下文中的VO*/}
     }
+### 1.3 this的指向规则
+    1.隐式绑定（即使用.）
+    2.显式绑定 (call,apply,bind)
+    3.new 绑定
+    4.window 绑定
+### 1.4 判断this的指向
+
+因此，将所有规则付诸实践，每当我在函数内部看到 this 关键字时，这些就是我为了判断它的引用而采取的步骤。
+
+    1.查看函数在哪被调用。
+    2.点左侧有没有对象？如果有，它就是 “this” 的引用。如果没有，继续第 3 步。
+    3.该函数是不是用 “call”、“apply” 或者 “bind” 调用的？如果是，它会显式地指明 “this” 的引用。如果不是，继续第 4 步。
+    4.该函数是不是用 “new” 调用的？如果是，“this” 指向的就是 JavaScript 解释器新创建的对象。如果不是，继续第 5 步。
+    5.是否在“严格模式”下？如果是，“this” 就是 undefined，如果不是，继续第 6 步。
+    6.JavaScript 很奇怪，“this” 会指向 “window” 对象。
+
 
   [1]: https://raw.githubusercontent.com/XYooo/image/master/this1.png
   [2]: https://raw.githubusercontent.com/XYooo/image/master/this2.png
