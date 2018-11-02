@@ -283,7 +283,6 @@ span.exturl {
   color: #555;
   text-decoration: none;
   outline: none;
-  border-bottom: 1px solid #999;
   word-wrap: break-word;
   cursor: pointer;
 }
@@ -292,7 +291,7 @@ span.exturl:hover,
 a:active,
 span.exturl:active {
   color: #222;
-  border-bottom-color: #222;
+  border-bottom: 1px solid #222;
 }
 blockquote {
   margin: 0;
@@ -1289,6 +1288,11 @@ pre .javascript .function {
 .posts-expand {
   padding-top: 40px;
 }
+.posts-expand:after {
+  content: '';
+  display: block;
+  clear: both;
+}
 @media (max-width: 767px) {
   .posts-expand {
     margin: 0 20px;
@@ -1767,9 +1771,6 @@ pre .javascript .function {
   border: 1px solid #eee;
   opacity: 1;
 }
-.site-author-image {
-  border-radius: 100%;
-}
 .site-author-name {
   margin: 0;
   text-align: center;
@@ -1852,7 +1853,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #55ffcd;
+  background: #d0ff8c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2960,6 +2961,14 @@ ul.breadcrumb li+li:last-child {
   margin: 10px 0;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+.post.post-type-normal.home-post {
+  width: 48%;
+  margin: 1%;
+  float: left;
+  box-sizing: border-box;
+  height: 260px;
+  overflow: auto;
 }
 .posts-collapse .post {
   box-shadow: none;
