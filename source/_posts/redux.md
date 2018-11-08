@@ -5,9 +5,6 @@ tags:
 categories: 翻译
 
 ---
-
-
-
 有一篇redux的吐槽写的甚好，翻译一下
 ---
 

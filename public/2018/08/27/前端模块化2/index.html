@@ -108,24 +108,25 @@
 
 
 
-  <meta name="description" content="虽然之前研究过一些webpack配置，但是也没有着手去做过。再者平时的demo也都是基于react的，所以不得不使用webpack，这里就随便写个单页和多页的webpack。 前提，不考虑任何优化，什么代码分割，什么图片压缩，什么公共代码提取都一边去，这是最最简单的可以使用的单页和多页的应用.希望你还是要懂得一些基本的webpack配置，比如entry，output等等，如果这些也不是很清楚请直接">
+  <meta name="description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
+<meta name="keywords" content="模块化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack单页应用和多页应用搭建初试水（一）">
-<meta property="og:url" content="http://yoursite.com/2018/08/27/webpack单页多页初试水/index.html">
+<meta property="og:title" content="前端模块化（二）">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/前端模块化2/index.html">
 <meta property="og:site_name" content="......">
-<meta property="og:description" content="虽然之前研究过一些webpack配置，但是也没有着手去做过。再者平时的demo也都是基于react的，所以不得不使用webpack，这里就随便写个单页和多页的webpack。 前提，不考虑任何优化，什么代码分割，什么图片压缩，什么公共代码提取都一边去，这是最最简单的可以使用的单页和多页的应用.希望你还是要懂得一些基本的webpack配置，比如entry，output等等，如果这些也不是很清楚请直接">
+<meta property="og:description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-29T11:11:01.221Z">
+<meta property="og:updated_time" content="2018-11-07T10:46:54.725Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack单页应用和多页应用搭建初试水（一）">
-<meta name="twitter:description" content="虽然之前研究过一些webpack配置，但是也没有着手去做过。再者平时的demo也都是基于react的，所以不得不使用webpack，这里就随便写个单页和多页的webpack。 前提，不考虑任何优化，什么代码分割，什么图片压缩，什么公共代码提取都一边去，这是最最简单的可以使用的单页和多页的应用.希望你还是要懂得一些基本的webpack配置，比如entry，output等等，如果这些也不是很清楚请直接">
+<meta name="twitter:title" content="前端模块化（二）">
+<meta name="twitter:description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/27/webpack单页多页初试水/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/27/前端模块化2/"/>
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title>webpack单页应用和多页应用搭建初试水（一） | ......</title>
+  <title>前端模块化（二） | ......</title>
   
 
 
@@ -282,13 +283,15 @@
   
 
   
-
-  <article class="post post-type-normal home-post" itemscope itemtype="http://schema.org/Article">
+  
+  
+    <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/27/webpack单页多页初试水/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/27/前端模块化2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="......">
@@ -305,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">webpack单页应用和多页应用搭建初试水（一）
+          <h1 class="post-title" itemprop="name headline">前端模块化（二）
               
             
           </h1>
@@ -330,7 +333,7 @@
                 
               
 
-              <time title="Created: 2018-08-27 16:05:40" itemprop="dateCreated datePublished" datetime="2018-08-27T16:05:40+08:00">2018-08-27</time>
+              <time title="Created: 2018-08-27 14:11:00" itemprop="dateCreated datePublished" datetime="2018-08-27T14:11:00+08:00">2018-08-27</time>
             
 
             
@@ -347,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-29 19:11:01" itemprop="dateModified" datetime="2018-09-29T19:11:01+08:00">2018-09-29</time>
+                <time title="Modified: 2018-11-07 18:46:54" itemprop="dateModified" datetime="2018-11-07T18:46:54+08:00">2018-11-07</time>
               
             
           </span>
@@ -364,7 +367,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/self/" itemprop="url" rel="index"><span itemprop="name">self</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/总结-工作/" itemprop="url" rel="index"><span itemprop="name">总结 工作</span></a></span>
 
                 
                 
@@ -392,7 +395,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">4.8k</span>
+                <span title="Symbols count in article">3.2k</span>
               
 
               
@@ -406,7 +409,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">4 mins.</span>
+                <span title="Reading time">3 mins.</span>
               
             </div>
           
@@ -426,159 +429,103 @@
       
 
       
-        <p>虽然之前研究过一些webpack配置，但是也没有着手去做过。再者平时的demo也都是基于react的，所以不得不使用webpack，这里就随便写个单页和多页的webpack。</p>
-<p>前提，不考虑任何优化，什么代码分割，什么图片压缩，什么公共代码提取都一边去，这是最最简单的可以使用的单页和多页的应用.希望你还是要懂得一些基本的webpack配置，比如entry，output等等，如果这些也不是很清楚请直接ctrl+c ctrl+v<br><a id="more"></a></p>
-<h1 id="在此处输入标题"><a href="#在此处输入标题" class="headerlink" title="在此处输入标题"></a>在此处输入标题</h1><h3 id="1-单页应用"><a href="#1-单页应用" class="headerlink" title="1.单页应用"></a>1.单页应用</h3><p>对应的就是一个页面，所有的功能请在一个页面实现，那么只需要两个文件：index.js和index.html。</p>
-<h4 id="1-1-index-js"><a href="#1-1-index-js" class="headerlink" title="1.1 index.js"></a>1.1 index.js</h4><p>随便你想怎么拆分都行，随便你想引入什么文件都可以，请最后一定要有一句</p>
-<pre><code>ReactDOM.render(
-    &lt;h1&gt;haha&lt;/h1&gt;,
-    document.querySelector(&apos;#main&apos;)
-);
-</code></pre><p>注意：<br>    1.import ReactDOM  from ‘react-dom’;<br>    2.index.html一定要有<code>&lt;div id=&quot;main&quot;&gt;&lt;/div&gt;</code></p>
-<h4 id="1-2-index-html"><a href="#1-2-index-html" class="headerlink" title="1.2 index.html"></a>1.2 index.html</h4><pre><code>&lt;html&gt;
-  &lt;body&gt;
-    &lt;div id=&quot;main&quot;&gt;&lt;/div&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;./bundle.js&quot;&gt;&lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p> 注意：<br> 1.bundle.js命名以及路径与webpack.config.js有关系</p>
-<h4 id="1-3-webpack-config-js"><a href="#1-3-webpack-config-js" class="headerlink" title="1.3 webpack.config.js"></a>1.3 webpack.config.js</h4><pre><code>var path  = require(&apos;path&apos;);
-module.exports = {
-  devtool: &apos;#source-map&apos;,
-  entry: &apos;./main.js&apos;,
-  output: {
-    filename: &apos;bundle.js&apos;,
-    // path: path.resolve(__dirname, &apos;dist&apos;),
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: &apos;babel-loader&apos;,
-          options: {
-            presets: [&apos;es2015&apos;, &apos;react&apos;]
-          }
-        }
-      },
-      {
+        <p>综述：<br>    Commonjs,AMD,CMD,ES6的模块化总结<br><a id="more"></a></p>
+<h2 id="前端的四种模块化方案-webpack-require-js-seajs-browserify）"><a href="#前端的四种模块化方案-webpack-require-js-seajs-browserify）" class="headerlink" title="前端的四种模块化方案(webpack/require.js/seajs/browserify）"></a>前端的四种模块化方案(webpack/require.js/seajs/browserify）</h2><p>JS不具备原生的模块化技能，因此需要采用第三方开发的模块依赖处理库来实现模块化：CommonJS、AMD、CMD、ES6</p>
+<p>这四种方案的实现对比：</p>
+<blockquote>
+<p>CommonJS:  exports + require </p>
+</blockquote>
+<blockquote>
+<p>AMD: define + require </p>
+</blockquote>
+<blockquote>
+<p>CMD：define+require+exports/exports </p>
+</blockquote>
+<p>Ps. CommonJS 和AMD上下的require也不是一样的,cmd与amd的文字一样内容差了好多参数） </p>
+<blockquote>
+<p>ES6: export + import</p>
+</blockquote>
+<p>由于ES6本身是原生语言支持实现的模块化，但是现代浏览器大多都还未支持，因此必须使用相应的transpiler工具转换成ES5的AMD,CMD模块，再借助于systemjs/requirejs等模块加载工具才能使用。其中ES6的transpiler（代码转换器）一般是用babel，他的作用是将ES6</p>
+<h3 id="1-CommonJS"><a href="#1-CommonJS" class="headerlink" title="1.CommonJS"></a>1.CommonJS</h3><p>适合服务器端</p>
+<p>commonJS由nodeJS发扬光大，这标志着js模块化正式登场。</p>
+<p>1.1定义模块<br>根据commonJS规范，一个单独的文件是一个模块，每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非为global对象的属性。</p>
+<p>2.2 模块输出<br>模块只有一个出口，module.exports对象，我们需要把模块希望输出的内容放入该对象。<strong> 或者是exports，这些全都是因为commonjs规范一和规范二 </strong></p>
+<p>2.3加载模块<br>加载模块用require方法，该方法读取一个文件并且执行，返回文件内部的module.exports对象或者是exports。</p>
+<blockquote>
+<p>注意<br>(1). exports 与module.exports 的区别：exports 是对 module.exports 的引用，不能直接给exports 赋值，直接赋值无效，结果是一个空对象,module.exports 可以直接赋值：如示例</p>
+</blockquote>
+<pre><code>module.exports = 123; //123
 
-        test: /\.css$/,
-        use: [
-          {
-            loader: &apos;style-loader&apos;
-          },
-          {
-             loader: &apos;css-loader&apos;,
+module.exports = function () { //[Function]
+    console.log(123)
+}
 
-          }
-        ]
-      }
-    ]
-  },
-};
-</code></pre><h4 id="1-4-packgae-json"><a href="#1-4-packgae-json" class="headerlink" title="1.4 packgae.json"></a>1.4 packgae.json</h4><pre><code>&quot;scripts&quot;: {
-    &quot;start&quot;: &quot;webpack-dev-server --inline   --open&quot;,
-    &quot;build&quot;: &quot;webpack --config webpack.config.js -p&quot;
-  },
-</code></pre><h3 id="2-多页应用"><a href="#2-多页应用" class="headerlink" title="2.多页应用"></a>2.多页应用</h3><p>多页应用其实要做好需要做很多，关键有公共代码的提取，毕竟每个页面差不多都要引入react 、react-dom等等一些公共文件，如果不提出来那么基础每夜会造成文件有点大，但是我们这里全都不考虑。</p>
-<p>多页的应用关键就在于一个插件的使用：<br>htmlwebpackplugin，为了生成多个html</p>
-<h4 id="2-1-页面请都放在pages-下面"><a href="#2-1-页面请都放在pages-下面" class="headerlink" title="2.1.页面请都放在pages/下面"></a>2.1.页面请都放在pages/下面</h4><p>建立一个单独的文件夹，login/, 下面需有index.js 和 index.html</p>
-<h4 id="2-2-index-js"><a href="#2-2-index-js" class="headerlink" title="2.2 index.js"></a>2.2 index.js</h4><pre><code>import ReactDOM  from &apos;react-dom&apos;;
-import React, { Component } from &apos;react&apos;;
-import &apos;./index.css&apos;;
+ exports = 123; //{}
+ exports = function(){ //{}
+    console.log(123)
+}
+</code></pre><blockquote>
+<p>（2)一个文件不能写多个module.exports如果写多个，对外暴露的接口是最后一个module.exports<br>（3）模块如果没有指定使用module.exports 或者exports 对外暴露接口时，在其他文件就引用该模块，得到的是一个空对象{}</p>
+</blockquote>
+<p>仔细看上面的代码，您会注意到 require 是同步的。模块系统需要同步读取模块文件内容，并编译执行以得到模块接口。<br>然而， 这在浏览器端问题多多。<br>浏览器端，加载 JavaScript 最佳、最容易的方式是在 document中插入<code>&lt;script&gt;</code>标签。但脚本标签天生异步，传统 CommonJS 模块在浏览器环境中无法正常加载。</p>
+<p>解决思路是，用一套标准模板来封装模块定义：</p>
+<h3 id="2-AMD"><a href="#2-AMD" class="headerlink" title="2.AMD"></a>2.AMD</h3><p>Asynchronous Module Definition，称为异步模块。<br>由于不是js原生支持，使用AMD规范进行页面开发需要用到对应的函数库，也就是大名鼎鼎的RequireJS，实际上AMD是RequireJS在推广过程中对模块定义的规范化的产出。<br>requireJS主要解决两个问题：<br>1 多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器。<br>2 js加载的时候浏览器会停止页面渲染，加载文件愈多，页面失去响应的时间愈长。</p>
+<blockquote>
+<p>语法： requireJS定义了一个函数define，它是全局变量，用来定义模块。</p>
+</blockquote>
+<blockquote>
+<p>define(id,dependencies,factory) </p>
+</blockquote>
+<blockquote>
+<p>id 可选参数，用来定义模块的标识，如果没有提供该参数，脚本文件名（去掉拓展名） </p>
+</blockquote>
+<blockquote>
+<p>依赖dependencies是一个当前模块依赖的，已被模块定义的模块标识的数组字面量。有默认值，长度是三个 </p>
+</blockquote>
+<blockquote>
+<p>factory工厂方法，模块初始化要执行的函数或对象，如果为函数，它应该只被执行一次，如果是对象，此对象应该为模块的输出值。</p>
+</blockquote>
+<p>在页面上使用require函数加载模块；</p>
+<p>require([dependencies], function(){}); 与上面的commonjs的require差别很大，上面是找文件这里的呢，是id+回调</p>
+<p>require()函数接受两个参数：</p>
+<p>——第一个参数是一个数组，表示所依赖的模块；</p>
+<p>——第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块</p>
+<p>AMD推崇的是依赖前置，被提前罗列出来并会背提前下载并执行，后来做了改进，可以不用罗列依赖模块，允许在回调函数中就近使用require引入并下载执行模块</p>
+<h3 id="3-CMD"><a href="#3-CMD" class="headerlink" title="3.CMD"></a>3.CMD</h3><p>即common module definition，就像AMD有个requireJS,CMD有个浏览器实现的sea.js，sj要解决的问题和rj一样，只不过在模块定义方式和模块加载时机上有所不同。</p>
+<blockquote>
+<p>1、AMD推崇依赖前置，在定义模块的时候就要声明其依赖的模块 </p>
+<p>2、CMD推崇就近依赖，只有在用到某个模块的时候再去require</p>
+</blockquote>
+<p>这种区别各有优劣，只是语法上的差距，而且requireJS和SeaJS都支持对方的写法</p>
+<p>AMD和CMD最大的区别：依赖模块执行时机不同</p>
+<p>同样都是异步加载模块，AMD在加载模块完成后就会执行该模块<strong>（这里执行的被加载的模块而不是用户写的主逻辑模块），所有模块都加载执行完后会进入require的回调函数</strong>，执行主逻辑，这样的效果就是依赖模块的执行顺序和书写顺序不一定一致，看网络速度，哪个先下载下来，哪个先执行，但是主逻辑一定在所有依赖加载完成后才执行<br>上面加载的模块需要：加载+执行<br>下面加载的模块：加载<br>CMD加载完某个依赖模块后并不执行<strong>，只是下载而已</strong>，在所有依赖模块加载完成后进入主逻辑，<strong>遇到require语句的时候才执行对应的模块</strong>，这样模块的执行顺序和书写顺序是完全一致的</p>
+<h2 id="一-模块化"><a href="#一-模块化" class="headerlink" title="一.模块化"></a>一.模块化</h2><p>模块化开发，一个实现特定功能的文件就是一个模块，有了模块我们就可以更方便的使用别人的代码，要用什么功能就加载什么模块。<br>模块化开发的4点好处：
+　　</p>
+<ul>
+<li>1 避免变量污染，命名冲突 　　</li>
+<li>2  提高代码复用率 　　</li>
+<li>3 提高维护性 　　</li>
+<li>4 依赖关系的管理</li>
+</ul>
+<p>前端模块化规范从原始野蛮阶段现在慢慢进入“文艺复兴”时代，实现的过程如下：</p>
+<h3 id="1-函数封装"><a href="#1-函数封装" class="headerlink" title="1. 函数封装"></a>1. 函数封装</h3><p>我们在讲到函数逻辑的时候提到过，函数一个功能就是实现特定逻辑的一组语句打包，在一个文件里面编写几个相关函数就是最开始的模块了</p>
+<blockquote>
+<p> 详情见模块化（一）</p>
+</blockquote>
+<p>缺点：污染了全局变量，并且不能保证和其他模块起冲突，模块成员看起来似乎没啥关系</p>
+<h3 id="2-对象"><a href="#2-对象" class="headerlink" title="2. 对象"></a>2. 对象</h3><p>为了解决这个问题，有了新方法，将所有模块成员封装在一个对象中</p>
+<blockquote>
+<p> 详情见模块化（一）</p>
+</blockquote>
+<p>这样 两个函数就被包在这个对象中， 嘿嘿 看起来没毛病是吗 继续往下：<br>当我们要使用的时候，就是调用这个对象的属性<br>module.m1()<br>诶嘿 那么问题来了 这样写法会暴露全部的成员，内部状态可以被外部改变，比如外部代码可直接改变计数器的值</p>
+<pre><code>//坏人的操作
 
-ReactDOM.render(&lt;h1&gt;这里是page1&lt;/h1&gt;, document.getElementById(&apos;main&apos;));
-</code></pre><h4 id="2-3-index-html"><a href="#2-3-index-html" class="headerlink" title="2.3 index.html"></a>2.3 index.html</h4><pre><code>&lt;html lang=&quot;en&quot;&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;UTF-8&quot;&gt;
-        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-        &lt;title&gt;锚点&lt;/title&gt;
-    &lt;/head&gt;
-  &lt;body&gt;
-    &lt;div id=&quot;main&quot;&gt;&lt;/div&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><h4 id="2-4-webpack-config-js"><a href="#2-4-webpack-config-js" class="headerlink" title="2.4 webpack.config.js"></a>2.4 webpack.config.js</h4><pre><code>var path = require(&apos;path&apos;);
-var glob = require(&apos;glob&apos;);
-// const webpack = require(&apos;webpack&apos;);
-const ExtractTextPlugin = require(&apos;extract-text-webpack-plugin&apos;);
-const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);
-const CleanWebpackPlugin = require(&apos;clean-webpack-plugin&apos;);
-var entries = {}, chunks = [],plugins=[];
+module._count = 10;
+</code></pre><h3 id="3-立即执行函数"><a href="#3-立即执行函数" class="headerlink" title="3. 立即执行函数"></a>3. 立即执行函数</h3><p>这样就可以达到不暴露私有成员的目的<br>外部无法访问内部私有变量</p>
+<blockquote>
+<p> 详情见模块化（一）</p>
+</blockquote>
 
-glob.sync(&apos;./pages/*/index.js&apos;).forEach(path =&gt; {
-  const chunk = path.split(&apos;./pages/&apos;)[1].split(&apos;/index.js&apos;)[0];
-  entries[chunk] = path;
-  chunks.push(chunk);
-});
-glob.sync(&apos;./pages/*/index.html&apos;).forEach(path =&gt; {
-  const chunk = path.split(&apos;./pages/&apos;)[1].split(&apos;/index.html&apos;)[0];
-  const filename = chunk + &apos;.html&apos;;
-  const htmlConf = {
-    filename: filename,
-    template:  path,
-    inject: true,
-    favicon: &apos;&apos;,
-    hash: true,
-    // 每个html引用的js模块，也可以在这里加上vendor等公用模块
-    chunks: [chunk]
-  }
-  plugins.push(new HtmlWebpackPlugin(htmlConf));
-});
-
-module.exports = {
-  devtool:&apos;#source-map&apos;,
-  entry: entries,
-  output: {
-    filename: &apos;bundle_[name].js&apos;,
-    path:path.join(__dirname,&apos;dist&apos;)
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: &apos;babel-loader&apos;,
-          options: {
-            presets: [&apos;es2015&apos;, &apos;react&apos;]
-          }
-        }
-      },
-      {
-
-        test: /\.css$/,
-        use:ExtractTextPlugin.extract({
-          use: [
-            &apos;css-loader&apos;
-          ],
-          fallback: &apos;style-loader&apos;
-        })
-      }
-    ]
-  },
-  plugins:[
-    new ExtractTextPlugin({
-      filename: &apos;[name].css&apos;, 
-    }),
-    new CleanWebpackPlugin([&quot;dist&quot;]),
-    ...plugins,
-  ],
-  devServer:{
-    inline: true, // hot load
-    // contentBase: &apos;./pages&apos;,
-    https:false,
-    open:true,
-  }
-};
-</code></pre><h4 id="2-5-package-json"><a href="#2-5-package-json" class="headerlink" title="2.5 package.json"></a>2.5 package.json</h4><pre><code>&quot;scripts&quot;: {
-    &quot;dev&quot;: &quot;webpack-dev-server --hot&quot;,
-    &quot;build&quot;: &quot;webpack &quot;
-  },
-</code></pre>
       
     </div>
 
@@ -596,6 +543,12 @@ module.exports = {
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/模块化/" rel="tag"># 模块化</a>
+          
+        </div>
+      
 
       
       
@@ -605,8 +558,8 @@ module.exports = {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/27/前端模块化（二）/" rel="next" title="前端模块化（二）">
-                <i class="fa fa-chevron-left"></i> 前端模块化（二）
+              <a href="/2018/08/27/前端模块化1/" rel="next" title="前端模块化1">
+                <i class="fa fa-chevron-left"></i> 前端模块化1
               </a>
             
           </div>
@@ -615,8 +568,8 @@ module.exports = {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/31/px/" rel="prev" title="屏幕尺寸，分辨率，像素，PPI之间到底什么关系？">
-                屏幕尺寸，分辨率，像素，PPI之间到底什么关系？ <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/27/webpack初试水/" rel="prev" title="webpack单页应用和多页应用搭建初试水（一）">
+                webpack单页应用和多页应用搭建初试水（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -691,7 +644,7 @@ module.exports = {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -710,7 +663,11 @@ module.exports = {
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -775,7 +732,7 @@ module.exports = {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在此处输入标题"><span class="nav-number">1.</span> <span class="nav-text">在此处输入标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-单页应用"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.单页应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-index-js"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1.1 index.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-index-html"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">1.2 index.html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-webpack-config-js"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">1.3 webpack.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-packgae-json"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">1.4 packgae.json</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-多页应用"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.多页应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-页面请都放在pages-下面"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">2.1.页面请都放在pages/下面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-index-js"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">2.2 index.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-index-html"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">2.3 index.html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-webpack-config-js"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">2.4 webpack.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-package-json"><span class="nav-number">1.0.2.5.</span> <span class="nav-text">2.5 package.json</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端的四种模块化方案-webpack-require-js-seajs-browserify）"><span class="nav-number">1.</span> <span class="nav-text">前端的四种模块化方案(webpack/require.js/seajs/browserify）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CommonJS"><span class="nav-number">1.1.</span> <span class="nav-text">1.CommonJS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-AMD"><span class="nav-number">1.2.</span> <span class="nav-text">2.AMD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-CMD"><span class="nav-number">1.3.</span> <span class="nav-text">3.CMD</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一-模块化"><span class="nav-number">2.</span> <span class="nav-text">一.模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-函数封装"><span class="nav-number">2.1.</span> <span class="nav-text">1. 函数封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-对象"><span class="nav-number">2.2.</span> <span class="nav-text">2. 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-立即执行函数"><span class="nav-number">2.3.</span> <span class="nav-text">3. 立即执行函数</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -807,7 +764,7 @@ module.exports = {
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">55k</span>
+    <span title="Symbols count total">70k</span>
   
 
   
@@ -816,7 +773,7 @@ module.exports = {
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">50 mins.</span>
+    <span title="Reading time total">1:03</span>
   
 </div>
 

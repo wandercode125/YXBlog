@@ -2,7 +2,7 @@
 title: JS作用域系列1——this
 date: 2018-09-28 11:55:09
 tags: JS
-categories: 工作
+categories: 总结
 ---
 
 综述：

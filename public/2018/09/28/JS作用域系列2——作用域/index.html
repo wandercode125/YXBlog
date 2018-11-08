@@ -108,20 +108,20 @@
 
 
 
-  <meta name="description" content="综述：    在《JS作用域系列1——this》中讲了一个this啥时候赋值的时候讲的整个流程就是一个执行环境的创建">
+  <meta name="description" content="综述：    在《JS作用域系列1——this》中所讲的整个流程就是一个执行环境的创建。    执行环境又称为作用域又称为执行上下文。">
 <meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS作用域系列2——执行上下文">
-<meta property="og:url" content="http://yoursite.com/2018/09/28/JS作用域系列2——执行上下文/index.html">
+<meta property="og:title" content="JS作用域系列2——作用域">
+<meta property="og:url" content="http://yoursite.com/2018/09/28/JS作用域系列2——作用域/index.html">
 <meta property="og:site_name" content="......">
-<meta property="og:description" content="综述：    在《JS作用域系列1——this》中讲了一个this啥时候赋值的时候讲的整个流程就是一个执行环境的创建">
+<meta property="og:description" content="综述：    在《JS作用域系列1——this》中所讲的整个流程就是一个执行环境的创建。    执行环境又称为作用域又称为执行上下文。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/XYooo/image/master/this2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/XYooo/image/master/this3.png">
-<meta property="og:updated_time" content="2018-09-29T11:09:48.292Z">
+<meta property="og:updated_time" content="2018-11-07T11:43:21.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS作用域系列2——执行上下文">
-<meta name="twitter:description" content="综述：    在《JS作用域系列1——this》中讲了一个this啥时候赋值的时候讲的整个流程就是一个执行环境的创建">
+<meta name="twitter:title" content="JS作用域系列2——作用域">
+<meta name="twitter:description" content="综述：    在《JS作用域系列1——this》中所讲的整个流程就是一个执行环境的创建。    执行环境又称为作用域又称为执行上下文。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/XYooo/image/master/this2.png">
 
 
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/28/JS作用域系列2——执行上下文/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/28/JS作用域系列2——作用域/"/>
 
 
 
@@ -139,7 +139,7 @@
   };
 </script>
 
-  <title>JS作用域系列2——执行上下文 | ......</title>
+  <title>JS作用域系列2——作用域 | ......</title>
   
 
 
@@ -286,13 +286,15 @@
   
 
   
-
-  <article class="post post-type-normal home-post" itemscope itemtype="http://schema.org/Article">
+  
+  
+    <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/28/JS作用域系列2——执行上下文/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/28/JS作用域系列2——作用域/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="......">
@@ -309,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS作用域系列2——执行上下文
+          <h1 class="post-title" itemprop="name headline">JS作用域系列2——作用域
               
             
           </h1>
@@ -351,7 +353,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-29 19:09:48" itemprop="dateModified" datetime="2018-09-29T19:09:48+08:00">2018-09-29</time>
+                <time title="Modified: 2018-11-07 19:43:21" itemprop="dateModified" datetime="2018-11-07T19:43:21+08:00">2018-11-07</time>
               
             
           </span>
@@ -368,7 +370,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工作/" itemprop="url" rel="index"><span itemprop="name">工作</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/总结/" itemprop="url" rel="index"><span itemprop="name">总结</span></a></span>
 
                 
                 
@@ -396,7 +398,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.5k</span>
+                <span title="Symbols count in article">1.7k</span>
               
 
               
@@ -410,7 +412,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">2 mins.</span>
               
             </div>
           
@@ -430,14 +432,16 @@
       
 
       
-        <p>综述：<br>    在《JS作用域系列1——this》中讲了一个this啥时候赋值的时候讲的整个流程就是一个执行环境的创建<br><a id="more"></a></p>
-<h2 id="（1）执行上下文-执行环境"><a href="#（1）执行上下文-执行环境" class="headerlink" title="（1）执行上下文(执行环境)"></a>（1）执行上下文(执行环境)</h2><blockquote>
+        <p>综述：<br>    在《JS作用域系列1——this》中所讲的整个流程就是一个执行环境的创建。<br>    执行环境又称为作用域又称为执行上下文。<br><a id="more"></a></p>
+<h2 id="1-执行上下文-执行环境"><a href="#1-执行上下文-执行环境" class="headerlink" title="1. 执行上下文(执行环境)"></a>1. 执行上下文(执行环境)</h2><blockquote>
 <p>涉及到上下文，函数的作用域或者说是执行环境</p>
 </blockquote>
 <h3 id="1-1-this的指向"><a href="#1-1-this的指向" class="headerlink" title="1.1 this的指向"></a>1.1 this的指向</h3><p>略，在《JS作用域系列1——this》</p>
-<h3 id="1-2-为什么this的指向不定呢-执行环境创建过程"><a href="#1-2-为什么this的指向不定呢-执行环境创建过程" class="headerlink" title="1.2(为什么this的指向不定呢)执行环境创建过程"></a>1.2(为什么this的指向不定呢)执行环境创建过程</h3><p>一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有的行为均发生在此执行环境中。<strong>构建该执行环境时：</strong></p>
+<h3 id="1-2执行环境的创建-为什么this的指向不定呢"><a href="#1-2执行环境的创建-为什么this的指向不定呢" class="headerlink" title="1.2执行环境的创建(为什么this的指向不定呢)"></a>1.2执行环境的创建(为什么this的指向不定呢)</h3><p>一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有的行为均发生在此执行环境中。<strong>构建该执行环境时：</strong></p>
 <pre><code>1. JavaScript 首先会创建 arguments变量，其中包含调用函数时传入的参数。
+
 2. 接下来创建作用域链。
+
 3. 然后初始化变量，
     - 3.1 首先初始化函数的形参表，值为arguments变量中对应的值，如果arguments变量中没有对应值，则该形参初始化为 undefined；
     - 3.2 如果该函数中含有内部函数，则初始化这些内部函数；
@@ -448,29 +452,25 @@
 <blockquote>
 <p>上面的文字非常的好，非常大好<br><img src="https://raw.githubusercontent.com/XYooo/image/master/this2.png" alt="执行上下文创建流程"></p>
 </blockquote>
+<p>++上图还有一个大难点就是创建作用域链，下篇文章专讲++</p>
 <p>  而这个执行环境怎么表示呢？js为每一个执行环境关联了一个变量对象VO（Variable Object ）。这个变量对象具体包含了argument、函数的形参，局部变量（内部变量）</p>
-<h2 id="1-3-执行环境、执行上下文-Execution-Context"><a href="#1-3-执行环境、执行上下文-Execution-Context" class="headerlink" title="1.3 执行环境、执行上下文(Execution Context)"></a>1.3 执行环境、执行上下文(Execution Context)</h2><p><strong>每个函数都有自己的执行环境</strong>。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行后，栈将其环境弹出，把控制权返回给之前的执行环境。 </p>
-<h3 id="1-3-1-执行环境的建立分为两个阶段："><a href="#1-3-1-执行环境的建立分为两个阶段：" class="headerlink" title="1.3.1 执行环境的建立分为两个阶段："></a>1.3.1 执行环境的建立分为两个阶段：</h3><blockquote>
+<h3 id="1-3-执行环境、执行上下文-Execution-Context"><a href="#1-3-执行环境、执行上下文-Execution-Context" class="headerlink" title="1.3 执行环境、执行上下文(Execution Context)"></a>1.3 执行环境、执行上下文(Execution Context)</h3><p><strong>每个函数都有自己的执行环境</strong>。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行后，栈将其环境弹出，把控制权返回给之前的执行环境。 </p>
+<h4 id="1-3-1-执行环境的建立分为两个阶段："><a href="#1-3-1-执行环境的建立分为两个阶段：" class="headerlink" title="1.3.1 执行环境的建立分为两个阶段："></a>1.3.1 执行环境的建立分为两个阶段：</h4><blockquote>
 <p>进入执行上下文（创建阶段）和执行阶段（激活/执行阶段）</p>
 </blockquote>
 <ol>
 <li>进入上下文阶段：就是执行环境的创建，发生在函数调用时，但在执行具体代码之前(上面图的最后一步)。具体完成创建，作用域链；创建变量、函数和参数以及求this的值 </li>
-<li><p>执行代码阶段：主要完成变量赋值、函数引用和解释/执行其他代码</p>
-<blockquote>
-<p>总的来说可以将执行上下文看作是一个对象<br>EC = {<br>   VO:{/<em>函数中的arguments对象、参数、内部变量以及函数声明</em>/},<br>   this:{},<br>   Scope:{/<em>VO以及所有父执行上下文中的VO</em>/}<br>}<br><strong>EC的组成正好将执行环境创建的过程给拆分了</strong></p>
-</blockquote>
-</li>
 </ol>
-<blockquote>
-<p>这里需要说明一下：函数表达式不包含在变量对象之中<br>    var foo = 10;<br>    function bar() {} // function declaration, FD<br>    (function baz() {}); // function expression, FE  </p>
-<pre><code>console.log(  
-  this.foo == foo, // true  
-  window.bar == bar // true  
-);  
-
-console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
-</code></pre></blockquote>
-<p>之后，全局上下文的变量对象为<br><img src="https://raw.githubusercontent.com/XYooo/image/master/this3.png" alt="此处输入图片的描述"></p>
+<ol start="2">
+<li>执行代码阶段：主要完成变量赋值、函数引用和解释/执行其他代码</li>
+</ol>
+<p>  <strong>总的来说可以将执行上下文看作是一个对象</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EC = &#123;</span><br><span class="line">       VO:&#123;/*函数中的arguments对象、参数、内部变量以及函数声明*/&#125;,</span><br><span class="line">       this:&#123;&#125;,</span><br><span class="line">       Scope:&#123;/*VO以及所有父执行上下文中的VO，或者称之为作用域链*/&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p> <strong>EC的组成正好将执行环境创建的过程给拆分了</strong></p>
+<p> 这里需要说明一下：函数表达式不包含在变量对象之中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function bar() &#123;&#125; // function declaration, FD  </span><br><span class="line">    (function baz() &#123;&#125;); // function expression, FE  </span><br><span class="line"></span><br><span class="line">    console.log(  </span><br><span class="line">        this.foo == foo, // true  </span><br><span class="line">        window.bar == bar // true  </span><br><span class="line">     );  </span><br><span class="line"></span><br><span class="line">   console.log(baz); // ReferenceError, &quot;baz&quot; is not defined</span><br></pre></td></tr></table></figure>
+<p>之后，全局上下文的变量对象为 </p>
+<p><img src="https://raw.githubusercontent.com/XYooo/image/master/this3.png" alt="此处输入图片的描述"></p>
 
       
     </div>
@@ -514,8 +514,8 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/28/JS作用域系列3——scope作用域链/" rel="prev" title="JS作用域系列3——scope作用域链">
-                JS作用域系列3——scope作用域链 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/28/JS作用域系列3——作用域链/" rel="prev" title="JS作用域系列3——作用域链">
+                JS作用域系列3——作用域链 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -590,7 +590,7 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -609,7 +609,11 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -674,7 +678,7 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#（1）执行上下文-执行环境"><span class="nav-number">1.</span> <span class="nav-text">（1）执行上下文(执行环境)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-this的指向"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 this的指向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-为什么this的指向不定呢-执行环境创建过程"><span class="nav-number">1.2.</span> <span class="nav-text">1.2(为什么this的指向不定呢)执行环境创建过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-执行环境、执行上下文-Execution-Context"><span class="nav-number">2.</span> <span class="nav-text">1.3 执行环境、执行上下文(Execution Context)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-执行环境的建立分为两个阶段："><span class="nav-number">2.1.</span> <span class="nav-text">1.3.1 执行环境的建立分为两个阶段：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-执行上下文-执行环境"><span class="nav-number">1.</span> <span class="nav-text">1. 执行上下文(执行环境)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-this的指向"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 this的指向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2执行环境的创建-为什么this的指向不定呢"><span class="nav-number">1.2.</span> <span class="nav-text">1.2执行环境的创建(为什么this的指向不定呢)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-执行环境、执行上下文-Execution-Context"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 执行环境、执行上下文(Execution Context)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-执行环境的建立分为两个阶段："><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 执行环境的建立分为两个阶段：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -706,7 +710,7 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">55k</span>
+    <span title="Symbols count total">70k</span>
   
 
   
@@ -715,7 +719,7 @@ console.log(baz); // ReferenceError, &quot;baz&quot; is not defined
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">50 mins.</span>
+    <span title="Reading time total">1:03</span>
   
 </div>
 

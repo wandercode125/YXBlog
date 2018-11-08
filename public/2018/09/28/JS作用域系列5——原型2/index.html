@@ -108,25 +108,28 @@
 
 
 
-  <meta name="description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
-<meta name="keywords" content="模块化">
+  <meta name="description" content="proto是什么含义，以及proto与prototype是什么关系，下面就是解释">
+<meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端模块化（二）">
-<meta property="og:url" content="http://yoursite.com/2018/08/27/前端模块化（二）/index.html">
+<meta property="og:title" content="JS作用域系列5——原型2">
+<meta property="og:url" content="http://yoursite.com/2018/09/28/JS作用域系列5——原型2/index.html">
 <meta property="og:site_name" content="......">
-<meta property="og:description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
+<meta property="og:description" content="proto是什么含义，以及proto与prototype是什么关系，下面就是解释">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-29T11:11:09.454Z">
+<meta property="og:image" content="https://note.youdao.com/favicon.ico">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/574093-c03529e3f0943633.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/570/format/webp">
+<meta property="og:updated_time" content="2018-11-08T07:09:38.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端模块化（二）">
-<meta name="twitter:description" content="综述：    Commonjs,AMD,CMD,ES6的模块化总结">
+<meta name="twitter:title" content="JS作用域系列5——原型2">
+<meta name="twitter:description" content="proto是什么含义，以及proto与prototype是什么关系，下面就是解释">
+<meta name="twitter:image" content="https://note.youdao.com/favicon.ico">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/27/前端模块化（二）/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/28/JS作用域系列5——原型2/"/>
 
 
 
@@ -136,7 +139,7 @@
   };
 </script>
 
-  <title>前端模块化（二） | ......</title>
+  <title>JS作用域系列5——原型2 | ......</title>
   
 
 
@@ -283,13 +286,15 @@
   
 
   
-
-  <article class="post post-type-normal home-post" itemscope itemtype="http://schema.org/Article">
+  
+  
+    <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/27/前端模块化（二）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/28/JS作用域系列5——原型2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="......">
@@ -306,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端模块化（二）
+          <h1 class="post-title" itemprop="name headline">JS作用域系列5——原型2
               
             
           </h1>
@@ -331,7 +336,7 @@
                 
               
 
-              <time title="Created: 2018-08-27 14:11:00" itemprop="dateCreated datePublished" datetime="2018-08-27T14:11:00+08:00">2018-08-27</time>
+              <time title="Created: 2018-09-28 15:55:59" itemprop="dateCreated datePublished" datetime="2018-09-28T15:55:59+08:00">2018-09-28</time>
             
 
             
@@ -348,7 +353,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-29 19:11:09" itemprop="dateModified" datetime="2018-09-29T19:11:09+08:00">2018-09-29</time>
+                <time title="Modified: 2018-11-08 15:09:38" itemprop="dateModified" datetime="2018-11-08T15:09:38+08:00">2018-11-08</time>
               
             
           </span>
@@ -365,7 +370,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工作/" itemprop="url" rel="index"><span itemprop="name">工作</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/总结/" itemprop="url" rel="index"><span itemprop="name">总结</span></a></span>
 
                 
                 
@@ -393,7 +398,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">3.2k</span>
+                <span title="Symbols count in article">1.5k</span>
               
 
               
@@ -407,7 +412,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">3 mins.</span>
+                <span title="Reading time">1 mins.</span>
               
             </div>
           
@@ -427,102 +432,72 @@
       
 
       
-        <p>综述：<br>    Commonjs,AMD,CMD,ES6的模块化总结<br><a id="more"></a></p>
-<h2 id="前端的四种模块化方案-webpack-require-js-seajs-browserify）"><a href="#前端的四种模块化方案-webpack-require-js-seajs-browserify）" class="headerlink" title="前端的四种模块化方案(webpack/require.js/seajs/browserify）"></a>前端的四种模块化方案(webpack/require.js/seajs/browserify）</h2><p>JS不具备原生的模块化技能，因此需要采用第三方开发的模块依赖处理库来实现模块化：CommonJS、AMD、CMD、ES6</p>
-<p>这四种方案的实现对比：</p>
+        <p><em>proto</em>是什么含义，以及<em>proto</em>与prototype是什么关系，下面就是解释</p>
+<a id="more"></a>
+<h2 id="1-proto"><a href="#1-proto" class="headerlink" title="1 proto"></a>1 <em>proto</em></h2><h3 id="1-1-proto指向原型对象"><a href="#1-1-proto指向原型对象" class="headerlink" title="1.1 proto指向原型对象"></a>1.1 <em>proto</em>指向原型对象</h3><p>JS 在创建对象（不论是普通对象还是函数对象）的时候，都有一个叫做<strong>proto</strong> 的内置属性，<strong>用于指向创建它的构造函数的原型对象</strong>。</p>
+<p>对象 person1 有一个<strong>proto</strong>属性，创建它的构造函数是 Person，构造函数的原型对象是 Person.prototype ，所以：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person1.__proto__ == Person.prototype</span><br></pre></td></tr></table></figure>
+<p>请看下图</p>
+<p><img src="https://note.youdao.com/favicon.ico" alt="《JavaScript 高级程序设计》的图 6-1"></p>
+<p>根据上面这个连接图，我们能得到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype.constructor == Person;</span><br><span class="line">person1.__proto__ == Person.prototype;</span><br><span class="line">person1.constructor == Person;</span><br></pre></td></tr></table></figure>
+<p>不过，要明确的真正重要的一点就是，这个连接存在于实例（person1）与构造函数（Person）的原型对象（Person.prototype）之间，而不是存在于实例（person1）与构造函数（Person）之间。</p>
 <blockquote>
-<p>CommonJS:  exports + require </p>
-</blockquote>
-<blockquote>
-<p>AMD: define + require </p>
-</blockquote>
-<blockquote>
-<p>CMD：define+require+exports/exports </p>
-</blockquote>
-<p>Ps. CommonJS 和AMD上下的require也不是一样的,cmd与amd的文字一样内容差了好多参数） </p>
-<blockquote>
-<p>ES6: export + import</p>
-</blockquote>
-<p>由于ES6本身是原生语言支持实现的模块化，但是现代浏览器大多都还未支持，因此必须使用相应的transpiler工具转换成ES5的AMD,CMD模块，再借助于systemjs/requirejs等模块加载工具才能使用。其中ES6的transpiler（代码转换器）一般是用babel，他的作用是将ES6</p>
-<h3 id="1-CommonJS"><a href="#1-CommonJS" class="headerlink" title="1.CommonJS"></a>1.CommonJS</h3><p>适合服务器端</p>
-<p>commonJS由nodeJS发扬光大，这标志着js模块化正式登场。</p>
-<p>1.1定义模块<br>根据commonJS规范，一个单独的文件是一个模块，每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非为global对象的属性。</p>
-<p>2.2 模块输出<br>模块只有一个出口，module.exports对象，我们需要把模块希望输出的内容放入该对象。<strong> 或者是exports，这些全都是因为commonjs规范一和规范二 </strong></p>
-<p>2.3加载模块<br>加载模块用require方法，该方法读取一个文件并且执行，返回文件内部的module.exports对象或者是exports。</p>
-<blockquote>
-<p>注意<br>(1). exports 与module.exports 的区别：exports 是对 module.exports 的引用，不能直接给exports 赋值，直接赋值无效，结果是一个空对象,module.exports 可以直接赋值：如示例</p>
-</blockquote>
-<pre><code>module.exports = 123; //123
-
-module.exports = function () { //[Function]
-    console.log(123)
-}
-
- exports = 123; //{}
- exports = function(){ //{}
-    console.log(123)
-}
-</code></pre><blockquote>
-<p>（2)一个文件不能写多个module.exports如果写多个，对外暴露的接口是最后一个module.exports<br>（3）模块如果没有指定使用module.exports 或者exports 对外暴露接口时，在其他文件就引用该模块，得到的是一个空对象{}</p>
-</blockquote>
-<p>仔细看上面的代码，您会注意到 require 是同步的。模块系统需要同步读取模块文件内容，并编译执行以得到模块接口。<br>然而， 这在浏览器端问题多多。<br>浏览器端，加载 JavaScript 最佳、最容易的方式是在 document中插入<code>&lt;script&gt;</code>标签。但脚本标签天生异步，传统 CommonJS 模块在浏览器环境中无法正常加载。</p>
-<p>解决思路是，用一套标准模板来封装模块定义：</p>
-<h3 id="2-AMD"><a href="#2-AMD" class="headerlink" title="2.AMD"></a>2.AMD</h3><p>Asynchronous Module Definition，称为异步模块。<br>由于不是js原生支持，使用AMD规范进行页面开发需要用到对应的函数库，也就是大名鼎鼎的RequireJS，实际上AMD是RequireJS在推广过程中对模块定义的规范化的产出。<br>requireJS主要解决两个问题：<br>1 多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器。<br>2 js加载的时候浏览器会停止页面渲染，加载文件愈多，页面失去响应的时间愈长。</p>
-<blockquote>
-<p>语法： requireJS定义了一个函数define，它是全局变量，用来定义模块。</p>
+<p>注意：因为绝大部分浏览器都支持<strong>proto</strong>属性，所以它才被加入了 ES6 里（ES5 部分浏览器也支持，但还不是标准）</p>
 </blockquote>
 <blockquote>
-<p>define(id,dependencies,factory) </p>
+<p>总结2：</p>
+<ol>
+<li><em>proto</em>属性存在每个对象中</li>
+<li><em>proto</em>属性指向++该构造函数的++原型对象</li>
+<li>prototype属性指向++自身的++原型对象</li>
+<li>都可以有<em>proto</em>属性，但是prototype属性只有函数对象才有</li>
+</ol>
 </blockquote>
-<blockquote>
-<p>id 可选参数，用来定义模块的标识，如果没有提供该参数，脚本文件名（去掉拓展名） </p>
-</blockquote>
-<blockquote>
-<p>依赖dependencies是一个当前模块依赖的，已被模块定义的模块标识的数组字面量。有默认值，长度是三个 </p>
-</blockquote>
-<blockquote>
-<p>factory工厂方法，模块初始化要执行的函数或对象，如果为函数，它应该只被执行一次，如果是对象，此对象应该为模块的输出值。</p>
-</blockquote>
-<p>在页面上使用require函数加载模块；</p>
-<p>require([dependencies], function(){}); 与上面的commonjs的require差别很大，上面是找文件这里的呢，是id+回调</p>
-<p>require()函数接受两个参数：</p>
-<p>——第一个参数是一个数组，表示所依赖的模块；</p>
-<p>——第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块</p>
-<p>AMD推崇的是依赖前置，被提前罗列出来并会背提前下载并执行，后来做了改进，可以不用罗列依赖模块，允许在回调函数中就近使用require引入并下载执行模块</p>
-<h3 id="3-CMD"><a href="#3-CMD" class="headerlink" title="3.CMD"></a>3.CMD</h3><p>即common module definition，就像AMD有个requireJS,CMD有个浏览器实现的sea.js，sj要解决的问题和rj一样，只不过在模块定义方式和模块加载时机上有所不同。</p>
-<blockquote>
-<p>1、AMD推崇依赖前置，在定义模块的时候就要声明其依赖的模块 </p>
-<p>2、CMD推崇就近依赖，只有在用到某个模块的时候再去require</p>
-</blockquote>
-<p>这种区别各有优劣，只是语法上的差距，而且requireJS和SeaJS都支持对方的写法</p>
-<p>AMD和CMD最大的区别：依赖模块执行时机不同</p>
-<p>同样都是异步加载模块，AMD在加载模块完成后就会执行该模块<strong>（这里执行的被加载的模块而不是用户写的主逻辑模块），所有模块都加载执行完后会进入require的回调函数</strong>，执行主逻辑，这样的效果就是依赖模块的执行顺序和书写顺序不一定一致，看网络速度，哪个先下载下来，哪个先执行，但是主逻辑一定在所有依赖加载完成后才执行<br>上面加载的模块需要：加载+执行<br>下面加载的模块：加载<br>CMD加载完某个依赖模块后并不执行<strong>，只是下载而已</strong>，在所有依赖模块加载完成后进入主逻辑，<strong>遇到require语句的时候才执行对应的模块</strong>，这样模块的执行顺序和书写顺序是完全一致的</p>
-<h2 id="一-模块化"><a href="#一-模块化" class="headerlink" title="一.模块化"></a>一.模块化</h2><p>模块化开发，一个实现特定功能的文件就是一个模块，有了模块我们就可以更方便的使用别人的代码，要用什么功能就加载什么模块。<br>模块化开发的4点好处：
-　　</p>
+<h2 id="2-原型链"><a href="#2-原型链" class="headerlink" title="2 原型链"></a>2 原型链</h2><p>上述的总结1，总结2，说了种种关系，这些关系构成了原型链</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/574093-c03529e3f0943633.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/570/format/webp" alt="原型链图"></p>
+<ol>
+<li><p>（Functions）函数对象一列不仅仅有<em>proto</em>属性，还是有prototype属性。</p>
+<ol>
+<li><em>proto</em>指向构造函数的原型对象</li>
+<li>prototype指向自身的原型对象</li>
+</ol>
+</li>
+<li><p>（XX.prototype）原型对象那一列只有<em>proto</em>属性 </p>
+<ol>
+<li><em>proto</em>指向构造函数的原型对象</li>
+</ol>
+</li>
+<li>实例那一列那一列只有<em>proto</em>属性 <ol>
+<li><em>proto</em>指向构造函数的原型对象</li>
+</ol>
+</li>
+</ol>
+<h2 id="3-实践"><a href="#3-实践" class="headerlink" title="3 实践"></a>3 实践</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. person1.__proto__ 是什么？</span><br><span class="line">2. Person.__proto__ 是什么？</span><br><span class="line">3. Person.prototype.__proto__ 是什么？</span><br><span class="line">4. Object.__proto__ 是什么？</span><br><span class="line">5. Object.prototype__proto__ 是什么？</span><br></pre></td></tr></table></figure>
+<p>答案：<br>第一题：</p>
 <ul>
-<li>1 避免变量污染，命名冲突 　　</li>
-<li>2  提高代码复用率 　　</li>
-<li>3 提高维护性 　　</li>
-<li>4 依赖关系的管理</li>
+<li>因为 person1.<strong>proto</strong> === person1 的构造函数.prototype</li>
+<li>因为 person1的构造函数 === Person</li>
+<li>所以 person1.<strong>proto</strong> === Person.prototype</li>
 </ul>
-<p>前端模块化规范从原始野蛮阶段现在慢慢进入“文艺复兴”时代，实现的过程如下：</p>
-<h3 id="1-函数封装"><a href="#1-函数封装" class="headerlink" title="1. 函数封装"></a>1. 函数封装</h3><p>我们在讲到函数逻辑的时候提到过，函数一个功能就是实现特定逻辑的一组语句打包，在一个文件里面编写几个相关函数就是最开始的模块了</p>
-<blockquote>
-<p> 详情见模块化（一）</p>
-</blockquote>
-<p>缺点：污染了全局变量，并且不能保证和其他模块起冲突，模块成员看起来似乎没啥关系</p>
-<h3 id="2-对象"><a href="#2-对象" class="headerlink" title="2. 对象"></a>2. 对象</h3><p>为了解决这个问题，有了新方法，将所有模块成员封装在一个对象中</p>
-<blockquote>
-<p> 详情见模块化（一）</p>
-</blockquote>
-<p>这样 两个函数就被包在这个对象中， 嘿嘿 看起来没毛病是吗 继续往下：<br>当我们要使用的时候，就是调用这个对象的属性<br>module.m1()<br>诶嘿 那么问题来了 这样写法会暴露全部的成员，内部状态可以被外部改变，比如外部代码可直接改变计数器的值</p>
-<pre><code>//坏人的操作
-
-module._count = 10;
-</code></pre><h3 id="3-立即执行函数"><a href="#3-立即执行函数" class="headerlink" title="3. 立即执行函数"></a>3. 立即执行函数</h3><p>这样就可以达到不暴露私有成员的目的<br>外部无法访问内部私有变量</p>
-<blockquote>
-<p> 详情见模块化（一）</p>
-</blockquote>
+<p>第二题：</p>
+<ul>
+<li>因为 Person.<strong>proto</strong> === Person的构造函数.prototype</li>
+<li>因为 Person的构造函数 === Function</li>
+<li>所以 Person.<strong>proto</strong> === Function.prototype</li>
+</ul>
+<p>第三题：</p>
+<ul>
+<li>Person.prototype 是一个普通对象，我们无需关注它有哪些属性，只要记住它是一个普通对象。</li>
+<li>因为一个普通对象的构造函数 === Object</li>
+<li>所以 Person.prototype.<strong>proto</strong> === Object.prototype</li>
+</ul>
+<p>第四题，参照第二题，因为 Person 和 Object 一样都是构造函数</p>
+<p>第五题：</p>
+<ul>
+<li>Object.prototype 对象也有proto属性，但它比较特殊，为 null 。</li>
+<li>因为 null 处于原型链的顶端，这个只能记住。<br>Object.prototype.<strong>proto</strong> === null</li>
+</ul>
 
       
     </div>
@@ -543,7 +518,7 @@ module._count = 10;
       
         <div class="post-tags">
           
-            <a href="/tags/模块化/" rel="tag"># 模块化</a>
+            <a href="/tags/JS/" rel="tag"># JS</a>
           
         </div>
       
@@ -556,8 +531,8 @@ module._count = 10;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/27/前端模块化（一）/" rel="next" title="前端模块化（一）">
-                <i class="fa fa-chevron-left"></i> 前端模块化（一）
+              <a href="/2018/09/28/JS作用域系列5——原型3/" rel="next" title="JS作用域系列5——原型2">
+                <i class="fa fa-chevron-left"></i> JS作用域系列5——原型2
               </a>
             
           </div>
@@ -565,10 +540,6 @@ module._count = 10;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/27/webpack单页多页初试水/" rel="prev" title="webpack单页应用和多页应用搭建初试水（一）">
-                webpack单页应用和多页应用搭建初试水（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -642,7 +613,7 @@ module._count = 10;
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -661,7 +632,11 @@ module._count = 10;
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -726,7 +701,7 @@ module._count = 10;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端的四种模块化方案-webpack-require-js-seajs-browserify）"><span class="nav-number">1.</span> <span class="nav-text">前端的四种模块化方案(webpack/require.js/seajs/browserify）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CommonJS"><span class="nav-number">1.1.</span> <span class="nav-text">1.CommonJS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-AMD"><span class="nav-number">1.2.</span> <span class="nav-text">2.AMD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-CMD"><span class="nav-number">1.3.</span> <span class="nav-text">3.CMD</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一-模块化"><span class="nav-number">2.</span> <span class="nav-text">一.模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-函数封装"><span class="nav-number">2.1.</span> <span class="nav-text">1. 函数封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-对象"><span class="nav-number">2.2.</span> <span class="nav-text">2. 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-立即执行函数"><span class="nav-number">2.3.</span> <span class="nav-text">3. 立即执行函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-proto"><span class="nav-number">1.</span> <span class="nav-text">1 proto</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-proto指向原型对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 proto指向原型对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-原型链"><span class="nav-number">2.</span> <span class="nav-text">2 原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实践"><span class="nav-number">3.</span> <span class="nav-text">3 实践</span></a></li></ol></div>
             
 
           </div>
@@ -758,7 +733,7 @@ module._count = 10;
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">55k</span>
+    <span title="Symbols count total">70k</span>
   
 
   
@@ -767,7 +742,7 @@ module._count = 10;
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">50 mins.</span>
+    <span title="Reading time total">1:03</span>
   
 </div>
 
