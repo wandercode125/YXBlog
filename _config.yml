@@ -27,12 +27,12 @@ keyword: "前端"
 
 # SNS settings
 # 一些社交平台地址，支持以下几种：
-weibo_username:     3286578617
-zhihu_username:     abcdefg
-github_username:    XYooo
-twitter_username:   null
-facebook_username:  secret
-linkedin_username:  secret
+# weibo_username:     3286578617
+# zhihu_username:     abcdefg
+# github_username:    XYooo
+# twitter_username:   null
+# facebook_username:  secret
+# linkedin_username:  secret
 
 # Build settings
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
@@ -80,7 +80,8 @@ post_style:
 
 # Custom Setting End
 # Directory
-source_dir: source
+# source_dir: source
+source_dir: archive
 public_dir: public
 tag_dir: tags
 archive_dir: archive

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端匍匐前进">
+    <meta name="keyword"  content="前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        JS作用域系列5——原型1 - ......
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> less code more art. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>......</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-对象"><span class="toc-text">1 对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1对象"><span class="toc-text">1.1对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-普通对象和函数对象"><span class="toc-text">1.2 普通对象和函数对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-new-Function"><span class="toc-text">1.3 new Function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-构造函数"><span class="toc-text">2 构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-原型对象"><span class="toc-text">3.原型对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-原型对象"><span class="toc-text">3.1 原型对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-用途"><span class="toc-text">3.2 用途</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-原型对象跟prototype属性"><span class="toc-text">3.3 原型对象跟prototype属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-原型对象有constructor属性"><span class="toc-text">3.4 原型对象有constructor属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-原型对象是实例对象"><span class="toc-text">3.5 原型对象是实例对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-参考"><span class="toc-text">4 参考</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> less code more art. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        JS作用域系列5——原型1
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-09-28 15:55:58</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JS" title="JS">JS</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>普通对象+函数对象，构造函数+实例，prototype属性+原型对象</p>
+<a id="more"></a>
+<p>综述：<br>前面讲了作用域vs作用域链，可以知道作用域链是作用域的部分内容。下面将原型和原型链～～</p>
+<h2 id="1-对象"><a href="#1-对象" class="headerlink" title="1 对象"></a>1 对象</h2><p>在此之前，先普及一下js中的对象分类：</p>
+<p><strong>JavaScript中，万物皆对象！</strong></p>
+<p>但对象也是有区别的，<strong>分为普通对象和函数对象</strong>。Object 、Function 是 JS 自带的<strong>函数对象</strong>。</p>
+<h3 id="1-1对象"><a href="#1-1对象" class="headerlink" title="1.1对象"></a>1.1对象</h3><p>我们可以简单的将创建对象的方式分为三种：</p>
+<ol>
+<li>函数创建对象、</li>
+<li>字面量创建、</li>
+<li>Object创建。</li>
+</ol>
+<h3 id="1-2-普通对象和函数对象"><a href="#1-2-普通对象和函数对象" class="headerlink" title="1.2 普通对象和函数对象"></a>1.2 普通对象和函数对象</h3><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">typeOf</span>(普通对象) === <span class="built_in">object</span></span><br><span class="line"><span class="built_in">typeOf</span>(函数对象）====<span class="keyword">Function</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o1 = &#123;&#125;; </span><br><span class="line"><span class="keyword">var</span> o2 =<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> o3 = <span class="keyword">new</span> f1();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;&#125;; </span><br><span class="line"><span class="keyword">var</span> f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> f3 = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'str'</span>,<span class="string">'console.log(str)'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Object</span>); <span class="comment">//function </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>); <span class="comment">//function  </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> f1); <span class="comment">//function </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> f2); <span class="comment">//function </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> f3); <span class="comment">//function   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> o1); <span class="comment">//object </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> o2); <span class="comment">//object </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> o3); <span class="comment">//object</span></span><br></pre></td></tr></table></figure>
+<p>在上面的例子中 o1 o2 o3 为普通对象，f1 f2 f3 为函数对象。</p>
+<p>怎么区分，其实很简单，凡是通过 new Function() 创建的对象都是函数对象，其他的都是普通对象。<strong>f1,f2,归根结底都是通过 new Function()的方式进行创建的。Function Object 也都是通过 New Function()创建的。</strong></p>
+<h3 id="1-3-new-Function"><a href="#1-3-new-Function" class="headerlink" title="1.3 new Function"></a>1.3 new Function</h3><p>建议看完全篇之后再看这里</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f3 = new <span class="function"><span class="keyword">Function</span><span class="params">(<span class="string">'str'</span>,<span class="string">'console.log(str)'</span>)</span>;</span></span><br><span class="line">console.log(typeof f3); <span class="comment">//function</span></span><br><span class="line">f3.<span class="keyword">constructor</span> === <span class="function"><span class="keyword">Function</span>;</span> <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>f3是实例，是函数对象而不是普通对象</li>
+</ol>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>(typeof <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>) ;//<span class="function"><span class="keyword">function</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.construtor == <span class="function"><span class="keyword">Function</span></span>; //true</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.prototype; //undefine</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>原型对象，是函数对象不是普通对象，且这个函数对象没有protype属性</li>
+</ol>
+<p>以上全都不符合总结部分的3.4.5条，请注意</p>
+<blockquote>
+<p>一定要分清楚普通对象和函数对象，下面我们会常常用到它。</p>
+</blockquote>
+<h2 id="2-构造函数"><a href="#2-构造函数" class="headerlink" title="2 构造函数"></a>2 构造函数</h2><blockquote>
+<p>new一下就出现构造函数和实例了</p>
+</blockquote>
+<p>我们先复习一下构造函数的知识：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name, age, job)</span> </span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.name = name;</span><br><span class="line"> <span class="keyword">this</span>.age = age;</span><br><span class="line"> <span class="keyword">this</span>.job = job;</span><br><span class="line"> <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123; alert(<span class="keyword">this</span>.name) &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Zaxlct'</span>, <span class="number">28</span>, <span class="string">'Software Engineer'</span>);</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">'Mick'</span>, <span class="number">23</span>, <span class="string">'Doctor'</span>);</span><br></pre></td></tr></table></figure>
+<p>上面的例子中 person1 和 person2 都是 Person 的<strong>实例</strong>。这两个实例<strong>都有一个 constructor</strong> （构造函数）属性，该属性（是一个指针）指向 Person。 即：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>(person1.constructor == Person); <span class="comment">//true</span></span><br><span class="line">console.<span class="built_in">log</span>(person2.constructor == Person); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>我们要记住两个概念（构造函数，实例）：</p>
+<ol>
+<li>person1 和 person2都是 <strong>构造函数 Person</strong>  的实例</li>
+</ol>
+<ol start="2">
+<li>一个公式：实例的构造函数属性（constructor）指向构造函数。</li>
+</ol>
+<blockquote>
+<p>逆向理解，如果你用函数A去创造了A的实例，那么A就成了‘构造函数’，A的实例有个constructor属性（这个属性称之为构造函数属性）指向A</p>
+</blockquote>
+<h2 id="3-原型对象"><a href="#3-原型对象" class="headerlink" title="3.原型对象"></a>3.原型对象</h2><h3 id="3-1-原型对象"><a href="#3-1-原型对象" class="headerlink" title="3.1 原型对象"></a>3.1 原型对象</h3><p>前面讲了普通对象、函数对象，下面是原型对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    Person.prototype.name = <span class="string">'Zaxlct'</span>;</span><br><span class="line">    Person.prototype.age  = <span class="number">28</span>;</span><br><span class="line">    Person.prototype.job  = <span class="string">'Software Engineer'</span>;</span><br><span class="line">    Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.sayName(); <span class="comment">// 'Zaxlct'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</span><br><span class="line">person2.sayName(); <span class="comment">// 'Zaxlct'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person1.sayName == person2.sayName); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>那什么是原型对象呢？<br>我们把上面的例子改一改你就会明白了：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype = &#123;</span><br><span class="line">   name:  <span class="string">'Zaxlct'</span>,</span><br><span class="line">   age: <span class="number">28</span>,</span><br><span class="line">   job: <span class="string">'Software Engineer'</span>,</span><br><span class="line">   sayName: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     alert(<span class="keyword">this</span>.name);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原型对象，顾名思义，它就是一个<strong>普通对象</strong>，从现在开始你要牢牢记住原型对象就是 Person.prototype 。</p>
+<p>上述代码非常简单，Person原型对象定义了公共的say方法，从这个简单的例子里，我们可以得出：</p>
+<h3 id="3-2-用途"><a href="#3-2-用途" class="headerlink" title="3.2 用途"></a>3.2 用途</h3><blockquote>
+<p><strong>原型对象的用途是为每个实例对象存储共享的方法和属性，它仅仅是一个普通对象而已</strong>。并且所有的实例是<strong>共享同一个原型对象</strong>，因此有别于实例方法或属性，<strong>原型对象仅有一份</strong>。所有就会有如下等式成立：</p>
+</blockquote>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">person</span>.<span class="keyword">say</span> == new <span class="keyword">Person</span>().<span class="keyword">say</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-原型对象跟prototype属性"><a href="#3-3-原型对象跟prototype属性" class="headerlink" title="3.3 原型对象跟prototype属性"></a>3.3 原型对象跟prototype属性</h3><p>在 JavaScript 中，每当定义一个对象（函数也是对象）时候，==对象中都会包含一些预定义的属性==。其中每个<strong>函数对象</strong>都有一个prototype 属性，这个属性指向函数的原型对象。</p>
+<blockquote>
+<ol>
+<li>只有函数对象才有prototype属性</li>
+<li>只有函数对象才有原型对象</li>
+<li>或者说有prototype属性就有原型对象</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>规则1:每个对象都有 <strong>proto</strong> 属性，但只有函数对象才有 prototype 属性，才有原型对象</p>
+</blockquote>
+<h3 id="3-4-原型对象有constructor属性"><a href="#3-4-原型对象有constructor属性" class="headerlink" title="3.4 原型对象有constructor属性"></a>3.4 原型对象有constructor属性</h3><p><strong>在默认情况下，所有的原型对象都会自动获得一个 constructor（构造函数）属性，这个属性（是一个指针）指向 prototype 属性所在的函数（Person）</strong></p>
+<blockquote>
+<p>规则2<br>上面这句话有点拗口，我们「翻译」一下：有一个默认的 constructor 属性，这个属性是一个指针，指向 Person。即：</p>
+</blockquote>
+<blockquote>
+<p>Person.prototype.constructor == Person</p>
+</blockquote>
+<h3 id="3-5-原型对象是实例对象"><a href="#3-5-原型对象是实例对象" class="headerlink" title="3.5 原型对象是实例对象"></a>3.5 原型对象是实例对象</h3><p>这是由3.3 、3.4推论而来</p>
+<p>在上面第二小节《构造函数》里，我们知道实例的构造函数属性（constructor）指向构造函数 ：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person1<span class="selector-class">.constructor</span> == Person</span><br></pre></td></tr></table></figure></p>
+<p>这两个「公式」好像有点联系：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person1<span class="selector-class">.constructor</span> == Person</span><br><span class="line">Person<span class="selector-class">.prototype</span><span class="selector-class">.constructor</span> == Person</span><br></pre></td></tr></table></figure>
+<p>person1 为什么有 constructor 属性？那是因为 person1 是 Person 的实例。<br>那 Person.prototype 为什么有 constructor 属性？？同理， Person.prototype （你把它想象成 A） 也是Person 的实例。<br>也就是在 Person 创建的时候，创建了一个它的实例对象并赋值给它的 prototype，基本过程如下：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> A = <span class="keyword">new</span> <span class="type">Person</span>();</span><br><span class="line"> Person.prototype = A;</span><br></pre></td></tr></table></figure>
+<p>==可以理解为过程自然而然形成==</p>
+<blockquote>
+<p>结论：原型对象（Person.prototype）是 构造函数（Person）的一个实例。</p>
+</blockquote>
+<p>再次重复一遍。原型对象就是一个普通对象，有属性名和属性值，还有一个必不可少的contructor属性。</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">特例：</span><br><span class="line"><span class="number">1</span>. 我们知道什么对象是有<span class="function"><span class="keyword">constructor</span>，那就是实例对象，所以原型对象<span class="title">Person</span>.<span class="title">prototyle</span>）是函数对象<span class="params">(Person)</span>的一个实例。</span></span><br><span class="line"><span class="function">在函数对象创建的时候被创建的，因此也是一个普通对象，但是<span class="title">Function</span>函数有点意外</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">2. 但 <span class="title">Function</span>.<span class="title">prototype</span> 除外，它不是普通对象它是函数对象。</span></span><br><span class="line"><span class="function">但它很特殊，他没有<span class="title">prototype</span>属性（前面说道函数对象都有<span class="title">prototype</span>属性，因此都有原型对象）</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结</p>
+<ol>
+<li>对象就分为普通对象，函数对象。原型对象属于普通对象（有特例）</li>
+<li>new一下就出现了构造函数跟实例，实例是普通对象（有特例6）</li>
+<li>实例都有一个contrutor属性，指向构造函数（有特例6）</li>
+<li>函数对象都有prototype属性，prototype属性指向原型对象（因此函数对象都有原型对象），原型对象是普通对象，原型对象中都有constructor属性，指向函数对象</li>
+<li>由3，4可得到因为都有constructor属性，因此原型对象也是实例</li>
+<li>但 Function.prototype 除外，它是函数对象，但它很特殊，他没有prototype属性（前面说道函数对象都有prototype属性）Function.prototype = new Function()//请看第一对象部分</li>
+</ol>
+</blockquote>
+<h2 id="4-参考"><a href="#4-参考" class="headerlink" title="4 参考"></a>4 参考</h2><p><a href="https://www.jianshu.com/p/dee9f8b14771" target="_blank" rel="noopener">最详尽的 JS 原型与原型链终极详解，没有「可能是」。（一）</a></p>
+<p><a href="https://www.jianshu.com/p/aa1ebfdad661" target="_blank" rel="noopener">一个例子让你彻底明白原型对象和原型链</a></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

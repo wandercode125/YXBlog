@@ -1,9 +1,8 @@
-
 ---
 title: "高阶组件入门（1)"
 tags: 
 	- "react"
-	- "hoc-react"
+	- "react-hoc"
 categories: 工作
 ---
 
