@@ -80,8 +80,7 @@ post_style:
 
 # Custom Setting End
 # Directory
-# source_dir: source
-source_dir: archive
+source_dir: source
 public_dir: public
 tag_dir: tags
 archive_dir: archive
@@ -130,7 +129,34 @@ theme: aircloud
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-#deploy:
-#  type: git
-#  repo: your repo url
-#  branch: master
+deploy:
+  type: git
+  repository: https://github.com/nidaye125/nidaye125.github.io.git
+  branch: master
+# 生成全文
+jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true    
+# 字数统计和阅读时长
+symbols_count_time:
+ #文章内是否显示
+  symbols: true
+  time: true
+ #网页底部是否显示
+  total_symbols: true
+  total_time: true
