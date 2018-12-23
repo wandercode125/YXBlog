@@ -618,6 +618,12 @@ body {
   margin-right: 2em;
   padding-left: 0;
   padding-right: 0;
+  /* 20181228新增的样式 */
+  padding: 4px 0px;
+  border-left-style: solid;
+  border-left-width: 10px;
+  border-color: #D6DBDF;
+  background: none repeat scroll 0 0 rgba(102,128,153,.05);
 }
 .post-content blockquote p {
   margin-top: 10px;
@@ -662,7 +668,8 @@ body {
   padding: 10px;
 }
 .post-content pre code {
-  color: white;
+  /* 20181228修改样式 */
+  /* color: white; */ 
   line-height: 175%;
 }
 .post-content h1 {
