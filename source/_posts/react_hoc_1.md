@@ -1,5 +1,6 @@
 ---
 title: "高阶组件入门（1)"
+date: 2018-10-1 12:00:00
 tags: 
 	- "react"
 	- "react-hoc"

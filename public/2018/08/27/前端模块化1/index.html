@@ -11,7 +11,7 @@
 
     <title>
         
-        前端模块化1 - ......
+        前端模块化CommonJs、AMD、CMD（1） - ......
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#综述："><span class="toc-text">综述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-症状"><span class="toc-text">1.症状</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-解决（从旧到新）"><span class="toc-text">2 解决（从旧到新）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-函数封装"><span class="toc-text">2.1 函数封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-对象"><span class="toc-text">2.2 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-立即执行函数"><span class="toc-text">2.3 立即执行函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-CommonJS"><span class="toc-text">3 CommonJS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-定义模块"><span class="toc-text">3.1 定义模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-CommonJs缺点：-尴尬的浏览器"><span class="toc-text">3.2 CommonJs缺点： 尴尬的浏览器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-AMD"><span class="toc-text">4 AMD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-定义模块"><span class="toc-text">4.1 定义模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-语法"><span class="toc-text">4.2 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-define，它是全局变量，用来定义模块"><span class="toc-text">4.2.1 define，它是全局变量，用来定义模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-在页面上使用require函数加载模块"><span class="toc-text">4.2.2 在页面上使用require函数加载模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-CMD"><span class="toc-text">5 CMD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-定义模块"><span class="toc-text">5.1 定义模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-语法"><span class="toc-text">5.2 语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对比-AMD与CMD区别"><span class="toc-text">对比 AMD与CMD区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-前言："><span class="toc-text">1.前言：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-症状"><span class="toc-text">2.症状</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-解决（从旧到新）"><span class="toc-text">3. 解决（从旧到新）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-函数封装"><span class="toc-text">3.1 函数封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-对象"><span class="toc-text">3.2 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-立即执行函数"><span class="toc-text">3.3 立即执行函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-CommonJS"><span class="toc-text">4. CommonJS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-定义模块"><span class="toc-text">4.1 定义模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-CommonJs缺点：-尴尬的浏览器"><span class="toc-text">4.2 CommonJs缺点： 尴尬的浏览器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-AMD"><span class="toc-text">5. AMD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-RequireJs"><span class="toc-text">5.1 RequireJs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-定义模块"><span class="toc-text">5.2 定义模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-语法"><span class="toc-text">5.3 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-1-define，它是全局变量，用来定义模块"><span class="toc-text">5.3.1 define，它是全局变量，用来定义模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-2-在页面上使用require函数加载模块"><span class="toc-text">5.3.2 在页面上使用require函数加载模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-CMD"><span class="toc-text">6. CMD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-SeaJS"><span class="toc-text">6.1 SeaJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-定义模块"><span class="toc-text">6.2 定义模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-语法"><span class="toc-text">6.3 语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-1-define"><span class="toc-text">6.3.1  define</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-2-require"><span class="toc-text">6.3.2 require</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-3-exports，"><span class="toc-text">6.3.3 exports，</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-4-module，"><span class="toc-text">6.3.4  module，</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-对比-AMD与CMD区别"><span class="toc-text">7. 对比 AMD与CMD区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-参考"><span class="toc-text">8. 参考</span></a></li></ol>
 </div>
     
 </div>
@@ -119,7 +119,7 @@
 
 <div class="post-container">
     <div class="post-title">
-        前端模块化1
+        前端模块化CommonJs、AMD、CMD（1）
     </div>
 
     <div class="post-meta">
@@ -137,39 +137,38 @@
 </span>
     </div>
     <div class="post-content ">
-        <h2 id="综述："><a href="#综述：" class="headerlink" title="综述："></a>综述：</h2><pre><code>在互联网应用越来越复杂，不可避免的需要工具来管理我们的前端代码。以前是一个巨大的脚本文件，如今希望可以将文件写入不同的文件模块，并且希望代码可以重用，可以简单地引用和添加各种各样的依赖到我们的项目。
-</code></pre><a id="more"></a>
-<h2 id="1-症状"><a href="#1-症状" class="headerlink" title="1.症状"></a>1.症状</h2><p>  如果按照以往的以页面为单位的开发，会导致很多问题，类似依赖管理、命名冲突等等问题。</p>
+        <p>记得刚入门前端的时候，看到前端模块化，总是能看到cmd，amd，RequireJS，commonJS等等，这些究竟是什么，这里就为你揭开他们的面纱。</p>
+<a id="more"></a>
+<h2 id="1-前言："><a href="#1-前言：" class="headerlink" title="1.前言："></a>1.前言：</h2><p>在互联网应用越来越复杂，不可避免的需要工具来管理我们的前端代码。以前是一个巨大的脚本文件，如今希望可以将文件写入不同的文件模块，并且希望代码可以重用，可以简单地引用和添加各种各样的依赖到我们的项目。</p>
+<h2 id="2-症状"><a href="#2-症状" class="headerlink" title="2.症状"></a>2.症状</h2><p>  如果按照以往的以页面为单位的开发，会导致很多问题，类似依赖管理、命名冲突等等问题。</p>
 <p><strong>命名冲突是最常见的问题，描述如下</strong>：</p>
 <p>  //在util.js中</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span><span class="params">(message)</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>   //在logger.js中</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span><span class="params">(message)</span></span>&#123;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>   因此<strong>如果在页面的script标签同时依赖这两个文件</strong>的时候就会产生冲突，导致后面的函数会被覆盖。从而可能产生一些预料之外的结果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">message</span>)</span>&#123;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>因此<strong>如果在页面的script标签同时依赖这两个文件</strong>的时候就会产生冲突，导致后面的函数会被覆盖。从而可能产生一些预料之外的结果。</p>
 <p><strong>传统的解决方案是使用命名空间：</strong></p>
 <p>   //在util.js中</p>
 <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">util</span>.<span class="title">log</span><span class="params">(<span class="keyword">message</span>)</span><span class="comment">&#123;</span></span></span><br><span class="line"><span class="function"><span class="comment">&#125;</span></span></span><br></pre></td></tr></table></figure>
 <p>   //在logger.js中</p>
 <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logger</span>.<span class="title">log</span><span class="params">(<span class="keyword">message</span>)</span><span class="comment">&#123;</span></span></span><br><span class="line"><span class="function"><span class="comment"> &#125;</span></span></span><br></pre></td></tr></table></figure>
 <p>这样带来的显而易见的问题是：<strong>所有的代码会变得冗余并且编写困难</strong></p>
-<h2 id="2-解决（从旧到新）"><a href="#2-解决（从旧到新）" class="headerlink" title="2 解决（从旧到新）"></a>2 解决（从旧到新）</h2><blockquote>
-<p>思想</p>
-</blockquote>
+<h2 id="3-解决（从旧到新）"><a href="#3-解决（从旧到新）" class="headerlink" title="3. 解决（从旧到新）"></a>3. 解决（从旧到新）</h2><blockquote>
+<p>思路：</p>
 <p>在Java中有一个重要的概念——package，逻辑上相关的代码组织到同一个包内，包内是一个相对独立的王国，不用担心命名冲突什么的。</p>
-<blockquote>
-<p><strong>那么外部如果使用呢？直接import对应的package即可<br>import java.util.ArrayList;</strong></p>
+<p><strong>那么外部如果使用呢？直接import对应的package即可。</strong></p>
+<p>import java.util.ArrayList;</p>
 </blockquote>
-<p>遗憾的是JavaScript在设计时定位原因，没有提供类似的功能，<br><strong>javascript，甚至没有类的概念，更不用说模块(module)了</strong>。</p>
-<blockquote>
+<p>遗憾的是JavaScript在设计时定位原因，没有提供类似的功能，<strong>javascript，甚至没有类的概念，更不用说模块(module)了</strong>。</p>
 <p><strong>前端开发人员需要模拟出类似的功能，来隔离、组织复杂的JavaScript代码，我们称为模块化。</strong></p>
-</blockquote>
+<blockquote>
 <p>一个模块就是实现特定功能的文件，<strong>有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块</strong>。模块开发需要遵循一定的规范，各行其是就都乱套了</p>
-<h3 id="2-1-函数封装"><a href="#2-1-函数封装" class="headerlink" title="2.1 函数封装"></a>2.1 函数封装</h3><p>函数一个功能就是实现特定逻辑的一组语句打包，在一个文件里面编写几个相关函数就是最开始的模块了</p>
+</blockquote>
+<h3 id="3-1-函数封装"><a href="#3-1-函数封装" class="headerlink" title="3.1 函数封装"></a>3.1 函数封装</h3><p>函数一个功能就是实现特定逻辑的一组语句打包，在一个文件里面编写几个相关函数就是最开始的模块了</p>
 <blockquote>
 <p>缺点：就如1所讲，污染了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间没什么关系。</p>
 </blockquote>
-<h3 id="2-2-对象"><a href="#2-2-对象" class="headerlink" title="2.2 对象"></a>2.2 对象</h3><p>对象<br>为了解决上面问题，对象的写法应运而生，可以把所有的模块成员封装在一个对象中</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myModule = &#123;</span><br><span class="line">    var1: <span class="number">1</span>,</span><br><span class="line"></span><br><span class="line">    var2: <span class="number">2</span>,</span><br><span class="line"></span><br><span class="line">    fn1: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    fn2: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-对象"><a href="#3-2-对象" class="headerlink" title="3.2 对象"></a>3.2 对象</h3><p>为了解决上面问题，对象的写法应运而生，可以把所有的模块成员封装在一个对象中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var myModule = &#123;</span><br><span class="line">    var1: 1,</span><br><span class="line"></span><br><span class="line">    var2: 2,</span><br><span class="line"></span><br><span class="line">    fn1: function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    fn2: function()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这样我们在希望调用模块的时候引用对应文件，然后</p>
 <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myModule.f<span class="symbol">n2</span><span class="comment">()</span>;</span><br></pre></td></tr></table></figure>
 <p>这样避免了变量污染，只要保证模块名唯一即可，同时同一模块内的成员也有了关系</p>
@@ -178,16 +177,13 @@
 </blockquote>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myModel.var1 = <span class="number">100</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p>这样就会产生意外的安全问题</p>
-<h3 id="2-3-立即执行函数"><a href="#2-3-立即执行函数" class="headerlink" title="2.3 立即执行函数"></a>2.3 立即执行函数</h3><p>可以通过立即执行函数，来达到隐藏细节的目的</p>
+<h3 id="3-3-立即执行函数"><a href="#3-3-立即执行函数" class="headerlink" title="3.3 立即执行函数"></a>3.3 立即执行函数</h3><p>可以通过立即执行函数，来达到隐藏细节的目的</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myModule = (<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> var1 = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">var</span> var2 = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn1</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn2</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        fn1: fn1,</span><br><span class="line">        fn2: fn2</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p>这样在模块外部无法修改我们没有暴露出来的变量、函数。</p>
-<blockquote>
+<p><strong>这样在模块外部无法修改我们没有暴露出来的变量、函数。</strong></p>
 <p>上述做法就是我们模块化的基础，目前，通行的JavaScript模块规范主要有两种：CommonJS和AMD和CMD</p>
-</blockquote>
-<hr>
-<p>首先最先登场的是CommonJs</p>
-<h2 id="3-CommonJS"><a href="#3-CommonJS" class="headerlink" title="3 CommonJS"></a>3 CommonJS</h2><p>我们先从CommonJS谈起，因为在网页端没有模块化编程，但也可以工作下去；但在服务器端却一定要有模块，所以虽然JavaScript在web端发展这么多年，第一个流行的模块化规范却由服务器端的JavaScript应用带来，CommonJS规范是由NodeJS发扬光大，这标志着JavaScript模块化编程正式登上舞台。</p>
-<h3 id="3-1-定义模块"><a href="#3-1-定义模块" class="headerlink" title="3.1 定义模块"></a>3.1 定义模块</h3><p>根据CommonJS规范，</p>
+<p>首先最先登场的是CommonJs，CommonJS规范是由NodeJS发扬光大，适用于服务器端。</p>
+<h2 id="4-CommonJS"><a href="#4-CommonJS" class="headerlink" title="4. CommonJS"></a>4. CommonJS</h2><p>我们先从CommonJS谈起，因为在网页端没有模块化编程，但也可以工作下去；但在服务器端却一定要有模块，所以<strong>虽然JavaScript在web端发展这么多年，第一个流行的模块化规范却由服务器端的JavaScript应用带来，</strong> CommonJS规范是由NodeJS发扬光大，这标志着JavaScript模块化编程正式登上舞台。</p>
+<h3 id="4-1-定义模块"><a href="#4-1-定义模块" class="headerlink" title="4.1 定义模块"></a>4.1 定义模块</h3><p>根据CommonJS规范，</p>
 <ol>
 <li>一个单独的文件就是一个模块。</li>
 </ol>
@@ -204,29 +200,34 @@
 <p>看个例子</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//模块定义 myModel.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'Byron'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printFullName</span>(<span class="params">firstName</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(firstName + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    printName: printName,</span><br><span class="line">    printFullName: printFullName</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//加载模块</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> nameModule = <span class="built_in">require</span>(<span class="string">'./myModel.js'</span>);</span><br><span class="line"></span><br><span class="line">nameModule.printName();</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-CommonJs缺点：-尴尬的浏览器"><a href="#3-2-CommonJs缺点：-尴尬的浏览器" class="headerlink" title="3.2 CommonJs缺点： 尴尬的浏览器"></a>3.2 CommonJs缺点： 尴尬的浏览器</h3><p>仔细看上面的代码，==会发现require是同步的==。模块系统需要同步读取模块文件内容，并编译执行以得到模块接口。</p>
+<h3 id="4-2-CommonJs缺点：-尴尬的浏览器"><a href="#4-2-CommonJs缺点：-尴尬的浏览器" class="headerlink" title="4.2 CommonJs缺点： 尴尬的浏览器"></a>4.2 CommonJs缺点： 尴尬的浏览器</h3><p>仔细看上面的代码，<strong>++会发现require是同步的++</strong>。模块系统需要同步读取模块文件内容，并编译执行以得到模块接口。</p>
 <p>这在服务器端实现很简单也很自然，然而， 想在浏览器端实现问题却很多。</p>
-<p>因为浏览器端，加载JavaScript最佳、最容易的方式是在document中插入script 标签。==但脚本标签script天生异步，传统CommonJS模块在浏览器环境中无法正常加载==。</p>
+<p>因为浏览器端，加载JavaScript最佳、最容易的方式是在document中插入script 标签。<strong>++但脚本标签script天生异步，传统CommonJS模块在浏览器环境中无法正常加载。++</strong></p>
 <p>解决思路之一是，开发一个服务器端组件，对模块代码作静态分析，将模块与它的依赖列表一起返回给浏览器端。 这很好使，但需要服务器安装额外的组件，并因此要调整一系列底层架构。</p>
 <p>另一种解决思路是，用一套标准模板来封装模块定义，但是对于模块应该怎么定义和怎么加载，又产生的分歧：</p>
 <blockquote>
 <p>总结CommonJs适合服务器端，比如node，不适合浏览器</p>
 </blockquote>
-<h2 id="4-AMD"><a href="#4-AMD" class="headerlink" title="4 AMD"></a>4 AMD</h2><p>AMD即<code>Asynchromous Module Defination</code>，中文是异步模块定义的意思，他就是<strong>浏览器端模块化</strong>开发的规范。</p>
-<p>由于不是JavaScript原生支持，使用AMD规范进行页面开发需要用到对应的库函数，也就是大名鼎鼎RequireJS，实际上现有RequireJS再有的AMD。</p>
+<h2 id="5-AMD"><a href="#5-AMD" class="headerlink" title="5. AMD"></a>5. AMD</h2><p>commonjs中require是同步的不能是异步，无法适用于异步需求，于是提出AMD，即<code>Asynchromous Module Defination</code>，中文是异步模块定义的意思，他就是<strong>浏览器端模块化</strong>开发的规范。</p>
+<p>由于不是JavaScript原生支持，使用AMD规范进行页面开发需要用到对应的库函数，也就是大名鼎鼎RequireJS，实际上先有RequireJS再有的AMD。</p>
 <blockquote>
 <p>RequireJS = AMD</p>
+<p>所以了解RequireJs就是了解AMD规范</p>
 </blockquote>
-<p>requireJS主要解决两个问题</p>
-<p>1.多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器</p>
-<p>2.<strong>js加载的时候浏览器会停止页面渲染，加载文件越多，页面失去响应时间越长</strong></p>
-<h3 id="4-1-定义模块"><a href="#4-1-定义模块" class="headerlink" title="4.1 定义模块"></a>4.1 定义模块</h3><p>看一个使用requireJS的例子</p>
+<h3 id="5-1-RequireJs"><a href="#5-1-RequireJs" class="headerlink" title="5.1 RequireJs"></a>5.1 RequireJs</h3><p>RequireJS主要解决两个问题</p>
+<ul>
+<li><p>1.多个js文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器</p>
+</li>
+<li><p>2.<strong>js加载的时候浏览器会停止页面渲染，加载文件越多，页面失去响应时间越长</strong></p>
+</li>
+</ul>
+<h3 id="5-2-定义模块"><a href="#5-2-定义模块" class="headerlink" title="5.2 定义模块"></a>5.2 定义模块</h3><p>看一个使用requireJS的例子</p>
 <p>// 定义模块 ==myModule.js==</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">define([<span class="string">'dependency'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">'Byron'</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">printName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(name);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        printName: printName</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p> // 加载模块</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">'myModule'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">my</span>)</span>&#123;</span><br><span class="line">　 my.printName();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="4-2-语法"><a href="#4-2-语法" class="headerlink" title="4.2 语法"></a>4.2 语法</h3><p>requireJS定义了一个函数 define，它(define)是全局变量，用来定义模块。</p>
-<h4 id="4-2-1-define，它是全局变量，用来定义模块"><a href="#4-2-1-define，它是全局变量，用来定义模块" class="headerlink" title="4.2.1 define，它是全局变量，用来定义模块"></a>4.2.1 <strong>define，它是全局变量，用来定义模块</strong></h4><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">define</span>(<span class="section">id</span>?, dependencies?, factory);</span><br></pre></td></tr></table></figure>
+<h3 id="5-3-语法"><a href="#5-3-语法" class="headerlink" title="5.3 语法"></a>5.3 语法</h3><p>requireJS定义了一个函数define，它(define)是全局变量，用来定义模块。</p>
+<h4 id="5-3-1-define，它是全局变量，用来定义模块"><a href="#5-3-1-define，它是全局变量，用来定义模块" class="headerlink" title="5.3.1 define，它是全局变量，用来定义模块"></a>5.3.1 <strong>define，它是全局变量，用来定义模块</strong></h4><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">define</span>(<span class="section">id</span>?, dependencies?, factory);</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>id：可选参数，用来定义模块的标识，如果没有提供该参数，脚本文件名（去掉拓展名）</p>
 </li>
@@ -235,7 +236,7 @@
 <li><p>factory：工厂方法，模块初始化要执行的函数或对象。如果为函数，它应该只被执行一次。如果是对象，此对象应该为模块的输出值</p>
 </li>
 </ul>
-<h4 id="4-2-2-在页面上使用require函数加载模块"><a href="#4-2-2-在页面上使用require函数加载模块" class="headerlink" title="4.2.2 在页面上使用require函数加载模块"></a>4.2.2 在页面上使用<strong>require</strong>函数<strong>加载模块</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([dependencies], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-2-在页面上使用require函数加载模块"><a href="#5-3-2-在页面上使用require函数加载模块" class="headerlink" title="5.3.2 在页面上使用require函数加载模块"></a>5.3.2 在页面上使用<strong>require</strong>函数<strong>加载模块</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([dependencies], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
 <p>require()函数接受两个参数</p>
 <ul>
 <li><p>第一个参数是一个数组，表示所依赖的模块</p>
@@ -244,21 +245,18 @@
 </li>
 </ul>
 <p>require()函数在加载依赖的函数的时候是异步加载的，这样浏览器不会失去响应，它指定的回调函数，只有前面的模块都加载成功后，才会运行，解决了依赖性的问题。</p>
-<h2 id="5-CMD"><a href="#5-CMD" class="headerlink" title="5 CMD"></a>5 CMD</h2><p>CMD即<code>Common Module Definition</code>，通过模块定义。AMD有个RequireJS，CMD有个浏览器实现的SeaJS，SeaJS要解决的问题和RequireJS一样，只不过在<strong>模块定义</strong>方式和<strong>模块加载</strong>（可以说运行、解析）时机上有所不同。</p>
+<h2 id="6-CMD"><a href="#6-CMD" class="headerlink" title="6. CMD"></a>6. CMD</h2><p>CMD即<code>Common Module Definition</code>，通过模块定义。AMD有个RequireJS，CMD有个浏览器实现的SeaJS，SeaJS要解决的问题和RequireJS一样，只不过在<strong>模块定义</strong>方式和<strong>模块加载</strong>（可以说运行、解析）时机上有所不同。</p>
 <blockquote>
 <p>SeaJS = CMD</p>
-</blockquote>
-<blockquote>
 <p>AMD和CMD的区别在于语法以及加载</p>
 </blockquote>
-<h3 id="5-1-定义模块"><a href="#5-1-定义模块" class="headerlink" title="5.1 定义模块"></a>5.1 定义模块</h3><p>看一个使用CMD的例子</p>
+<h3 id="6-1-SeaJS"><a href="#6-1-SeaJS" class="headerlink" title="6.1 SeaJS"></a>6.1 SeaJS</h3><h3 id="6-2-定义模块"><a href="#6-2-定义模块" class="headerlink" title="6.2 定义模块"></a>6.2 定义模块</h3><p>看一个使用CMD的例子</p>
 <p>// 定义模块  myModule.js</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="name">function</span>(<span class="name">require</span>, exports, module) &#123;</span><br><span class="line">  var $ = require('jquery.js')</span><br><span class="line">  $('div').addClass('active')<span class="comment">;</span></span><br><span class="line">&#125;)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p>// 加载模块</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> seajs.<span class="keyword">use</span>([<span class="string">'myModule.js'</span>], <span class="function"><span class="keyword">function</span><span class="params">(my)</span></span>&#123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="5-2-语法"><a href="#5-2-语法" class="headerlink" title="5.2 语法"></a>5.2 语法</h3><p>Sea.js 推崇一个模块一个文件，遵循统一的写法</p>
-<p><strong>（1）define</strong></p>
-<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">define</span>(<span class="section">id</span>?, deps?, factory)</span><br></pre></td></tr></table></figure>
+<h3 id="6-3-语法"><a href="#6-3-语法" class="headerlink" title="6.3 语法"></a>6.3 语法</h3><p>Sea.js 推崇一个模块一个文件，遵循统一的写法</p>
+<h4 id="6-3-1-define"><a href="#6-3-1-define" class="headerlink" title="6.3.1  define"></a>6.3.1 <strong> define</strong></h4><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">define</span>(<span class="section">id</span>?, deps?, factory)</span><br></pre></td></tr></table></figure>
 <p>CMD推崇</p>
 <ul>
 <li>一个文件一个模块，所以经常就用文件名作为模块id</li>
@@ -268,19 +266,12 @@
 <p>factory有三个参数</p>
 </blockquote>
 <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span><span class="params">(<span class="keyword">require</span>, exports, <span class="keyword">module</span>)</span></span></span><br></pre></td></tr></table></figure>
-<ol>
-<li><strong>require</strong>，require是factory函数的第一个参数</li>
-</ol>
+<h4 id="6-3-2-require"><a href="#6-3-2-require" class="headerlink" title="6.3.2 require"></a>6.3.2 <strong>require</strong></h4><p>require是factory函数的第一个参数</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require（<span class="built_in">id</span>）</span><br></pre></td></tr></table></figure>
 <p><strong>require是一个方法，接受模块标识作为唯一的参数，用来获取其他模块提供的接口</strong></p>
-<ol start="2">
-<li><strong>exports</strong>，exports是一个对象，用来向外提供模块的接口</li>
-</ol>
-<ol start="3">
-<li><strong>module</strong>，module是一个对象，上面存储了与当前模块相关联的属性和方法</li>
-</ol>
-<hr>
-<h2 id="对比-AMD与CMD区别"><a href="#对比-AMD与CMD区别" class="headerlink" title="对比 AMD与CMD区别"></a>对比 AMD与CMD区别</h2><p>关于这两个的区别网上可以搜出一堆文章，简单总结一下</p>
+<h4 id="6-3-3-exports，"><a href="#6-3-3-exports，" class="headerlink" title="6.3.3 exports，"></a>6.3.3 <strong>exports</strong>，</h4><p>exports是一个对象，用来向外提供模块的接口</p>
+<h4 id="6-3-4-module，"><a href="#6-3-4-module，" class="headerlink" title="6.3.4  module，"></a>6.3.4  <strong>module</strong>，</h4><p>module是一个对象，上面存储了与当前模块相关联的属性和方法</p>
+<h2 id="7-对比-AMD与CMD区别"><a href="#7-对比-AMD与CMD区别" class="headerlink" title="7. 对比 AMD与CMD区别"></a>7. 对比 AMD与CMD区别</h2><p>关于这两个的区别网上可以搜出一堆文章，简单总结一下</p>
 <p>最明显的区别就是在模块定义时对<strong>依赖的处理不同</strong></p>
 <p>（1）AMD推崇依赖前置，在定义模块的时候就要声明其依赖的模块</p>
 <p>（2）CMD推崇就近依赖，只有在用到某个模块的时候再去require</p>
@@ -291,7 +282,7 @@
 <p>同样都是异步加载模块，AMD在加载模块完成后就会执行改模块，所有模块都加载执行完后会进入require的回调函数，执行主逻辑，这样的效果就是<strong>依赖模块的执行顺序和书写顺序不一定一致</strong>，<strong>看网络速度，哪个先下载下来，哪个先执行，但是主逻辑一定在所有依赖加载完成后才执行</strong></p>
 <p>CMD加载完某个依赖模块后并不执行，只是下载而已，在所有依赖模块加载完成后进入主逻辑，遇到require语句的时候才执行对应的模块，<strong>这样模块的执行顺序和书写顺序是完全一致的</strong></p>
 <p>这也是很多人说AMD用户体验好，因为没有延迟，依赖模块提前执行了，CMD性能好，因为只有用户需要的时候才执行的原因</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<h2 id="8-参考"><a href="#8-参考" class="headerlink" title="8. 参考"></a>8. 参考</h2><blockquote>
 <p><a href="http://www.cnblogs.com/dolphinX/p/4381855.html" target="_blank" rel="noopener">http://www.cnblogs.com/dolphinX/p/4381855.html</a></p>
 </blockquote>
 

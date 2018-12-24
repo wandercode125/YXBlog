@@ -1,5 +1,5 @@
 ---
-title: JS作用域系列5——原型3
+title: JS作用域系列—原型3
 date: 2018-09-28 15:56:59
 tags: JS
 categories: 总结
