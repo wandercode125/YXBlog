@@ -11,7 +11,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://nidaye125.github.io/
+url: https://wandercode125.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -131,7 +131,7 @@ theme: aircloud
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/nidaye125/nidaye125.github.io.git
+  repository: https://github.com/wandercode125/wandercode125.github.io.git
   branch: master
 # 生成全文
 jsonContent:

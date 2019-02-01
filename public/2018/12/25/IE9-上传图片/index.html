@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端匍匐前进">
+    <meta name="keyword"  content="前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        IE9-上传图片 - ......
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> less code more art. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>......</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-利用input的upload来上传图片"><span class="toc-text">1.1 利用input的upload来上传图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-ie9下css加载不全"><span class="toc-text">1.2 ie9下css加载不全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1"><span class="toc-text">1.2.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2-每个规则的示"><span class="toc-text">1.2.2 每个规则的示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-3-评论"><span class="toc-text">1.2.3 评论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-ie判断"><span class="toc-text">1.3 ie判断</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> less code more art. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        IE9-上传图片
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-12-25 15:21:10</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#IE" title="IE">IE</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里记录一下ie9下面的坑</p>
+<h3 id="1-1-利用input的upload来上传图片"><a href="#1-1-利用input的upload来上传图片" class="headerlink" title="1.1 利用input的upload来上传图片"></a>1.1 利用input的upload来上传图片</h3><p>在chrome firefox下面的上传图片可以采用input的upload操作.代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;span className=<span class="string">"iconOuter"</span> onClick=&#123;e =&gt; uploadImage(e)&#125;&gt;</span><br><span class="line">    &lt;input type=<span class="string">"file"</span> id=<span class="string">"btn_file2"</span> accept=<span class="string">"image/x-png,image/gif,image/jpeg,image/bmp"</span> onChange=&#123;imgChange&#125; style=&#123;&#123; <span class="attr">display</span>: <span class="string">'none'</span> &#125;&#125; /&gt;</span><br><span class="line">    &lt;Icon type=<span class="string">"add"</span> className=<span class="string">"iconAdd"</span>&gt;&lt;/Icon&gt;</span><br><span class="line">&lt;<span class="regexp">/span&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">uploadImage = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">this</span>.actualInput = <span class="built_in">document</span>.getElementById(<span class="string">'btn_file2'</span>); <span class="comment">//上面input的id</span></span><br><span class="line">   <span class="built_in">document</span>.getElementById(<span class="string">'btn_file2'</span>).click();</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> imgChange = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">let</span> _this = <span class="keyword">this</span>;</span><br><span class="line">   <span class="keyword">if</span> (e.target.value.trim().length === <span class="number">0</span>) &#123;</span><br><span class="line">     <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">       imgWarning: <span class="string">'请上传图片'</span>,</span><br><span class="line">     &#125;);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">const</span> val = e.target.value &amp;&amp; e.target.value.substr(e.target.value.lastIndexOf(<span class="string">'.'</span>));</span><br><span class="line">   <span class="keyword">if</span> (val &amp;&amp; !val.match(<span class="regexp">/.jpg|.gif|.png|.bmp|.svg/i</span>)) &#123;</span><br><span class="line">     <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">       imgWarning: <span class="string">'必须是一个图片'</span>,</span><br><span class="line">     &#125;);</span><br><span class="line">     <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">     imgWarning: <span class="literal">false</span>,</span><br><span class="line">   &#125;);</span><br><span class="line">   <span class="keyword">if</span> (navigator.userAgent.indexOf(<span class="string">'MSIE 9.0'</span>) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">       <span class="comment">//ie9的时候逻辑，此处省略；具体见下面</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//start:关键代码</span></span><br><span class="line">   <span class="keyword">const</span> [obj] = <span class="built_in">document</span>.getElementById(<span class="string">'btn_file2'</span>).files; <span class="comment">//这里的上传的图片是在dialog中的</span></span><br><span class="line">   <span class="keyword">const</span> imgUrl = <span class="built_in">window</span>.URL.createObjectURL(obj);</span><br><span class="line">   <span class="comment">// document.getElementById('imgSrc2').src = imgUrl;</span></span><br><span class="line">   <span class="comment">// 创建对象</span></span><br><span class="line">   <span class="keyword">const</span> imgObj = <span class="keyword">new</span> Image();</span><br><span class="line">   <span class="comment">// 改变图片的src</span></span><br><span class="line">   imgObj.src = imgUrl;</span><br><span class="line">   <span class="comment">// 加载完成执行</span></span><br><span class="line">   imgObj.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (imgObj.width !== imgObj.height || imgObj.width !== <span class="number">120</span> || obj.size &gt; <span class="number">5000000</span>) &#123;</span><br><span class="line">       openMess(&#123;</span><br><span class="line">         title: <span class="string">'上传图标失败！'</span>,</span><br><span class="line">         content: <span class="string">'图标尺寸须为120*120，且不大于5M！'</span>,</span><br><span class="line">         duration: <span class="number">6</span>,</span><br><span class="line">         type: <span class="string">'danger'</span>,</span><br><span class="line">         closable: <span class="literal">false</span>,</span><br><span class="line">       &#125;);</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">const</span> &#123; uploadApplication, requestError &#125; = _this.props;</span><br><span class="line">     <span class="keyword">const</span> <span class="keyword">from</span> = <span class="keyword">new</span> FormData();</span><br><span class="line">     <span class="keyword">from</span>.append(<span class="string">'btn_file2'</span>, obj);</span><br><span class="line">     <span class="comment">//end:关键代码</span></span><br><span class="line">     uploadApplication(<span class="keyword">from</span>).then(<span class="function">(<span class="params">&#123; error, payload &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (error) &#123;</span><br><span class="line">         _this.actualInput.value = <span class="literal">null</span>;</span><br><span class="line">         requestError(payload);</span><br><span class="line">       &#125; <span class="keyword">else</span> <span class="keyword">if</span> (payload &amp;&amp; payload.url) &#123;</span><br><span class="line">         <span class="comment">// document.getElementById('imgSrc2').src = payload.url;</span></span><br><span class="line">         _this.setState(&#123;</span><br><span class="line">           newApplicationIcon: payload.url,</span><br><span class="line">         &#125;);</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;);</span><br><span class="line">     <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">   &#125;;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>但是在ie9下面则需要使用input+form++iframe，<br>input的onchange触发form的submit，然后监听iframe的onload事件，获取ifame中内容，其实就是上传后图片的地址</p>
+<p>具体代码如下（es6+react）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;div className=&#123;iconDialogContent&#125;&gt;</span><br><span class="line">  &#123;</span><br><span class="line">      navigator.userAgent.indexOf(<span class="string">'MSIE 9.0'</span>)&gt; <span class="number">0</span> &amp;&amp;</span><br><span class="line">      (</span><br><span class="line">        &lt;div className=<span class="string">"ie9_form"</span> style=&#123;&#123; <span class="attr">position</span>: <span class="string">'relative'</span> &#125;&#125;&gt;</span><br><span class="line">          &lt;div className=<span class="string">"hidden_form"</span> &gt;</span><br><span class="line">            &lt;form</span><br><span class="line">              id=<span class="string">"upload-form"</span></span><br><span class="line">              name=<span class="string">"myform"</span></span><br><span class="line">              action=<span class="string">"/manager/file/upload/oss/workbench-image-path-applicationIcon"</span></span><br><span class="line">              method=<span class="string">"post"</span></span><br><span class="line">              target=<span class="string">"frameUpload"</span></span><br><span class="line">              acceptCharset=<span class="string">"utf-8"</span></span><br><span class="line">              encType=<span class="string">"multipart/form-data"</span></span><br><span class="line">            &gt;</span><br><span class="line">              &lt;input id=<span class="string">"btn_file2"</span> className=&#123;formBtnFile&#125; type=<span class="string">"file"</span> name=<span class="string">"file"</span> accept=<span class="string">"image/x-png,image/gif,image/jpeg,image/bmp"</span> onChange=&#123;e =&gt; imgChange(e)&#125; /&gt;</span><br><span class="line">            &lt;<span class="regexp">/form&gt;</span></span><br><span class="line"><span class="regexp">            &lt;iframe id="frameUpload" title="frameUpload" name="frameUpload" style=&#123;&#123; width: 0, height: 0, opacity: 0 &#125;&#125; /</span>&gt;</span><br><span class="line">          &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">          &lt;span className="iconOuter"&gt;</span></span><br><span class="line"><span class="regexp">            &lt;Icon type="add" className="iconAdd"&gt;&lt;/</span>Icon&gt;</span><br><span class="line">          &lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">      )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 下面是关键的三个方法，</span></span><br><span class="line"><span class="comment">// 第一个是chrome等下的spanclick方法：uploadImage</span></span><br><span class="line"><span class="comment">// 第二个是input的imgchange()，，</span></span><br><span class="line"><span class="comment">// 最后一个是ie9下的iframe的onload方法：</span></span><br><span class="line"></span><br><span class="line">uploadImage = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.actualInput = <span class="built_in">document</span>.getElementById(<span class="string">'btn_file2'</span>);</span><br><span class="line">    <span class="keyword">this</span>.actualInput.click();</span><br><span class="line">&#125;</span><br><span class="line">  imgChange = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> _this = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">if</span> (e.target.value.trim().length === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        imgWarning: <span class="string">'请上传图片'</span>,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> val = e.target.value &amp;&amp; e.target.value.substr(e.target.value.lastIndexOf(<span class="string">'.'</span>));</span><br><span class="line">    <span class="keyword">if</span> (val &amp;&amp; !val.match(<span class="regexp">/.jpg|.gif|.png|.bmp|.svg/i</span>)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        imgWarning: <span class="string">'必须是一个图片'</span>,</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      imgWarning: <span class="literal">false</span>,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (navigator.userAgent.indexOf(<span class="string">'MSIE 9.0'</span>) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> formVal = <span class="built_in">document</span>.getElementById(<span class="string">'upload-form'</span>);</span><br><span class="line">      formVal.submit();</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">window</span>.attachEvent) &#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'frameUpload'</span>).attachEvent(<span class="string">'onload'</span>, <span class="keyword">this</span>.handleOnLoad);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'frameUpload'</span>).addEventListener(<span class="string">'load'</span>, <span class="keyword">this</span>.handleOnLoad);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;<span class="comment">// 后面的不再执行了</span></span><br><span class="line">    &#125;</span><br><span class="line">    ....省略</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> handleOnLoad = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> _this = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">const</span> frame = <span class="built_in">document</span>.getElementById(<span class="string">'frameUpload'</span>);</span><br><span class="line">    <span class="keyword">const</span> resp = &#123;&#125;;</span><br><span class="line">    <span class="keyword">const</span> content = frame.contentWindow ?</span><br><span class="line">      frame.contentWindow.document.body :</span><br><span class="line">      frame.contentDocument.document.body;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> (!content) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Your browser does not support async upload'</span>);</span><br><span class="line">    resp.responseText = content.innerHTML || <span class="string">'null innerHTML'</span>;</span><br><span class="line">    resp.json = <span class="built_in">JSON</span>.parse(resp.responseText) || <span class="built_in">eval</span>(<span class="string">`(<span class="subst">$&#123;resp.responseText&#125;</span>)`</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> dataBack = resp.json || resp.responseText;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (dataBack) &#123;</span><br><span class="line">      <span class="comment">// document.getElementById('imgSrc2').src = dataBack.data.url;</span></span><br><span class="line">      <span class="comment">// 创建对象</span></span><br><span class="line">      <span class="keyword">const</span> imgObj = <span class="keyword">new</span> Image();</span><br><span class="line">      <span class="comment">// 改变图片的src</span></span><br><span class="line">      <span class="comment">// alert('dataBack.data.url'+dataBack.data.url)</span></span><br><span class="line">      imgObj.src = dataBack.data.url;</span><br><span class="line">      <span class="comment">// 加载完成执行</span></span><br><span class="line">      imgObj.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (imgObj.width !== imgObj.height || imgObj.width !== <span class="number">120</span>) &#123;</span><br><span class="line">          openMess(&#123;</span><br><span class="line">            title:<span class="string">'上传图标失败！'</span>,</span><br><span class="line">            content: <span class="string">'图标尺寸须为120*120，且不大于5M！'</span>,</span><br><span class="line">            duration: <span class="number">6</span>,</span><br><span class="line">            type: <span class="string">'warning'</span>,</span><br><span class="line">            closable: <span class="literal">false</span>,</span><br><span class="line">          &#125;);</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        _this.setState(&#123;</span><br><span class="line">          newApplicationIcon: dataBack.data.url,</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>上面的袋面针对的场景</p>
+<ul>
+<li>1.可以使跨域的，比如这里的上传图片的url是</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>pubapi.yonyoucloud.com<span class="regexp">/file/u</span>pload<span class="regexp">/oss/</span>workbench-image-path-applicationIcon</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2.单张图片上传</li>
+</ul>
+<h3 id="1-2-ie9下css加载不全"><a href="#1-2-ie9下css加载不全" class="headerlink" title="1.2 ie9下css加载不全"></a>1.2 ie9下css加载不全</h3><p>同一个页面在chrome下面显示正常，但是在ie9下面显示不正常。后来定位到是样式没加载全乎。</p>
+<p>在chrome下面的main.css（工程的全部css样式文件）中关于.u-checkbox的样式有四处，但是ie9下main.css确只有三处，比对之后发现，在ie9的css中有个少了一个文件的样式，所以</p>
+<blockquote>
+<p>猜测</p>
+</blockquote>
+<blockquote>
+<p>(1)因为在main.css通过import XXX.css方式引入文件，难道webpack打出来的dist文件没有main.css</p>
+</blockquote>
+<p> 解答：并不是，因为chrome，火狐下面是好使的,所以XXXcss肯定是打进来了</p>
+<blockquote>
+<p>(2)ie9下文件没有加载全</p>
+</blockquote>
+<p>解答：是的，ie9下css文件没有加载全，有两种情况，1.文件本身没有加载全，比如415k的文件，只加载了250k；2.文件加载全了，但是样式没有起效，跟selector的个数有关。</p>
+<blockquote>
+<p>ie9下的css长度有限制</p>
+</blockquote>
+<h3 id="1-2-1"><a href="#1-2-1" class="headerlink" title="1.2.1"></a>1.2.1</h3><p>文献参考：</p>
+<p><a href="https://blog.csdn.net/Napoleonxxx/article/details/80292006" target="_blank" rel="noopener">IE9引发的血案-如何处理webpack打包后体积依然过大的css文件</a></p>
+<p><a href="https://stackoverflow.com/questions/11080560/does-ie9-have-a-file-size-limit-for-css/11080846" target="_blank" rel="noopener">does-ie9-have-a-file-size-limit-for-css</a></p>
+<p>Miscrosoft官网上的规则<a href="https://support.microsoft.com/zh-cn/help/262161/a-webpage-that-uses-css-styles-does-not-render-correctly-in-internet-e" target="_blank" rel="noopener">Rule</a> 如下，</p>
+<ol>
+<li>A sheet may contain up to 4095 rules</li>
+<li>A sheet may @import up to 31 sheets</li>
+<li>@import nesting supports up to 4 levels deep</li>
+</ol>
+<p>另外也有一些文章提到单个css文件的大小不能超过250k。官方规则中并没有提到这一条。</p>
+<h3 id="1-2-2-每个规则的示"><a href="#1-2-2-每个规则的示" class="headerlink" title="1.2.2 每个规则的示"></a>1.2.2 每个规则的示</h3><blockquote>
+<p><a href="http://demos.telerik.com/testcases/4095issues.html" target="_blank" rel="noopener"> a sheet may contain up to 4095 selectors, see</a></p>
+</blockquote>
+<blockquote>
+<p><a href="http://demos.telerik.com/testcases/BrokenTheme.aspx" target="_blank" rel="noopener">a sheet may @import up to 31 sheets, see</a></p>
+</blockquote>
+<blockquote>
+<p>@import nesting supports up to 4 levels deep</p>
+</blockquote>
+<h3 id="1-2-3-评论"><a href="#1-2-3-评论" class="headerlink" title="1.2.3 评论"></a>1.2.3 评论</h3><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. <span class="keyword">To</span> notice, IE10 doesn<span class="symbol">'t</span> have this limit (including <span class="keyword">when</span> <span class="keyword">in</span> IE7-<span class="number">8</span>-<span class="number">9</span> modes) </span><br><span class="line"><span class="number">2</span>. <span class="keyword">In</span> my testing <span class="keyword">of</span> IE9 I found the MAX SIZE <span class="keyword">to</span> be <span class="number">278</span>kb –</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-ie判断"><a href="#1-3-ie判断" class="headerlink" title="1.3 ie判断"></a>1.3 ie判断</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IS_IE = !!<span class="built_in">window</span>.ActiveXObject || <span class="string">"ActiveXObject"</span> <span class="keyword">in</span> <span class="built_in">window</span>;</span><br></pre></td></tr></table></figure>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
