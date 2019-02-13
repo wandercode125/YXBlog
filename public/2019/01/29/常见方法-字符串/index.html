@@ -216,7 +216,10 @@ console.log(str.split(&apos;&apos;)); //返回[&quot;a&quot;, &quot;|&quot;, &qu
 </code></pre><p>也可以用正则来进行分割</p>
 <pre><code>var str = &apos;a1b2c3d4e&apos;;
 console.log(str.split(/\d/)); //返回[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]
-</code></pre><h3 id="3-6-toLowerCase-和toUpperCase"><a href="#3-6-toLowerCase-和toUpperCase" class="headerlink" title="3.6  toLowerCase()和toUpperCase()"></a>3.6  toLowerCase()和toUpperCase()</h3><pre><code>stringObject.toLowerCase() 
+</code></pre><blockquote>
+<p>arrayObject.splice(index,howmany,item1,…..,itemX)  ,splice操作是针对数组对象的，不是字符串对象</p>
+</blockquote>
+<h3 id="3-6-toLowerCase-和toUpperCase"><a href="#3-6-toLowerCase-和toUpperCase" class="headerlink" title="3.6  toLowerCase()和toUpperCase()"></a>3.6  toLowerCase()和toUpperCase()</h3><pre><code>stringObject.toLowerCase() 
 stringObject.toUpperCase()
 </code></pre><p>toLowerCase()方法可以把字符串中的大写字母转换为小写，toUpperCase()方法可以把字符串中的小写字母转换为大写。</p>
 <p>var str = ‘JavaScript’;<br>console.log(str.toLowerCase()); //返回javascript<br>console.log(str.toUpperCase()); //返回JAVASCRIPT</p>
