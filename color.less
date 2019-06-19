@@ -1,0 +1,753 @@
+@primary-color: #973;
+//vars.less
+
+@palette-grey-100: 	#F5F5F5;
+@palette-grey-200: 	#EEEEEE;
+@palette-grey-300: #E0E0E0;
+@palette-grey-400: #BDBDBD ;
+@palette-grey-900: #212121;
+
+@palette-cyan-500: #00BCD4;
+
+@color-black: #000001;
+@color-white: #FFFFF1;
+
+//colors.scss
+@styleguide-generate-template: false ;
+
+// The two possible colors for overlayed text.
+@color-dark-contrast: @color-white ;
+@color-light-contrast: @color-black ;
+
+// 主题色
+
+@primary-color-dark: #E60012;
+@primary-color-light: #E60012  ;
+
+// 默认色
+@default-color: @palette-grey-300;
+@default-color-dark:  @palette-grey-400;
+@default-color-light: @palette-grey-200;
+
+// 字体
+@font-family-primary: "Open Sans", "Helvetica Neue", Arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif  ;
+// 主字号
+@font-size-base: 14px  ;
+// 主文本色
+@text-color-base: @color-dark-contrast  ;  
+
+// 圆角，包括：button、select等
+@border-radius: 3px  ;
+// 边框色，包括按钮、输入框、分页
+@border-color: #A5ADBA;
+// 条目hover背景色，包括：select、dropdown、table、datepicker、tree、menu、calendar
+@item-hover-bg-color-base: 	#EBECF0  ;
+// 条目selected背景色，包括：select、menu等
+@item-selected-bg-color-base: #F7F7F7  ;
+
+// Button 细化样式变量:
+// 次按钮背景色
+@secondary-color: @palette-grey-300  ;
+@secondary-color-dark: @palette-grey-400  ;
+@secondary-color-light: @palette-grey-400  ;
+
+// 次按钮文本色
+@button-secondary-text-color: @palette-grey-900  ;
+@unit: 10px ;
+
+@gray-light:    @palette-grey-400 ;
+@gray-lighter:   @palette-grey-300 ;
+@gray-lightest: @palette-grey-200 ;
+
+// 边框圆角
+@border-radius-base:         @border-radius;
+
+//-- Indexes
+@zindex-menubar:          1400;
+
+// hover时的背景色，包括select、dropdown、table、datepicker、tree、menu等组件
+@hover-bg-color-base:  @item-hover-bg-color-base ;
+// // selected背景色，包括：select、menu等
+@selected-bg-color-base:  @item-selected-bg-color-base ;
+
+// 品牌色
+@brand-default:  @gray-lighter;
+@brand-default-hover:  @gray-lightest;
+@brand-default-active:   @gray-light;
+
+@brand-primary :  @primary-color ;
+@brand-primary-hover:  @primary-color-light ;
+@brand-primary-active:  @primary-color-dark ;
+
+@brand-secondary :  @secondary-color ;
+@brand-secondary-hover:  @secondary-color-light ;
+@brand-secondary-active:  @secondary-color-dark ;
+
+@brand-info:  @palette-cyan-500 ;
+
+@brand-light :  @color-dark-contrast ;
+
+//不同背景下对应的文字颜色
+@color-info:  @palette-cyan-500 ;
+
+//全局不同状态颜色
+
+//disable颜色
+@disabled-color-base:  @gray-light;
+@disabled-border-color:  @gray-lighter;
+@disabled-bg-color:  @gray-lightest;
+
+@border-color-base:   @border-color  ;
+
+// UButton
+
+// Button 基础背景色.
+// 默认按钮(<Button></Button>)
+@button-default-color:  @default-color;
+@button-default-color-IE8:  @default-color;
+
+// Button 不同状态下的背景色 ：hover、active、focus状态.
+@button-hover-color:  @default-color-light ;
+@button-active-color: @default-color-dark ;
+@button-focus-color:  @default-color-light;
+
+// Button 配置不同colors属性时的背景色.
+@button-primary-color:   @brand-primary;
+@button-primary-active-color:   @brand-primary-active;
+@button-primary-hover-color:   @brand-primary-hover;
+@button-secondary-color:   @brand-secondary;
+@button-secondary-active-color:   @brand-secondary-active;
+@button-secondary-hover-color:   @brand-secondary-hover;
+// Button 文字颜色.
+// 主按钮(colors:'primary')
+@button-primary-text-color:  @text-color-base;
+@button-text-color:  @button-primary-text-color;
+// 次按钮(colors:'secondary')
+@button-second-text-color:  @button-secondary-text-color;
+// 默认按钮(<Button></Button>)
+@button-default-text-color: @palette-grey-900;
+
+// Button 边框样式及颜色.
+@button-border-style:  solid;
+@button-border-color:  @border-color-base;
+@button-default-border-color:  @button-default-color ;
+
+// Button 不同状态下的边框颜色 ：hover、active、focus状态.
+@button-hover-border-color:  @brand-default-hover;
+@button-active-border-color:  @brand-default-active;
+@button-focus-border-color:  @brand-default-active;
+
+// Button 最小宽度、高度、内边距、外边距、行高、边框粗细、圆角.
+@button-border-width: 1/10 *  @unit ;
+
+// UText
+
+@form-control-border-radius:  @border-radius-base;
+@form-control-color: #424242;
+@form-control-bg-color: #fff;
+@form-control-border-color:  @border-color-base;
+
+//progresbar
+@progress-primary-bg:   @brand-primary;
+
+//timeline
+@timeline-info-color:  @color-info;
+
+// bee-tree
+@tree-checkbox-color:  @primary-color ;
+@tree-node-bg-color:  @hover-bg-color-base ;
+
+//dropdown
+
+@dropdown-item-hover-bg-color:   @palette-grey-100 ;
+@dropdown-item-divier-bg-color:  @gray-lighter;
+@dropdown-border-color:  @border-color-base;
+@dropdown-border-radius:3px;
+
+//select
+@select-bg-color: #fff;
+@select-border-color:  @border-color-base;
+@select-border-radius:  @border-radius-base;
+
+//switch
+//color
+@switch-border-color:  @gray-lighter;
+@switch-back-color:  @gray-lighter;
+@switch-checked-borColor:  @brand-primary;
+@switch-checked-backColor:  @brand-primary;
+
+// border-radius of different state switch
+@switch-border-radius: 20px;
+@switch-border-radius-after: 18px;
+
+@switch-primary-bg:  @brand-primary;
+
+//rate
+@rate-star-default-color: @gray-lightest;
+ @rate-star-active-color: @brand-primary;
+
+//Checkbox
+
+@checkbox-color: @primary-color ;
+
+@checkbox-primary-bg:   @brand-primary;
+@checkbox-info-bg:   @brand-info;
+
+//progressbar
+@progress-primary-bg:   @brand-primary;
+
+// Radio
+
+@radio-color:  @primary-color ;
+
+@radio-primary-bg:             @brand-primary;
+
+@radio-border-color: #d9d9d9;
+@radio-bg-color: #fff;
+@radio-color: rgba(0, 0, 0, 0.65);
+
+@radio-checked-bg-color: #fff;
+@radio-checked-color:  @brand-primary;
+@radio-checked-border-color:  @brand-primary;
+
+@link-color:  #111;
+
+:root { 
+    --PC: @primary-color;   //color.less中加入css原生变量：--PC
+}
+
+
+.u-badge-primary.u-badge .badge-single,
+.u-badge-primary.u-badge .data-icon {
+  background: @primary-color;
+}
+.u-breadcrumb a {
+  color: @primary-color;
+}
+.u-breadcrumb li {
+  color: @primary-color;
+}
+.u-button {
+  background: #E0E0E0;
+  border: 1px solid #E0E0E0;
+  border-radius: 3px;
+  color: #212121;
+}
+.u-button:hover {
+  background-color: #EEEEEE;
+  border-color: #EEEEEE;
+}
+.u-button:active {
+  background-color: #BDBDBD;
+  border-color: #BDBDBD;
+}
+.u-button.colored {
+  color: @primary-color;
+}
+.u-button.colored:focus:not(:active) {
+  background-color: #EEEEEE;
+  border-color: #BDBDBD;
+}
+.u-button.u-button-primary {
+  color: #FFFFF1;
+  background: @primary-color;
+}
+.u-button.u-button-primary:active {
+  background: #E60012;
+}
+.u-button.u-button-secondary {
+  color: #212121;
+  background: #E0E0E0;
+}
+.u-button.u-button-secondary:active {
+  background: #BDBDBD;
+}
+.u-calendar {
+  border-radius: 3px;
+}
+.u-calendar-date {
+  border-radius: 3px 3px;
+}
+.u-calendar-date:hover {
+  background: #EBECF0;
+}
+.u-calendar-selected-day .u-calendar-date {
+  background: @primary-color;
+}
+.u-calendar-today .u-calendar-date {
+  border: 1px solid @primary-color;
+}
+.u-calendar-time-panel-title {
+  border-radius: 3px;
+}
+.u-calendar-time-panel-time {
+  border-radius: 3px;
+}
+.u-calendar-month-panel-cell .u-calendar-month-panel-month {
+  border-radius: 3px 3px;
+}
+.u-calendar-month-panel-cell .u-calendar-month-panel-month:hover {
+  background: #EBECF0;
+}
+.u-calendar-month-panel-selected-cell .u-calendar-month-panel-month {
+  background: @primary-color;
+}
+.u-calendar-month-panel-selected-cell .u-calendar-month-panel-month:hover {
+  background: @primary-color;
+}
+.u-calendar-year-panel-year {
+  border-radius: 3px 3px;
+}
+.u-calendar-decade-panel-decade {
+  border-radius: 3px 3px;
+}
+.u-calendar-full-header-switcher > span {
+  border: 1px solid #A5ADBA;
+}
+.u-calendar-full-header .u-calendar-full-header-switcher .u-calendar-full-header-switcher-focus {
+  border-color: @primary-color;
+  background-color: @primary-color;
+}
+.rc-calendar-full-header-switcher-focus {
+  border-color: @primary-color;
+  background-color: @primary-color;
+}
+.u-calendar-full-header-switcher-normal:hover {
+  background: #EBECF0;
+}
+.u-calendar-selected-day .u-calendar-date,
+.u-calendar-month-panel-selected-cell .u-calendar-month-panel-month {
+  background-color: #F7F7F7;
+  color: @primary-color;
+}
+.u-calendar-today .u-calendar-date,
+.u-calendar-month-panel-selected-cell .u-calendar-month-panel-month {
+  border-top-color: @primary-color;
+  color: @primary-color;
+}
+.rc-select-dropdown {
+  border-radius: 3px;
+}
+li.rc-select-dropdown-menu-item-active {
+  background-color: #EBECF0;
+}
+li.rc-select-dropdown-menu-item-selected {
+  color: @primary-color;
+  background-color: #F7F7F7;
+}
+.u-calendar-fullscreen .u-calendar-selected-day .u-calendar-date {
+  background-color: #F7F7F7;
+  color: @primary-color;
+}
+.u-cascader-menus {
+  border-radius: 3px;
+}
+.u-cascader-menu-item:hover {
+  background-color: #EBECF0;
+}
+.u-cascader-menu-item-active {
+  background-color: #F7F7F7;
+  color: @primary-color;
+}
+.u-checkbox input[type='checkbox']:focus + .u-checkbox-label:before {
+  border-color: @primary-color;
+}
+.u-checkbox.is-checked .u-checkbox-label:before {
+  border-color: #A5ADBA;
+}
+.u-checkbox.is-checked .u-checkbox-label:after {
+  color: @primary-color;
+}
+.u-checkbox.is-checked.u-checkbox-inverse .u-checkbox-label:before {
+  -moz-box-shadow: inset 0 0 0 10px @primary-color;
+  -webkit-box-shadow: inset 0 0 0 10px @primary-color;
+  box-shadow: inset 0 0 0 10px @primary-color;
+  border-color: @primary-color;
+}
+.u-checkbox .u-checkbox-label:before {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #A5ADBA;
+}
+.u-checkbox.u-checkbox-indeterminate .u-checkbox-label:before {
+  border-color: #A5ADBA;
+}
+.u-checkbox.u-checkbox-indeterminate .u-checkbox-label:after {
+  color: @primary-color;
+}
+.u-checkbox.u-checkbox-indeterminate.u-checkbox-inverse .u-checkbox-label:before {
+  -moz-box-shadow: inset 0 0 0 10px @primary-color;
+  -webkit-box-shadow: inset 0 0 0 10px @primary-color;
+  box-shadow: inset 0 0 0 10px @primary-color;
+  border-color: @primary-color;
+}
+.u-checkbox.u-checkbox-info.is-checked .u-checkbox-label:before {
+  border-color: #A5ADBA;
+}
+.u-checkbox.u-checkbox-info.is-checked .u-checkbox-label:after {
+  color: #00BCD4;
+}
+.u-checkbox.u-checkbox-info input[type='checkbox']:focus + .u-checkbox-label:before {
+  border-color: #00BCD4;
+}
+.rc-calendar {
+  border-radius: 3px;
+  border: 1px solid #A5ADBA;
+}
+.rc-calendar-header > a:hover {
+  color: @primary-color;
+}
+.rc-calendar-year-select:hover,
+.rc-calendar-month-select:hover,
+.rc-calendar-day-select:hover {
+  color: #E60012;
+}
+.rc-calendar-prev-month-btn:hover,
+.rc-calendar-next-month-btn:hover,
+.rc-calendar-prev-year-btn:hover,
+.rc-calendar-next-year-btn:hover {
+  color: #E60012;
+}
+.rc-calendar-date {
+  border-radius: 3px 3px;
+}
+.rc-calendar-date:hover {
+  background: #EBECF0;
+}
+.rc-calendar-selected-day .rc-calendar-date {
+  background: @primary-color;
+}
+.rc-calendar-selected-date .rc-calendar-date {
+  background: @primary-color;
+}
+.rc-calendar-selected-date .rc-calendar-date:hover {
+  background: @primary-color;
+}
+.rc-calendar-disabled-cell-first-of-row .rc-calendar-date {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.rc-calendar-disabled-cell-last-of-row .rc-calendar-date {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.rc-calendar-last-month-cell .rc-calendar-date,
+.rc-calendar-next-month-btn-day .rc-calendar-date {
+  color: #BDBDBD;
+}
+.rc-calendar-today-btn,
+.rc-calendar-ok-btn,
+.rc-calendar-time-picker-btn {
+  color: @primary-color;
+}
+.rc-calendar-today-btn:hover,
+.rc-calendar-ok-btn:hover,
+.rc-calendar-time-picker-btn:hover {
+  color: #E60012;
+}
+.rc-calendar-today-btn-disabled,
+.rc-calendar-ok-btn-disabled,
+.rc-calendar-time-picker-btn-disabled {
+  color: #BDBDBD;
+}
+.rc-calendar-today-btn-disabled:hover,
+.rc-calendar-ok-btn-disabled:hover,
+.rc-calendar-time-picker-btn-disabled:hover {
+  color: #BDBDBD;
+}
+.rc-calendar-time-input:hover {
+  border-color: @primary-color;
+}
+.rc-calendar-time-input:focus {
+  border-color: @primary-color;
+  box-shadow: 0 0 3px @primary-color;
+}
+.rc-calendar-time-panel-selected-cell .rc-calendar-time-panel-time {
+  background: @primary-color;
+}
+.rc-calendar-time-panel-selected-cell .rc-calendar-time-panel-time:hover {
+  background: @primary-color;
+}
+.rc-calendar-month-panel-header > a:hover {
+  color: #E60012;
+}
+.rc-calendar-month-panel-cell .rc-calendar-month-panel-month {
+  border-radius: 3px 3px;
+}
+.rc-calendar-month-panel-cell .rc-calendar-month-panel-month:hover {
+  background: #EBECF0;
+}
+.rc-calendar-month-panel-selected-cell .rc-calendar-month-panel-month {
+  background: @primary-color;
+}
+.rc-calendar-month-panel-selected-cell .rc-calendar-month-panel-month:hover {
+  background: @primary-color;
+}
+.rc-calendar-year-panel-header > a:hover {
+  color: #E60012;
+}
+.rc-calendar-year-panel-year {
+  border-radius: 3px 3px;
+}
+.rc-calendar-year-panel-year:hover {
+  background: #EBECF0;
+}
+.rc-calendar-year-panel-selected-cell .rc-calendar-year-panel-year {
+  background: @primary-color;
+}
+.rc-calendar-year-panel-selected-cell .rc-calendar-year-panel-year:hover {
+  background: @primary-color;
+}
+.rc-calendar-decade-panel-header > a:hover {
+  color: @primary-color;
+}
+.rc-calendar-decade-panel-decade {
+  border-radius: 3px 3px;
+}
+.rc-calendar-decade-panel-decade:hover {
+  background: #EBECF0;
+}
+.rc-calendar-decade-panel-selected-cell .rc-calendar-decade-panel-decade {
+  background: @primary-color;
+}
+.rc-calendar-decade-panel-selected-cell .rc-calendar-decade-panel-decade:hover {
+  background: @primary-color;
+}
+.rc-calendar-decade-panel-last-century-cell .rc-calendar-decade-panel-decade,
+.rc-calendar-decade-panel-next-century-cell .rc-calendar-decade-panel-decade {
+  color: #BDBDBD;
+}
+.rc-calendar-range .rc-calendar-in-range-cell {
+  background: #F7F7F7;
+}
+.rc-calendar-full-header-switcher-normal:hover {
+  border-color: @primary-color;
+  box-shadow: 0 0 2px @primary-color;
+}
+.rc-calendar-full-header-switcher-focus {
+  border-color: @primary-color;
+  background-color: @primary-color;
+}
+.week-calendar-footer-button {
+  color: @primary-color;
+}
+.week-calendar .rc-calendar-tbody > tr:hover .rc-calendar-selected-day .rc-calendar-date {
+  background: @primary-color;
+}
+.u-dropdown-menu {
+  border-radius: 3px;
+}
+.u-dropdown-menu-submenu-title:hover {
+  background: #EBECF0;
+}
+.u-dropdown-menu > .u-dropdown-menu-item:hover,
+.u-dropdown-menu > .u-dropdown-menu-item-active,
+.u-dropdown-menu > .u-dropdown-menu-item-selected {
+  background-color: #EBECF0;
+}
+.u-dropdown-menu > .u-dropdown-menu-item-selected {
+  color: @primary-color;
+  background-color: #F7F7F7;
+}
+.u-dropdown-menu > .u-dropdown-menu-item-selected:hover {
+  background-color: #F7F7F7;
+}
+.u-form-control {
+  color: #424242;
+  background-color: #fff;
+  border: 1px solid #A5ADBA;
+  border-radius: 3px;
+}
+.u-form-control:focus {
+  border-color: #424242;
+}
+.u-input-group .u-input-group-btn .u-button {
+  border: 1px solid #A5ADBA;
+}
+.u-input-group-addon {
+  border: 1px solid #A5ADBA;
+}
+.u-menu {
+  border-radius: 3px;
+}
+.u-menu-item-group-title {
+  color: #FFFFF1;
+}
+.u-menu-submenu-title:hover {
+  background-color: #EBECF0;
+}
+.u-menu-item-selected {
+  color: @primary-color;
+}
+.u-menu-item-selected > a,
+.u-menu-item-selected > a:hover {
+  color: @primary-color;
+}
+.u-menu:not(.u-menu-horizontal) .u-menu-item-selected {
+  background-color: #F7F7F7;
+}
+.u-menu-submenu-popup {
+  border-radius: 3px;
+}
+.u-menu-submenu > .u-menu {
+  border-radius: 3px;
+}
+.u-menu-vertical .u-menu-item:after,
+.u-menu-vertical-left .u-menu-item:after,
+.u-menu-vertical-right .u-menu-item:after,
+.u-menu-inline .u-menu-item:after {
+  border-right: 3px solid @primary-color;
+}
+.u-pagination > li > a,
+.u-pagination > li > span {
+  border-top: 1px solid #A5ADBA;
+  border-bottom: 1px solid #A5ADBA;
+  border-left: 1px solid #A5ADBA;
+}
+.u-pagination > li[role="next"] > a {
+  border-right: 1px solid #A5ADBA;
+}
+.u-pagination > li > a:hover,
+.u-pagination > li > span:hover,
+.u-pagination > li > a:focus,
+.u-pagination > li > span:focus {
+  border-color: #A5ADBA;
+}
+.u-progress {
+  border-radius: 3px;
+}
+.u-progress-bar {
+  background-color: @primary-color;
+}
+.u-radio-group .u-radio-button {
+  border-radius: 3px;
+  border-color: #A5ADBA;
+}
+.u-radio-group .u-radio-button:first-child {
+  border-radius: 3px 0 0 3px;
+}
+.u-radio-group .u-radio-button:last-child {
+  border-radius: 0 3px 3px 0;
+  border-right: 1px solid #A5ADBA;
+}
+.u-radio-group .u-radio-button.is-checked {
+  border-color: @primary-color;
+}
+.u-radio-group .u-radio-button:hover,
+.u-radio-group .u-radio-button.is-checked {
+  background: #EBECF0;
+}
+.u-radio-group .u-radio-button:focus,
+.u-radio-group .u-radio-button.focus,
+.u-radio-group .u-radio-button:active,
+.u-radio-group .u-radio-button.active,
+.u-radio-group .u-radio-button.is-checked {
+  border-color: @primary-color;
+  background: @primary-color;
+  color: #fff;
+}
+.u-radio input[type='radio']:focus + .u-radio-label:before {
+  border-color: @primary-color;
+}
+.u-radio.is-checked .u-radio-label:before {
+  -moz-box-shadow: inset 0 0 0 10px #FFFFF1;
+  -webkit-box-shadow: inset 0 0 0 10px #FFFFF1;
+  box-shadow: inset 0 0 0 10px #FFFFF1;
+  border-color: #A5ADBA;
+}
+.u-radio.is-checked .u-radio-label:after {
+  background: @primary-color;
+}
+.u-radio.is-checked.u-radio-inverse .u-radio-label:before {
+  -moz-box-shadow: inset 0 0 0 10px @primary-color;
+  -webkit-box-shadow: inset 0 0 0 10px @primary-color;
+  box-shadow: inset 0 0 0 10px @primary-color;
+  border-color: @primary-color;
+}
+.u-radio.is-checked.u-radio-inverse .u-radio-label:after {
+  background: #FFFFF1;
+}
+.u-radio .u-radio-label:before {
+  border: 2px solid #A5ADBA;
+}
+.u-rate-star {
+  color: #EEEEEE;
+}
+.u-rate-star-full i {
+  color: @primary-color;
+}
+.u-rate-star-full:hover .u-rate-star-second {
+  color: @primary-color;
+}
+.u-switch {
+  border-radius: 20px;
+  border: 1px solid #E0E0E0;
+  background-color: #E0E0E0;
+}
+.u-switch-backdrop {
+  border-radius: 20px;
+}
+.u-switch:after {
+  border-radius: 18px;
+}
+.u-switch.is-checked {
+  border-color: @primary-color;
+  background-color: @primary-color;
+}
+.u-switch.u-switch-disabled.is-checked {
+  border-color: @primary-color;
+  background-color: @primary-color;
+}
+.u-switch-primary.is-checked {
+  background: @primary-color;
+  border: 1px solid @primary-color;
+}
+.u-tabs .u-tabs-tab-active,
+.u-tabs .u-tabs-tab-active:hover {
+  color: @primary-color;
+}
+.u-tabs .u-tabs-tab:hover {
+  color: @primary-color;
+}
+.u-tabs .u-tabs-ink-bar {
+  background-color: @primary-color;
+}
+.u-timeline-item-head-info {
+  border-color: @primary-color;
+  color: @primary-color;
+}
+.u-timeline-item-head-primary {
+  border-color: @primary-color;
+  color: @primary-color;
+}
+.u-time-picker .u-time-picker-input {
+  border: 1px solid #A5ADBA;
+  border-radius: 3px;
+}
+.u-time-picker-panel .u-time-picker-panel-inner {
+  border-radius: 3px;
+}
+.u-time-picker-panel .u-time-picker-panel-select li:hover {
+  background: #EBECF0;
+}
+.u-time-picker-panel li.u-time-picker-panel-select-option-selected {
+  background: #F7F7F7;
+  color: @primary-color;
+}
+.u-tree li a.u-tree-node-selected {
+  background-color: #F7F7F7;
+}
+.u-tree li a.u-tree-node-selected .u-tree-title {
+  color: @primary-color;
+}
+.u-tree li a:hover {
+  background-color: #EBECF0;
+}
+.u-tree .u-tree-checkbox-checked .u-tree-checkbox-inner:after,
+.u-tree .u-tree-checkbox-inner:after {
+  border: 2px solid @primary-color;
+  border-top: 0;
+  border-left: 0;
+}
+
