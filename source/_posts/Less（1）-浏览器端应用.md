@@ -150,7 +150,7 @@ window.less.modifyVars(
  3. Due to the same origin policy of browsers loading external resources requires enabling CORS.同源策略，小心跨域问题
 
 ### 3.4  参数解析
-#### 3.4.1 async
+#### 3.4.1 async(重点)
 ```
 Type: Boolean
 Default: false
@@ -159,7 +159,7 @@ Whether to request the import files with the async option or not. See fileAsync.
 是否异步加载重要文件
 
 
-#### 3.4.3 env
+#### 3.4.3 env(重点)
 ```
 Type: String Default: depends on page URL
 
@@ -172,7 +172,7 @@ less = { env: 'production' };
 
 
 
-#### 3.4.9 globalVars
+#### 3.4.9 globalVars(重点)
 ```
 Type: Object
 
@@ -188,7 +188,7 @@ less.globalVars = { myvar: "#ddffee", mystr: "\"quoted\"" };
 
 This option defines a variable that can be referenced by the file. Effectively the declaration is put at the top of your base Less file, meaning it can be used but it also can be overridden if this variable is defined in the file.(翻译：这个选项定义了一个可以被文件引用的变量。这个变量也可以在文件中重新定义。)
 
-#### 3.4.10 modifyVars
+#### 3.4.10 modifyVars(重点)
 ```
 Type: Object
 
@@ -257,7 +257,7 @@ less = {
 }
 
 ```
-####3.4.7 logLevel
+#### 3.4.7 logLevel
 Type: Number
 
 Default: 2
@@ -303,6 +303,11 @@ Default: 1000
 是否要使用每个会话文件缓存。缓存文件可以使用modifyVars，并且它不会再次检索所有文件。如果您使用观察模式或调用刷新加载设置为true,那么运行之前缓存将被清除。
 
 
+## 4 参考文档
+
+[浏览器端Less - 夕阳白雪 - 博客园](https://www.cnblogs.com/xiyangbaixue/p/4128075.html)
+
+[CSS系列——前端进阶之路：初涉Less](https://www.cnblogs.com/landeanfen/p/6047031.html#_label0)
 
   [1]: http://lesscss.cn/
   [2]: http://lesscss.cn/usage/#using-less-in-the-browser
