@@ -17,7 +17,10 @@ tags: IE
 
 
 ## 2 ie9下css加载不全
-[ie9css加载不全](/2018/12/25/IE9-CSS的限制/)
+
+ - [ie9css加载不全](/2018/12/25/IE9-CSS的限制/)
+ - [ie9css加载不全2](/2018/12/25/IE9-CSS的限制2/)
+
 
 ## 3 ie判断汇总
 
@@ -44,14 +47,14 @@ tags: IE
 
 ### 3.3 其他
 
-IE9不支持formdata
-IE9不支持文件File接口
-IE9不支持application/json格式
-IE9不支持通过e.target.value获取dom组件的value值（input、select等）
-IE9不支持250kcss
-IE9不支持很多css3，如animation
-IE9不支持h5 Input控件（select等）
-IE9react下不支持BrowerRouter、支持HashRouter
+- IE9不支持formdata
+- IE9不支持文件File接口
+- IE9不支持application/json格式
+- IE9不支持通过e.target.value获取dom组件的value值（input、select等）
+- IE9不支持250kcss
+- IE9不支持很多css3，如animation
+- IE9不支持h5 Input控件（select等）
+- IE9react下不支持BrowerRouter、支持HashRouter
 
 
 ### 3.3 window.location.origin
