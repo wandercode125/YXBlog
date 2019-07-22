@@ -1,5 +1,5 @@
 ---
-title: "git新操作备注"
+title: "git新操作备注(1)"
 tags: 
 	- "git"
 date: 2018-10-22 19:30:09
@@ -74,8 +74,13 @@ git push origin master
 解答上面的问题很简单，请在你的工程中输入
 
 
-```
->     git remote
+``` javascript
+git remote
+
+// 或者
+//查看详情
+git remote -v
+
 ```
 
 
@@ -165,7 +170,23 @@ yaoxindeMacBook-Pro:cloud-os_manager_fe yaoxin$ git branch
 
 
 ```
-git branch |grep ‘yx201812‘ |xargs git branch -d
+git branch |grep 'yx201812' |xargs git branch -d
 ```
 
+
+### 4 git查看镜像源
+
+有时候`npm install`的下载sudu太慢会使用国内淘宝镜像源，有时候还需要切回npm的官方镜像源，那么如何查看呢。
+
+```javascript
+ //查看镜像使用状态：
+ npm get registry
+
+ //全局切换镜像： 
+ npm config set registry http://registry.npm.taobao.org/
+
+ //全局切换回官方源  
+ npm config set registry http://www.npmjs.org
+
+```
  
