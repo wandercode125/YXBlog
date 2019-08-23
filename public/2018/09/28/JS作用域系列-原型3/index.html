@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端匍匐前进">
+    <meta name="keyword"  content="前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        JS作用域系列—原型3 - ......
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> less code more art. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>......</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-函数对象"><span class="toc-text">1 函数对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1内置的函数对象"><span class="toc-text">1.1内置的函数对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-自定义的函数对象"><span class="toc-text">1.2 自定义的函数对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-原型对象类型"><span class="toc-text">1.3 原型对象类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-prototype和proto"><span class="toc-text">2 prototype和proto</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Object-prototype"><span class="toc-text">2.1 Object.prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Array-prototype"><span class="toc-text">2.2 Array.prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-原型对象赋值方式"><span class="toc-text">2.3 原型对象赋值方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-继承"><span class="toc-text">4 继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-解惑"><span class="toc-text">5 解惑</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> less code more art. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        JS作用域系列—原型3
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-09-28 15:56:59</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JS" title="JS">JS</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>前两篇的总结</p>
+<a id="more"></a>
+<h2 id="1-函数对象"><a href="#1-函数对象" class="headerlink" title="1 函数对象"></a>1 函数对象</h2><p>理解：本文的构造器指的是函数对象</p>
+<h3 id="1-1内置的函数对象"><a href="#1-1内置的函数对象" class="headerlink" title="1.1内置的函数对象"></a>1.1内置的函数对象</h3><p>所有<strong>函数对象</strong>的<em>proto</em>都指向Function.prototype，它是一个空函数（Empty function）</p>
+<p>这句话有条件限制，先去找构造函数的原型对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.__proto__ === <span class="built_in">Function</span>.prototype  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Number</span>.constructor == <span class="built_in">Function</span> <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Boolean</span>.__proto__ === <span class="built_in">Function</span>.prototype <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>.constructor == <span class="built_in">Function</span> <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>.__proto__ === <span class="built_in">Function</span>.prototype  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">String</span>.constructor == <span class="built_in">Function</span> <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 所有的构造器都来自于Function.prototype，甚至包括根构造器Object及Function自身</span></span><br><span class="line"><span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.constructor == <span class="built_in">Function</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 所有的构造器都来自于Function.prototype，甚至包括根构造器Object及Function自身</span></span><br><span class="line"><span class="built_in">Function</span>.__proto__ === <span class="built_in">Function</span>.prototype <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Function</span>.constructor == <span class="built_in">Function</span> <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.__proto__ === <span class="built_in">Function</span>.prototype   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Array</span>.constructor == <span class="built_in">Function</span> <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">RegExp</span>.__proto__ === <span class="built_in">Function</span>.prototype  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">RegExp</span>.constructor == <span class="built_in">Function</span> <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Error</span>.__proto__ === <span class="built_in">Function</span>.prototype   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Error</span>.constructor == <span class="built_in">Function</span> <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Date</span>.__proto__ === <span class="built_in">Function</span>.prototype    <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Date</span>.constructor == <span class="built_in">Function</span> <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>JavaScript中有内置(build-in)构造器/对象共计12个（ES5中新加了JSON），这里列举了可访问的8个构造器。</p>
+<p>剩下如Global不能直接访问，Arguments仅在函数调用时由JS引擎创建。</p>
+<p>Math，JSON是以对象形式存在的，无需new。它们的proto是Object.prototype。如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.__proto__ === <span class="built_in">Object</span>.prototype  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Math</span>.construrctor == <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.__proto__ === <span class="built_in">Object</span>.prototype  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">JSON</span>.construrctor == <span class="built_in">Object</span> <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-自定义的函数对象"><a href="#1-2-自定义的函数对象" class="headerlink" title="1.2 自定义的函数对象"></a>1.2 自定义的函数对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 函数表达式</span></span><br><span class="line"><span class="keyword">var</span> Perosn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(Person.__proto__ === <span class="built_in">Function</span>.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Man.__proto__ === <span class="built_in">Function</span>.prototype)    <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p><strong>所有的构造器（函数对象）都来自于 Function.prototype，甚至包括根构造器Object及Function自身。所有构造器都继承了==Function.prototype==的属性及方法。如length、call、apply、bind</strong></p>
+<h3 id="1-3-原型对象类型"><a href="#1-3-原型对象类型" class="headerlink" title="1.3 原型对象类型"></a>1.3 原型对象类型</h3><p>Function.prototype也是唯一一个typeof XXX.prototype为 function的prototype。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>.prototype) <span class="comment">// function</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Object</span>.prototype)   <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Number</span>.prototype)   <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Boolean</span>.prototype)  <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">String</span>.prototype)   <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Array</span>.prototype)    <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">RegExp</span>.prototype)   <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Error</span>.prototype)    <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Date</span>.prototype)     <span class="comment">// object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Object</span>.prototype)   <span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+<p>知道了所有构造器（含内置及自定义）的<strong>proto</strong>都是Function.prototype，那Function.prototype的<strong>proto</strong>是谁呢？</p>
+<p>相信都听说过JavaScript中函数也是一等公民，那从哪能体现呢？如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>这说明所有的构造器的原型对象也都是一个普通对象，可以给构造器添加/删除属性等。同时它也继承了Object.prototype上的所有方法：toString、valueOf、hasOwnProperty等。</p>
+<p>最后Object.prototype的proto是谁？</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Object.prototype.__proto__</span> <span class="string">===</span> <span class="literal">null</span> <span class="string">//</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-prototype和proto"><a href="#2-prototype和proto" class="headerlink" title="2 prototype和proto"></a>2 prototype和<em>proto</em></h2><h3 id="2-1-Object-prototype"><a href="#2-1-Object-prototype" class="headerlink" title="2.1 Object.prototype"></a>2.1 Object.prototype</h3><blockquote>
+<p>在 ECMAScript 核心所定义的全部属性中，最耐人寻味的就要数 prototype 属性了。对于 ECMAScript 中的引用类型而言，prototype 是保存着它们<strong>所有实例方法的真正所</strong>在。换句话所说，诸如 toString()和 valuseOf() 等方法实际上都保存在 prototype 名下，只不过是通过各自对象的实例访问罢了。</p>
+</blockquote>
+<p>我们知道 JS 内置了一些方法供我们使用，比如：</p>
+<blockquote>
+<ul>
+<li>对象可以用 constructor/toString()/valueOf() 等方法;</li>
+<li>数组可以用 map()/filter()/reducer() 等方法；</li>
+<li>数字可用用 parseInt()/parseFloat()等方法；</li>
+</ul>
+</blockquote>
+<p>Why ？？？</p>
+<p>当我们创建一个函数时：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Person = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br></pre></td></tr></table></figure>
+<p>Person 是 Object 的实例，所以 Person 继承了Object 的原型对象Object.prototype上所有的方法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Object</span><span class="selector-class">.prototype</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="attribute">constructor</span>: ƒ <span class="built_in">Object</span>()</span><br><span class="line">hasOwnProperty: ƒ <span class="built_in">hasOwnProperty</span>()</span><br><span class="line">isPrototypeOf: ƒ <span class="built_in">isPrototypeOf</span>()</span><br><span class="line">propertyIsEnumerable: ƒ <span class="built_in">propertyIsEnumerable</span>()</span><br><span class="line">toLocaleString: ƒ <span class="built_in">toLocaleString</span>()</span><br><span class="line">toString: ƒ <span class="built_in">toString</span>()</span><br><span class="line">valueOf: ƒ <span class="built_in">valueOf</span>()</span><br><span class="line">__defineGetter__: ƒ <span class="built_in">__defineGetter__</span>()</span><br><span class="line">__defineSetter__: ƒ <span class="built_in">__defineSetter__</span>()</span><br><span class="line">__lookupGetter__: ƒ <span class="built_in">__lookupGetter__</span>()</span><br><span class="line">__lookupSetter__: ƒ <span class="built_in">__lookupSetter__</span>()</span><br><span class="line">get __proto__: ƒ <span class="built_in">__proto__</span>()</span><br><span class="line">set __proto__: ƒ <span class="built_in">__proto__</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Object 的每个实例都具有以上的属性和方法。</strong><br>所以我可以用<br><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person.<span class="built_in">constructor</span></span><br></pre></td></tr></table></figure></p>
+<p> 也可以用<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Person</span><span class="selector-class">.hasOwnProperty</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-Array-prototype"><a href="#2-2-Array-prototype" class="headerlink" title="2.2 Array.prototype"></a>2.2 Array.prototype</h3><p>当我们创建一个数组时：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">num</span> = <span class="keyword">new</span> Array()</span><br></pre></td></tr></table></figure>
+<p>num 是 Array 的实例，所以 num 继承了Array 的原型对象Array.prototype上所有的方法：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[</span></span><br><span class="line"><span class="attr">    concat:</span> <span class="string">ƒ</span> <span class="string">concat()</span></span><br><span class="line"><span class="attr">    constructor:</span> <span class="string">ƒ</span> <span class="string">Array()</span></span><br><span class="line"><span class="attr">    copyWithin:</span> <span class="string">ƒ</span> <span class="string">copyWithin()</span></span><br><span class="line"><span class="attr">    entries:</span> <span class="string">ƒ</span> <span class="string">entries()</span></span><br><span class="line"><span class="attr">    every:</span> <span class="string">ƒ</span> <span class="string">every()</span></span><br><span class="line"><span class="attr">    fill:</span> <span class="string">ƒ</span> <span class="string">fill()</span></span><br><span class="line"><span class="attr">    filter:</span> <span class="string">ƒ</span> <span class="string">filter()</span></span><br><span class="line"><span class="attr">    find:</span> <span class="string">ƒ</span> <span class="string">find()</span></span><br><span class="line"><span class="attr">    findIndex:</span> <span class="string">ƒ</span> <span class="string">findIndex()</span></span><br><span class="line"><span class="attr">    flat:</span> <span class="string">ƒ</span> <span class="string">flat()</span></span><br><span class="line"><span class="attr">    flatMap:</span> <span class="string">ƒ</span> <span class="string">flatMap()</span></span><br><span class="line"><span class="attr">    forEach:</span> <span class="string">ƒ</span> <span class="string">forEach()</span></span><br><span class="line"><span class="attr">    includes:</span> <span class="string">ƒ</span> <span class="string">includes()</span></span><br><span class="line"><span class="attr">    indexOf:</span> <span class="string">ƒ</span> <span class="string">indexOf()</span></span><br><span class="line"><span class="attr">    join:</span> <span class="string">ƒ</span> <span class="string">join()</span></span><br><span class="line"><span class="attr">    keys:</span> <span class="string">ƒ</span> <span class="string">keys()</span></span><br><span class="line"><span class="attr">    lastIndexOf:</span> <span class="string">ƒ</span> <span class="string">lastIndexOf()</span></span><br><span class="line"><span class="attr">    length:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">    map:</span> <span class="string">ƒ</span> <span class="string">map()</span></span><br><span class="line"><span class="attr">    pop:</span> <span class="string">ƒ</span> <span class="string">pop()</span></span><br><span class="line"><span class="attr">    push:</span> <span class="string">ƒ</span> <span class="string">push()</span></span><br><span class="line"><span class="attr">    reduce:</span> <span class="string">ƒ</span> <span class="string">reduce()</span></span><br><span class="line"><span class="attr">    reduceRight:</span> <span class="string">ƒ</span> <span class="string">reduceRight()</span></span><br><span class="line"><span class="attr">    reverse:</span> <span class="string">ƒ</span> <span class="string">reverse()</span></span><br><span class="line"><span class="attr">    shift:</span> <span class="string">ƒ</span> <span class="string">shift()</span></span><br><span class="line"><span class="attr">    slice:</span> <span class="string">ƒ</span> <span class="string">slice()</span></span><br><span class="line"><span class="attr">    some:</span> <span class="string">ƒ</span> <span class="string">some()</span></span><br><span class="line"><span class="attr">    sort:</span> <span class="string">ƒ</span> <span class="string">sort()</span></span><br><span class="line"><span class="attr">    splice:</span> <span class="string">ƒ</span> <span class="string">splice()</span></span><br><span class="line"><span class="attr">    toLocaleString:</span> <span class="string">ƒ</span> <span class="string">toLocaleString()</span></span><br><span class="line"><span class="attr">    toString:</span> <span class="string">ƒ</span> <span class="string">toString()</span></span><br><span class="line"><span class="attr">    unshift:</span> <span class="string">ƒ</span> <span class="string">unshift()</span></span><br><span class="line"><span class="attr">    values:</span> <span class="string">ƒ</span> <span class="string">values()</span></span><br><span class="line">    <span class="string">Symbol(Symbol.iterator):</span> <span class="string">ƒ</span> <span class="string">values()</span></span><br><span class="line">    <span class="string">Symbol(Symbol.unscopables):</span> <span class="string">&#123;copyWithin:</span> <span class="literal">true</span><span class="string">,</span> <span class="attr">entries:</span> <span class="literal">true</span><span class="string">,</span> <span class="attr">fill:</span> <span class="literal">true</span><span class="string">,</span> <span class="attr">find:</span> <span class="literal">true</span><span class="string">,</span> <span class="attr">findIndex:</span> <span class="literal">true</span><span class="string">,</span> <span class="string">…&#125;</span></span><br><span class="line"><span class="attr">    __proto__:</span> <span class="string">Object</span></span><br><span class="line"><span class="string">]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num<span class="selector-class">.hasOwnProperty</span> <span class="comment">// ƒ hasOwnProperty() &#123; [native code] &#125;</span></span><br></pre></td></tr></table></figure>
+<p>当你用num.hasOwnPrototype()时，JS 会先查一下它的构造函数 （Array） 的原型对象 Array.prototype 有没有有hasOwnPrototype()方法，没查到的话继续查一下 Array.prototype 的原型对象 Array.prototype.<strong>proto</strong>有没有这个方法。</p>
+<h3 id="2-3-原型对象赋值方式"><a href="#2-3-原型对象赋值方式" class="headerlink" title="2.3 原型对象赋值方式"></a>2.3 原型对象赋值方式</h3><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">所有对象的 __proto__ 都指向其构造器的 proto<span class="keyword">type</span></span><br><span class="line"></span><br><span class="line">所有函数对象的 __proto__ 都指向 <span class="type">Function</span>.proto<span class="keyword">type</span>，它是一个空函数（<span class="type">Empty</span> function）</span><br></pre></td></tr></table></figure>
+<p>先看看 JS 内置构造器：<br><figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attribute">name</span>: <span class="string">'jack'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/hello/g</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">date</span> = <span class="keyword">new</span> <span class="built_in">Date</span></span><br><span class="line"><span class="keyword">var</span> err = <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'exception'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(obj.__proto__ === <span class="built_in">Object</span>.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.__proto__ === <span class="built_in">Array</span>.prototype)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.__proto__ === <span class="built_in">RegExp</span>.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">date</span>.__proto__ === <span class="built_in">Date</span>.prototype)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(err.__proto__ === <span class="built_in">Error</span>.prototype)  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<p>再看看自定义的构造器，这里定义了一个 Person：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person(<span class="string">'jack'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(p.__proto__ === Person.prototype) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>每个对象都有一个 constructor 属性，可以获取它的构造器，因此以下打印结果也是恒等的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person(<span class="string">'jack'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(p.__proto__ === p.constructor.prototype) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面的Person没有给其原型添加属性或方法，这里给其原型添加一个getName方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 修改原型</span></span><br><span class="line">Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person(<span class="string">'jack'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(p.__proto__ === Person.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(p.__proto__ === p.constructor.prototype) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(p.constructor) <span class="comment">// ƒ Person(name) &#123; this.name = name&#125;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到p.<strong>proto</strong>与Person.prototype，p.constructor.prototype都是恒等的，即都指向同一个对象。</p>
+<p>如果换一种方式设置原型，结果就有些不同了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 重写原型</span></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person(<span class="string">'jack'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(p.__proto__ === Person.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(p.__proto__ === p.constructor.prototype) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(p.constructor) <span class="comment">//ƒ Object() &#123; [native code] &#125;</span></span><br></pre></td></tr></table></figure>
+<p>这里直接重写了 Person.prototype（注意：上一个示例是修改原型）。输出结果可以看出p.<strong>proto</strong>仍然指向的是Person.prototype，而不是p.constructor.prototype。</p>
+<p>这也很好理解，给Person.prototype赋值的是一个对象直接量{getName: function(){}}，使用对象直接量方式定义的对象其构造器（constructor）指向的是根构造器Object，Object.prototype是一个空对象{}，{}自然与{getName: function(){}}不等。如下：</p>
+<p>上面的的最后一句暴露了</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Person</span>.proto<span class="keyword">type</span> !== <span class="type">Object</span>.prototype</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype) <span class="comment">// 为一个空的对象&#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(p.constructor === <span class="built_in">Object</span>) <span class="comment">// 对象直接量方式定义的对象其constructor为Object</span></span><br><span class="line"><span class="built_in">console</span>.log(p.constructor.prototype === <span class="built_in">Object</span>.prototype) <span class="comment">// 为true，不解释(๑ˇ3ˇ๑)</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-继承"><a href="#4-继承" class="headerlink" title="4 继承"></a>4 继承</h2><ul>
+<li>原型和原型链是JS实现继承的一种模型。</li>
+<li>原型链的形成是真正是靠<strong>proto</strong> 而非prototype</li>
+</ul>
+<p>要深入理解这句话，我们再举个例子，看看前面你真的理解了吗？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> animal = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"> <span class="keyword">var</span> dog = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"> animal.price = <span class="number">2000</span>;</span><br><span class="line"> dog.prototype = animal;</span><br><span class="line"> <span class="keyword">var</span> tidy = <span class="keyword">new</span> dog();</span><br><span class="line"> <span class="built_in">console</span>.log(dog.price) <span class="comment">//undefined</span></span><br><span class="line"> <span class="built_in">console</span>.log(tidy.price) <span class="comment">// 2000</span></span><br></pre></td></tr></table></figure>
+<p>这里解释一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dog = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"> dog.prototype.price = <span class="number">2000</span>;</span><br><span class="line"> <span class="keyword">var</span> tidy = <span class="keyword">new</span> dog();</span><br><span class="line"> <span class="built_in">console</span>.log(tidy.price); <span class="comment">// 2000</span></span><br><span class="line"> <span class="built_in">console</span>.log(dog.price); <span class="comment">//undefined</span></span><br><span class="line"> <span class="keyword">var</span> dog = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"> <span class="keyword">var</span> tidy = <span class="keyword">new</span> dog();</span><br><span class="line"> tidy.price = <span class="number">2000</span>;</span><br><span class="line"> <span class="built_in">console</span>.log(dog.price); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<p>这个明白吧？想一想我们上面说过这句话：</p>
+<blockquote>
+<p>实例（tidy）和 原型对象（dog.prototype）存在一个连接。不过，要明确的真正重要的一点就是，这个连接存在于实例（tidy）与构造函数的原型对象（dog.prototype）之间，而不是存在于实例（tidy）与构造函数（dog）之间。</p>
+</blockquote>
+<h2 id="5-解惑"><a href="#5-解惑" class="headerlink" title="5 解惑"></a>5 解惑</h2><p>主要是Function和Object<br>疑点解惑：</p>
+<ul>
+<li><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Object 是函数对象，是通过new Function()创建的，所以Object.<strong>proto</strong>指向Function.prototype。「所有函数对象的<strong>proto</strong>都指向Function.prototype」）</p>
+<ul>
+<li><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">Function</span>.<span class="title">__proto__</span></span> === <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span> // true</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Function 也是对象函数，也是通过new Function()创建，所以Function.<strong>proto</strong>指向Function.prototype。</p>
+<p>自己是由自己创建的。</p>
+<ul>
+<li><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>JS一直强调万物皆对象，函数对象也是对象，给他认个祖宗，指向Object.prototype。Object.prototype.<strong>proto</strong> === null，保证原型链能够正常结束。</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

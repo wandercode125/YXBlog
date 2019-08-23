@@ -1,0 +1,109 @@
+---
+title: 前端模块化-总结Commonjs和AMD和CMD
+date: 2019-08-19 11:04:21
+tags:
+---
+
+主要代码粘贴，说那么多语法不如直接看使用
+
+
+
+## 1 Commonjs
+
+
+```javascript
+// 定义模块math.js
+var basicNum = 0;
+function add(a, b) {
+  return a + b;
+}
+module.exports = { //在这里写上需要向外暴露的函数、变量
+  add: add,
+  basicNum: basicNum
+}
+
+// 引用自定义的模块时，参数包含路径，可省略.js
+var math = require('./math');
+math.add(2, 5);
+
+// 引用核心模块时，不需要带路径
+var http = require('http');
+http.createService(...).listen(3000);
+
+
+```
+
+
+## 2 AMD 和requirejs 
+
+
+
+```javascript
+
+/** 网页中引入require.js及main.js **/
+<script src="js/require.js" data-main="js/main"></script>
+
+/** main.js 入口文件/主模块 **/
+// 首先用config()指定各模块路径和引用名
+require.config({
+  baseUrl: "js/lib",
+  paths: {
+    "jquery": "jquery.min",  //实际路径为js/lib/jquery.min.js
+    "underscore": "underscore.min",
+  }
+});
+// 执行基本操作
+require(["jquery","underscore"],function($,_){
+  // some code here
+});
+
+
+
+```
+
+
+
+## 3 CMD和seajs
+
+
+```javascript 
+
+/** AMD写法 **/
+define(["a", "b", "c", "d", "e", "f"], function(a, b, c, d, e, f) { 
+     // 等于在最前面声明并初始化了要用到的所有模块
+    a.doSomething();
+    if (false) {
+        // 即便没用到某个模块 b，但 b 还是提前执行了
+        b.doSomething()
+    } 
+});
+
+/** CMD写法 **/
+define(function(require, exports, module) {
+    var a = require('./a'); //在需要时申明
+    a.doSomething();
+    if (false) {
+        var b = require('./b');
+        b.doSomething();
+    }
+});
+
+/** sea.js **/
+// 定义模块 math.js
+define(function(require, exports, module) {
+    var $ = require('jquery.js');
+    var add = function(a,b){
+        return a+b;
+    }
+    exports.add = add;
+});
+// 加载模块
+seajs.use(['math.js'], function(math){
+    var sum = math.add(1+2);
+});
+复制代码
+
+
+```
+
+

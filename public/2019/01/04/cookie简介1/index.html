@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端匍匐前进">
+    <meta name="keyword"  content="前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        cookie简介1 - ......
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> less code more art. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>......</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-前言"><span class="toc-text">1.前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-cookie-存在哪里？"><span class="toc-text">2. cookie 存在哪里？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-cookie分为多少种？"><span class="toc-text">3.cookie分为多少种？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Cookie的工作原理是什么？"><span class="toc-text">4.Cookie的工作原理是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Cookie包含哪些字段？"><span class="toc-text">5. Cookie包含哪些字段？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-查看cookie"><span class="toc-text">5.1 查看cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-cookie字段解析"><span class="toc-text">5.2 cookie字段解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-cookie设置过期时间"><span class="toc-text">5.3 cookie设置过期时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-cookie的其他操作"><span class="toc-text">5.4 cookie的其他操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-1-前端操作cookie"><span class="toc-text">5.4.1 前端操作cookie</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-2-后端服务器操作"><span class="toc-text">5.4.2 后端服务器操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇见的状况"><span class="toc-text">遇见的状况</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> less code more art. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        cookie简介1
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-01-04 14:41:49</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#http cookie" title="http cookie">http cookie</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>了解一下cookie<br><a id="more"></a></p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>首先了解一下什么是cookie?</p>
+<p><strong>cookie是一种WEB服务器通过浏览器在访问者的硬盘上存储信息的手段</strong>。IE浏览器把Cookie信息保存在类似于C://windows//cookies的目录下。</p>
+<p>当用户再次访问某个站点时,服务端将要求浏览器查找并返回先前发送的Cookie信息,来识别这个用户。</p>
+<p>cookies给网站和用户带来的好处非常多:</p>
+<ul>
+<li><p>1、Cookie能使站点跟踪特定访问者的访问次数、最后访问时间和访问者进入站点的路径</p>
+</li>
+<li><p>2、Cookie能告诉在线广告商广告被点击的次数,从而可以更精确的投放广告</p>
+</li>
+<li><p>3、Cookie有效期限未到时,Cookie能使用户在不键入密码和用户名的情况下进入曾经浏览过的一些站点</p>
+</li>
+<li><p>4、Cookie能帮助站点统计用户个人资料以实现各种各样的个性化服务</p>
+</li>
+</ul>
+<h2 id="2-cookie-存在哪里？"><a href="#2-cookie-存在哪里？" class="headerlink" title="2. cookie 存在哪里？"></a>2. cookie 存在哪里？</h2><blockquote>
+<p><strong>cookie是一种WEB服务器通过浏览器在访问者的硬盘上存储信息的手段</strong></p>
+</blockquote>
+<p>一般存在浏览器目录中的文本文件中</p>
+<h2 id="3-cookie分为多少种？"><a href="#3-cookie分为多少种？" class="headerlink" title="3.cookie分为多少种？"></a>3.cookie分为多少种？</h2><ul>
+<li><p>1.带失效时间expires的，在下次访问之前，如果失效时间到期，会自动清除对应cookie，expires和maxAge的概念差不多，通常两个时间都是一样的，一个是时间，一个时间长度，前者是HTTP/1.0 protocol，后者是HTTP/1.1 protocol，为了向下兼容而已，所以，最好是两个参数都设置</p>
+</li>
+<li><p>2.跟随session结束就自动清除的，这种cookie很常见。通常你会在console看到它的expires时间是1969年的或者所边当前时间还要早的时间或者session，这种cookies会在会话结束的同时清除掉</p>
+</li>
+</ul>
+<h2 id="4-Cookie的工作原理是什么？"><a href="#4-Cookie的工作原理是什么？" class="headerlink" title="4.Cookie的工作原理是什么？"></a>4.Cookie的工作原理是什么？</h2><p>前面我们说了Cookie一般存在浏览器目录中的文本文件中，并且会根据domain分开存放，比如，当你输入jianshu.com的时候，浏览器会向jianshu发送一个request，然后server根据request来返回response，把结果在显示器中显示，当你发送这个request的时候，浏览器会寻找当前浏览器目录中是否存在jianshu.com的相关cookie，如果有，浏览器会把Cookie文件中的数据放在request header中一起向server发送，服务器收到Cookie数据，服务器会根据你的cookie信息做一些相应的处理，比如第一次访问的话，会为你创建一个新的session id，否者来检测你是否需重新登录等等操作。</p>
+<h2 id="5-Cookie包含哪些字段？"><a href="#5-Cookie包含哪些字段？" class="headerlink" title="5. Cookie包含哪些字段？"></a>5. Cookie包含哪些字段？</h2><h3 id="5-1-查看cookie"><a href="#5-1-查看cookie" class="headerlink" title="5.1 查看cookie"></a>5.1 查看cookie</h3><p>比如在chrome下打开jianshu.com，F12 -&gt; Application -&gt; Cookies -&gt; <a href="https://www.jianshu.com" target="_blank" rel="noopener">https://www.jianshu.com</a></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5342565-24141bac572d3c5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="chrome下cookie查看"></p>
+<blockquote>
+<p>一个域名下面可能存在着很多个cookie对象。</p>
+</blockquote>
+<blockquote>
+<p><strong>也可以在Console里边输入document.cookies，但是只显示非HTTP的cookie name和value，没有其他信息</strong></p>
+</blockquote>
+<h3 id="5-2-cookie字段解析"><a href="#5-2-cookie字段解析" class="headerlink" title="5.2 cookie字段解析"></a>5.2 cookie字段解析</h3><p><strong>name</strong>字段为一个cookie的名称。</p>
+<p><strong>value</strong>字段为一个cookie的值。</p>
+<p><strong>domain</strong>字段为可以访问此cookie的域名。</p>
+<blockquote>
+<p>1、<del>非顶级域名，如二级域名或者三级域名，设置的cookie的domain只能为顶级域名或者二级域名或者三级域名本身，不能设置其他二级域名的cookie，否则cookie无法生成。</del></p>
+</blockquote>
+<blockquote>
+<p>2、顶级域名只能设置domain为顶级域名，不能设置为二级域名或者三级域名，否则cookie无法生成。</p>
+</blockquote>
+<blockquote>
+<p>3、二级域名能读取设置了domain为顶级域名或者自身的cookie，不能读取其他二级域名domain的cookie。</p>
+<p>所以要想cookie在多个二级域名中共享，需要设置domain为顶级域名，这样就可以在所有二级域名里面或者到这个cookie的值了。</p>
+</blockquote>
+<blockquote>
+<p>4、顶级域名只能获取到domain设置为顶级域名的cookie，其他domain设置为二级域名的无法获取。</p>
+</blockquote>
+<p>   <strong>path</strong>字段为可以访问此cookie的页面路径。 比如domain是abc.com,path是/test，那么只有/test路径下的页面可以读取此cookie。</p>
+<blockquote>
+<p>domain+path =可以读取此cookie的url</p>
+</blockquote>
+<p><strong>expires/Max-Age</strong>字段为此cookie超时时间。<br>若设置其值为一个时间，那么当到达此时间后，此cookie失效。<strong>不设置的话默认值是Session，意思是cookie会和session一起失效</strong>。当浏览器关闭(不是浏览器标签页，而是整个浏览器) 后，此cookie失效。</p>
+<p><strong>Size</strong>字段为此cookie大小。</p>
+<p><strong>http</strong>字段为cookie的httponly属性。若此属性为true，则只有在http请求头中会带有此cookie的信息，而不能通过document.cookie来访问此cookie。</p>
+<p><strong>secure</strong>字段为设置是否只能通过https来传递此条cookie</p>
+<h3 id="5-3-cookie设置过期时间"><a href="#5-3-cookie设置过期时间" class="headerlink" title="5.3 cookie设置过期时间"></a>5.3 cookie设置过期时间</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cookie.setMaxAge(<span class="number">0</span>);<span class="comment">//不记录cookie</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cookie.setMaxAge(<span class="number">-1</span>);<span class="comment">//会话级cookie,关闭浏览器失效</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cookie.setMaxAge(<span class="number">60</span>*<span class="number">60</span>);<span class="comment">//过期时间为1小时</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-4-cookie的其他操作"><a href="#5-4-cookie的其他操作" class="headerlink" title="5.4 cookie的其他操作"></a>5.4 cookie的其他操作</h3><p> 主要是两种方式</p>
+<ul>
+<li>前端操作</li>
+<li>后端操作</li>
+</ul>
+<h4 id="5-4-1-前端操作cookie"><a href="#5-4-1-前端操作cookie" class="headerlink" title="5.4.1 前端操作cookie"></a>5.4.1 前端操作cookie</h4><p>以chrome为例子，可以直接在console里边对cookie进行修改，例如我们将default_font改成Simplified</p>
+<blockquote>
+<p><strong>当然这只是举个例子，至于修改完重新发送请求到jianshu server之后会不会有作用，这个取决于jianshu server</strong></p>
+</blockquote>
+<p>F12 -&gt; Console，输入：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">"default_font=Simplified;path=/"</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-4-2-后端服务器操作"><a href="#5-4-2-后端服务器操作" class="headerlink" title="5.4.2 后端服务器操作"></a>5.4.2 后端服务器操作</h4><p>可以直接在response上面进行操作，你可以直接抹掉某个cookie</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.clearCookie(<span class="string">'default_font'</span>)</span><br></pre></td></tr></table></figure>
+<p>这个时候回来的response header就不会带default_font这个cookie了<br>也可以修改已存在的cookie过期时间或者加入新的cookie，nodejs的application可以使用cookie.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">res.setHeader(<span class="string">'Set-Cookie'</span>, cookie.serialize(<span class="string">'my_cookie'</span>, <span class="string">'my_value'</span>, &#123;</span><br><span class="line">    httpOnly: <span class="literal">false</span>,</span><br><span class="line">    expires: <span class="string">"Mon, 11 Jun 2018 05:47:25 GMT"</span></span><br><span class="line">    maxAge: <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">7</span> <span class="comment">// 1 week</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<p>这个时候浏览器就会接受到一个包含cookie为my_cookie=my_value，并且过期时间为一个星期的response。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://www.jianshu.com/p/64c0f5d073bb" target="_blank" rel="noopener">关于Cookie的一些思考和理解</a></p>
+<p><a href="https://www.aliyun.com/jiaocheng/829186.html" target="_blank" rel="noopener">cookie过期时间设置</a></p>
+<h2 id="遇见的状况"><a href="#遇见的状况" class="headerlink" title="遇见的状况"></a>遇见的状况</h2><ul>
+<li>1.如果cookie设置了一个已经过期的字段，那么在chrome下的cookie则会不展示这个字段；document.cookie也不会展示这个字段，等于白写；</li>
+</ul>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

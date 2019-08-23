@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端匍匐前进">
+    <meta name="keyword"  content="前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        屏幕尺寸，分辨率，像素，PPI之间到底什么关系？ - ......
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> less code more art. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>......</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#屏幕尺寸，分辨率，像素，PPI之间到底什么关系？"><span class="toc-text">屏幕尺寸，分辨率，像素，PPI之间到底什么关系？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-屏幕（主屏）尺寸是什么"><span class="toc-text">1.屏幕（主屏）尺寸是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-分辨率，像素是分辨率的单位？"><span class="toc-text">2.分辨率，像素是分辨率的单位？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-什么是分辨率比？"><span class="toc-text">3.什么是分辨率比？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-什么是屏幕像素密度？"><span class="toc-text">4.什么是屏幕像素密度？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-像素的大小是固定的吗？答：居然是不固定的，尤其不同设备之间！"><span class="toc-text">5.像素的大小是固定的吗？答：居然是不固定的，尤其不同设备之间！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-电脑屏幕可以调分辨率，难道是通过调整它的像素大小实现的？答：当然不是！-非常重要解答了问题"><span class="toc-text">6.电脑屏幕可以调分辨率，难道是通过调整它的像素大小实现的？答：当然不是！(非常重要解答了问题)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-PPI大的手机显示效果就越精细吗？答：的确是这样子的！"><span class="toc-text">7.PPI大的手机显示效果就越精细吗？答：的确是这样子的！</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> less code more art. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        屏幕尺寸，分辨率，像素，PPI之间到底什么关系？
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-08-31 12:03:35</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#css" title="css">css</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>px到底是什么，大小是什么？<br><a id="more"></a></p>
+<h2 id="屏幕尺寸，分辨率，像素，PPI之间到底什么关系？"><a href="#屏幕尺寸，分辨率，像素，PPI之间到底什么关系？" class="headerlink" title="屏幕尺寸，分辨率，像素，PPI之间到底什么关系？"></a>屏幕尺寸，分辨率，像素，PPI之间到底什么关系？</h2><p>本文通过图解以及公式来讲解分析</p>
+<blockquote>
+<p>项目中有个按钮内容是homepage，但是在一同事的chrome下展示的是homepag，在我的chrome展示为homepage，e只有一半，按钮宽度固定90px。<br>于是我就想是不是分辨率的问题，因为我们的电脑不一样。后来我调整了mac的分辨率，发现还是展示为homepage，e只有一半，难道px跟分辨率没有关系？</p>
+</blockquote>
+<p>在解答上述问题，我们先认识一下这些概念，如尺寸，像素px，分辨率，像素密度等等<br><img src="https://raw.githubusercontent.com/XYooo/image/master/px.png" alt="https://raw.githubusercontent.com/XYooo/image/master/px.png"></p>
+<p>上面这是一张手机信息图片，下面我们了解下常说的几个参数代表的含义；</p>
+<h3 id="1-屏幕（主屏）尺寸是什么"><a href="#1-屏幕（主屏）尺寸是什么" class="headerlink" title="1.屏幕（主屏）尺寸是什么?"></a>1.屏幕（主屏）尺寸是什么?</h3><p>5.2英寸并不是指的手机面积，实际上是指对角线长度。<br>inch是<strong>长度单位，1英寸=2.54厘米</strong> ， 可见是个物理长度</p>
+<h3 id="2-分辨率，像素是分辨率的单位？"><a href="#2-分辨率，像素是分辨率的单位？" class="headerlink" title="2.分辨率，像素是分辨率的单位？"></a>2.分辨率，像素是分辨率的单位？</h3><p>这里写的分辨率是1920PX*1080PX。<br>可能大家注意了，1920和1080后面都跟了PX的字样，这个PX就是我们很熟悉的像素了，这个像素咱们后面讲，现在你只要明白，像素是分辨率的单位就好了。</p>
+<blockquote>
+<p> 在我们手机上呈现的一条线、一个面、一张图像都是由最小的单位像素来表示的，你也可以简单理解为是由一个个小方块组成的。看看下面这张图你就明白了。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/XYooo/image/master/px2.jpg" alt="https://raw.githubusercontent.com/XYooo/image/master/px2.jpg"></p>
+<blockquote>
+<p>记住：分辨率1920px*1080px的意思就是，在这个华为荣耀7的5.2英寸屏幕上，在竖向的高度上有1920个像素块，在横向的宽度上有1080个像素块。</p>
+</blockquote>
+<h3 id="3-什么是分辨率比？"><a href="#3-什么是分辨率比？" class="headerlink" title="3.什么是分辨率比？"></a>3.什么是分辨率比？</h3><p>稍微计算一下高是1920px，宽是1080px的比例就会发现这个高和宽的比例是16:9的。可以比例很常见，过多不解释。</p>
+<h3 id="4-什么是屏幕像素密度？"><a href="#4-什么是屏幕像素密度？" class="headerlink" title="4.什么是屏幕像素密度？"></a>4.什么是屏幕像素密度？</h3><p>屏幕像素密度，即<strong>每英寸屏幕</strong>所拥有的像素数，英文简称PPI。注意，这里是指每英寸，还是个长度单位。这个英寸跟之前手机屏幕的尺寸一样，也是对角线的长度。所以，我们可以这么理解屏幕像素密度，即在一个对角线长度为1英寸的正方形内所拥有的像素数。<br>有个公式方便理解</p>
+<p><img src="https://raw.githubusercontent.com/XYooo/image/master/px3.jpg" alt="https://raw.githubusercontent.com/XYooo/image/master/px3.jpg"></p>
+<h3 id="5-像素的大小是固定的吗？答：居然是不固定的，尤其不同设备之间！"><a href="#5-像素的大小是固定的吗？答：居然是不固定的，尤其不同设备之间！" class="headerlink" title="5.像素的大小是固定的吗？答：居然是不固定的，尤其不同设备之间！"></a>5.像素的大小是固定的吗？答：居然是不固定的，尤其不同设备之间！</h3><p><strong>像素是没有实际的物理尺寸的。</strong><br>下面举个例子</p>
+<p><img src="https://raw.githubusercontent.com/XYooo/image/master/px4.png" alt="https://raw.githubusercontent.com/XYooo/image/master/px4.png"><br><img src="https://raw.githubusercontent.com/XYooo/image/master/px.png" alt="https://raw.githubusercontent.com/XYooo/image/master/px.png"></p>
+<p>上面的这两张图，第一张是苹果6手机的屏幕参数，第二张还是出镜率最高的华为荣耀7的屏幕参数。</p>
+<p>虽然这两个手机的分辨率都是1920px*1080px。<br>但是，苹果手机的屏幕尺寸比华为荣耀7小了0.2英寸。<br><strong>但是，苹果手机的屏幕像素密度（PPI）却比华为荣耀7高了45个PPI，也就是每英寸像素个数多了45个。</strong> </p>
+<p>这说明了同样的一英寸的长度，苹果手机用469个ppi来显示，华为只用了424个ppi来显示。你能告诉我哪个手机的显示效果更加精细吗？同样是一英寸，同样都是像素，为啥苹果手机一英寸有469个像素，华为只有424个呢？</p>
+<blockquote>
+<p>手动计算下，按上面的平方公式，华为是423.653846 苹果440.6，但是实际上苹果确实469</p>
+</blockquote>
+<p>我们知道，英寸是长度单位，它有固定的物理尺寸。那么问题就只能出在了像素身上。</p>
+<p><strong>这说明，像素这个东西，在苹果手机上变小了。所以，像素这个东西，就像金箍，能变大能变小。</strong></p>
+<h3 id="6-电脑屏幕可以调分辨率，难道是通过调整它的像素大小实现的？答：当然不是！-非常重要解答了问题"><a href="#6-电脑屏幕可以调分辨率，难道是通过调整它的像素大小实现的？答：当然不是！-非常重要解答了问题" class="headerlink" title="6.电脑屏幕可以调分辨率，难道是通过调整它的像素大小实现的？答：当然不是！(非常重要解答了问题)"></a>6.电脑屏幕可以调分辨率，难道是通过调整它的像素大小实现的？答：当然不是！(非常重要解答了问题)</h3><p><strong>在同一个设备上，它的像素个数是固定的，像素大小也是固定的，这是厂商在出厂时就设置好了的。只有不同的设备之间，才有像素大小的区别。</strong></p>
+<p>既然在同一个设备上，像素点数早就设定好了，那电脑上可以调整分辨率是怎么回事？我再怎么调，像素点数还是那么多啊。<br>系统推荐的是1366px<em>768px的分辨率，意味着微软在这块屏幕上横向设置了768个像素，竖向设置了1366个像素。再怎么拉扯，这个数字是不会变了。那么，为什么还能调整分辨率呢？如800px</em>600px，按照定义，横向就是600个像素，竖向就是800个像素了啊。实际上把分辨率调成800<em>600，系统就会分配给你800</em>600个<strong>有效像素个数，也就是真实的色彩块</strong>。其他的个数就由系统自作主张，通过一系列运算给一个模拟色彩块，填充后达到1366*768个色彩块。那些拿来充数的像素块，和真实的像素块放到一起。就好比一个正规军，里面掺了很多杂牌军一样，只能是队伍不好带了。</p>
+<h3 id="7-PPI大的手机显示效果就越精细吗？答：的确是这样子的！"><a href="#7-PPI大的手机显示效果就越精细吗？答：的确是这样子的！" class="headerlink" title="7.PPI大的手机显示效果就越精细吗？答：的确是这样子的！"></a>7.PPI大的手机显示效果就越精细吗？答：的确是这样子的！</h3><p>屏幕的清晰程度其实是分辨率和尺寸大小共同决定，用ppi指数衡量屏幕清晰程度更加准确。</p>
+<blockquote>
+<p>搜索一下blog，发现也有一篇blog涉及到像素，分辨率，下面放个链接<br><a href="https://github.com/iuap-design/blog/issues/75" target="_blank" rel="noopener">通俗易懂！超全面的移动端尺寸基础知识科普指南</a></p>
+</blockquote>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

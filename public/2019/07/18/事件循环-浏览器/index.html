@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端匍匐前进">
+    <meta name="keyword"  content="前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        事件循环-浏览器 - ......
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> less code more art. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>......</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-操作系统的概念"><span class="toc-text">1 操作系统的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-异步-vs-并行"><span class="toc-text">1.1 异步 vs 并行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-并发"><span class="toc-text">1.2 并发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-事件循环event-loop"><span class="toc-text">2 事件循环event loop</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-概述"><span class="toc-text">2.1 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-常见的概念："><span class="toc-text">2.2 常见的概念：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-事件循环的简单描述"><span class="toc-text">2.3 事件循环的简单描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-事件循环的图片"><span class="toc-text">2.4 事件循环的图片</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-demo展示"><span class="toc-text">3 demo展示</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> less code more art. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        事件循环-浏览器
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-07-18 08:30:41</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#事件循环" title="事件循环">事件循环</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>浏览器的事件循环机制可以理解成js的事件循环机制，本篇博客只是简单地介绍一下整个事件循环的机制，具体的原因之后的会详细的讲</p>
+<a id="more"></a>
+<h1 id="1-操作系统的概念"><a href="#1-操作系统的概念" class="headerlink" title="1 操作系统的概念"></a>1 操作系统的概念</h1><p>这里有几个操作系统的概念，异步 并行 并发等介绍一下</p>
+<h2 id="1-1-异步-vs-并行"><a href="#1-1-异步-vs-并行" class="headerlink" title="1.1 异步 vs 并行"></a>1.1 异步 vs 并行</h2><p>术语“异步”和“并行”常常被混为一谈，但实际上它们的意义完全不同。记住，</p>
+<p>异步是关于现在和将来的时间间隙，</p>
+<p>并行是关于能够同时发生的事情。 </p>
+<p>区别很大，异步和并行会导致运行结果不一致，但是程度上不一样，异步的这种不确定性是在函数(事 件)顺序级别上，多线程（并行）情况下的不确定性是语句顺序级别(或者说，表达式运算顺序级别)。 换句话说，这异步确定性要高于多线程（并行）情况。 </p>
+<h2 id="1-2-并发"><a href="#1-2-并发" class="headerlink" title="1.2 并发"></a>1.2 并发</h2><p>现在让我们来设想一个展示状态更新列表(比如社交网络新闻种子)的网站，其随着用户向下滚动列表而逐渐加载更多内容。要正确地实现这一特性，需要(至少)两个独立的 “进程”同时运行(也就是说，是在同一段时间内，并不需要在同一时刻)。 </p>
+<blockquote>
+<p>注意<br>这里的“进程”之所以打上引号，是因为这并不是计算机科学意义上的真正 操作系统级进程。这是虚拟进程，或者任务，表示一个逻辑上相关的运算序 列。 </p>
+</blockquote>
+<h1 id="2-事件循环event-loop"><a href="#2-事件循环event-loop" class="headerlink" title="2 事件循环event loop"></a>2 事件循环event loop</h1><h2 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h2><p>JavaScript是单线程(只有一个主线程)的语言</p>
+<p>Event Loop是JavaScript的执行机制</p>
+<p>JavaScript的任务分为同步任务和异步任务。异步任务分为宏任务和微任务</p>
+<h2 id="2-2-常见的概念："><a href="#2-2-常见的概念：" class="headerlink" title="2.2 常见的概念："></a>2.2 常见的概念：</h2><ul>
+<li><p>堆和栈。当javascript代码执行的时候会将不同的变量存于内存中的不同位置：堆（heap）和栈（stack）中来加以区分。其中，堆里存放着一些对象。而栈中则存放着一些基础类型变量以及对象的指针。</p>
+</li>
+<li><p>执行栈。但是我们这里说的执行栈和上面这个栈的意义却有些不同。当一个脚本第一次被执行的时候，js引擎会解析这段代码，并将其中的<strong>同步代码按照执行顺序加入执行栈中</strong>，然后从头开始执行。如果当前执行的是一个方法，那么js会向执行栈中<strong>添加</strong>这个方法的执行环境，<strong>然后进入</strong>这个执行环境继续执行其中的代码。当这个执行环境中的代码 <strong>执行完毕</strong>并返回结果后，js会<strong>退出这个执行环境</strong>并把这个执行环境销毁，<strong>回到上一个方法的执行环境</strong>。这个过程反复进行，直到执行栈中的代码全部执行完毕。</p>
+</li>
+<li><p>同步任务(synchronous)：<strong>指在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。</strong></p>
+</li>
+<li><p>异步任务(asynchronous)：指不进入主线程、而进入”任务队列”的任务</p>
+</li>
+<li><p>宏任务(macrotask)：包括setTimeOut 、 setInterval 、setImmediate 、 I/O 、 各种callback、UI渲染等</p>
+<blockquote>
+<p>优先级如下：主代码块 &gt; setImmediate &gt;MessageChannel &gt; setTimeOut/setInterval</p>
+</blockquote>
+</li>
+<li><p>微任务(microtask)：包括process.nextTick 、Promise、MutationObserver 、async(实质上也是promise)</p>
+<blockquote>
+<p>优先级如下：process.nextTick &gt; Promise &gt;MutationOberser</p>
+</blockquote>
+</li>
+<li><p>任务队列(task queue/callback queue)：包括1个microtask队列和1个或多个macrotask队列</p>
+</li>
+</ul>
+<h2 id="2-3-事件循环的简单描述"><a href="#2-3-事件循环的简单描述" class="headerlink" title="2.3 事件循环的简单描述"></a>2.3 事件循环的简单描述</h2><blockquote>
+<p>主代码块-&gt;微任务-&gt;宏任务-&gt;微任务-&gt;宏任务…(主代码块也是一个宏任务)<br>详细解释如下：</p>
+</blockquote>
+<ul>
+<li>1、主代码块入栈</li>
+<li>2、顺序执行代码块中的<em>同步任务</em>，遇到异步任务则交由浏览器内核的其模块处理，处理完后将异步任务的回调函数加入到任务队列中(<strong>一般不同异步任务的回调函数会放入不同的任务队列之中</strong>)</li>
+<li>3、当函数执行栈为空时，若microtask队列中有任务则先将microtask队列中的所有微任务入栈执行，当函数执行栈为空，再从macrotask队列中取出一个宏任务入栈。</li>
+<li>4、2~3步骤循环，直到所有任务执行完</li>
+</ul>
+<h2 id="2-4-事件循环的图片"><a href="#2-4-事件循环的图片" class="headerlink" title="2.4 事件循环的图片"></a>2.4 事件循环的图片</h2><p>这张图片应该是最全的图片了</p>
+<p>异步任务先去执行micro的任务之后再去找macro任务</p>
+<p><img src="https://raw.githubusercontent.com/XYooo/image/master/el1.png" alt="此处输入图片的描述"></p>
+<h1 id="3-demo展示"><a href="#3-demo展示" class="headerlink" title="3 demo展示"></a>3 demo展示</h1><p>可以直接参考一篇文章，写的事件循环机制非常的不错。</p>
+<p><a href="https://juejin.im/post/5a6309f76fb9a01cab2858b1?utm_medium=fe&amp;utm_source=weixinqun#heading-5" target="_blank" rel="noopener">事件循环机制demo</a></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

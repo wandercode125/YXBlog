@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端匍匐前进">
+    <meta name="keyword"  content="前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        高阶组件入门（1) - ......
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> less code more art. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>......</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> less code more art. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        高阶组件入门（1)
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-10-01 12:00:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#react" title="react">react</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#react-hoc" title="react-hoc">react-hoc</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>高阶组件最大的特点就是重用组件逻辑。它并不是由React API定义出来的功能，而是由React的组合特性衍生出来的一种设计模式。<br>之前看过几篇文章介绍高阶组件，这篇文章就是动手操作一番，有时候还不得不吐槽，说好能获得到的属性跟方法为什么没有获取到？</p>
+<a id="more"></a>
+<p>一、高阶组件定义</p>
+<blockquote>
+<p>a higher-order component is a function that takes a component and returns a new component.<br>翻译：高阶组件就是一个函数，且该函数接受一个组件作为参数，并返回一个新的组件。</p>
+</blockquote>
+<p>还有一种写法就是：</p>
+<blockquote>
+<p>hocFactory:: W: React.Component =&gt; E: React.Component<br>其中 W (WrappedComponent) 是指被包裹的 React.Component，<br>E (EnhancedComponent) 指返回类型为 React.Component 的新的 HOC。</p>
+</blockquote>
+<p>二、常见的HOC 实现方式（两种）</p>
+<blockquote>
+<p>（1）Props Proxy（属性代理）： HOC 控制传给WrappedComponent W 的 props</p>
+<p>下面是用途：</p>
+</blockquote>
+<ul>
+<li>更改 props </li>
+<li>抽象 state </li>
+<li>通过 refs 获取组件实例 </li>
+<li>把 WrappedComponent 与其它 elements包装在一起</li>
+</ul>
+<blockquote>
+<p>（2）Inheritance Inversion（反向继承）： HOC 继承WrappedComponent W 的生命周期、state、各种function</p>
+<p>下面是用途：</p>
+</blockquote>
+<ul>
+<li>渲染劫持（Render Highjacking）</li>
+<li>操作 state</li>
+</ul>
+<p>看到上面的这些官方介绍也许会有点懵，但是总言而之：高阶组件就是牵扯到两个组件的事情，那么就有下面的两个问题：<br>1.高阶组件EnhanceComponent能否将props,state,function传递给wrappedComponent？(看完本篇就会得到答案：能，必须能啊。全部当成props传给WrappedComponent了)<br>2.组件wrappedComponent能否将props,state,function传递给EnhancedComponent？</p>
+<p>下面介绍开始…<br>三、Props Proxy （属性代理）— <strong>操作props</strong><br>（3.1）更改props<br>主要是高阶组件HOC控制传入wrappedComponent的props，来修改wrappedComponent内的props。<br>如下图所示:</p>
+<p>图3.1.1<br>HOC将{…this.props}，{…newProps}传递给WrappedComponent</p>
+<p><img src="http://img.blog.csdn.net/20171102212149019?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>图3.1.2<br>WrappedComponent中的参数，这里不仅仅有从HOC传来的参数，还有WrappedComponent(即Base)中自带的参数。</p>
+<p><img src="http://img.blog.csdn.net/20171102212305710?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2FuZGVyX3Bvb2w=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><strong>注意，若是props中有重名的字段，那么HOC的props将会覆盖WrappedComponent中的props.</strong><br><strong>总言而之：你可以『读取，添加，修改，删除』将要传递给 WrappedComponent 的 props。</strong></p>
+<p>（3.2）抽象 state<br>这里不是通过ref获取state， 而是通过 { props, 回调函数 } 传递给wrappedComponent组件，通过回调函数获取state。这里用的比较多的就是react处理表单的时候。通常react在处理表单的时候，一般使用的是受控组件（<a href="https://reactjs.org/docs/forms.html#controlled-components" target="_blank" rel="noopener">官方文档</a>），即把input都做成受控的，改变value的时候，用onChange事件同步到state中。<em>当然这种操作通过Container组件也可以做到，具体的区别放到后面去比较（这点我也没有弄明白呢）</em>。看一下代码就知道怎么回事了：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通组件Login，这里充当WrappedComponent</span></span><br><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"><span class="keyword">import</span> formCreate from './form-create';</span><br><span class="line"></span><br><span class="line"><span class="meta">@formCreate</span>  <span class="comment">//这个用法是es7语法，下面有文章链接</span></span><br><span class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Login</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;label id=<span class="string">"username"</span>&gt;</span><br><span class="line">            账户</span><br><span class="line">          &lt;/label&gt;</span><br><span class="line">          &lt;input name=<span class="string">"username"</span> &#123;...<span class="keyword">this</span>.props.getField(<span class="symbol">'usernam</span>e')&#125;/&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;label id=<span class="string">"password"</span>&gt;</span><br><span class="line">            密码</span><br><span class="line">          &lt;/label&gt;</span><br><span class="line">          &lt;input name=<span class="string">"password"</span> &#123;...<span class="keyword">this</span>.props.getField(<span class="symbol">'passwor</span>d')&#125;/&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div onClick=&#123;<span class="keyword">this</span>.props.handleSubmit&#125;&gt;提交&lt;/div&gt;</span><br><span class="line">        &lt;div&gt;other content&lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//HOC，高阶组件从这里开始</span></span><br><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"></span><br><span class="line">const formCreate = <span class="type">WrappedComponent</span> =&gt; <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  constructor() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      fields: &#123;&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//是下面方法 getField()用到的</span></span><br><span class="line">  onChange = key =&gt; e =&gt; &#123;</span><br><span class="line">    const &#123; fields &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">    fields[key] = e.target.value;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      fields,</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  handleSubmit = () =&gt; &#123;</span><br><span class="line">    console.log(<span class="keyword">this</span>.state.fields);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  getField = fieldName =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      onChange: <span class="keyword">this</span>.onChange(fieldName),</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  render() &#123;</span><br><span class="line">    const props = &#123;</span><br><span class="line">      ...<span class="keyword">this</span>.props,</span><br><span class="line">      handleSubmit: <span class="keyword">this</span>.handleSubmit,</span><br><span class="line">      getField: <span class="keyword">this</span>.getField,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (&lt;<span class="type">WrappedComponent</span></span><br><span class="line">      &#123;...props&#125;</span><br><span class="line">    /&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">export <span class="keyword">default</span> formCreate;</span><br></pre></td></tr></table></figure>
+<p><strong>关键：这里我们把state，onChange等方法都放到HOC里</strong>，其实是遵从的react组件的一种规范，子组件简单，傻瓜，负责展示，逻辑与操作放到Container。比如说我们在HOC获取到用户名密码之后，再去做其他操作，就方便多了，而state，处理函数放到Form组件里，只会让Form更加笨重，承担了本不属于它的工作，这样我们可能其他地方也需要用到这个组件，但是处理方式稍微不同，就很麻烦了。</p>
+<p>（3.3）通过 refs 获取组件实例<br>当我们包装WrappedComponent的时候，想获取到它的实例怎么办，可以通过引用(ref),在WrappedComponent组件挂载的时候，会执行ref的回调函数，在HOC中取到组件的实例。通过打印，可以看到它的props， state，都是可以取到的。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"></span><br><span class="line">const refHoc = <span class="type">WrappedComponent</span> =&gt; <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    console.log(<span class="keyword">this</span>.instanceComponent, <span class="symbol">'instanceComponen</span>t');</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (&lt;<span class="type">WrappedComponent</span></span><br><span class="line">      &#123;...<span class="keyword">this</span>.props&#125;</span><br><span class="line">      ref=&#123;instanceComponent =&gt; <span class="keyword">this</span>.instanceComponent = instanceComponent&#125;</span><br><span class="line">    /&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export <span class="keyword">default</span> refHoc;</span><br></pre></td></tr></table></figure>
+<p>（3.4）把 WrappedComponent 与其它 elements包装在一起<br>这一点就是很简单且容易理解：出于操作样式、布局或其它目的，你可以将 WrappedComponent 与其它组件包装在一起。<em>一些基本的用法也可以使用正常的父组件来实现</em>。</p>
+<blockquote>
+<p>此处看一下父组件能做和不能做的事情（与高阶组件对比）：<br>1.操作 props<br>2.抽象 state。但是有缺点，不能再父组件外获取到它的 state，除非明确地实现了钩子。<br>3.与新的 React Element 包装。这似乎是唯一一点，使用父组件要比高阶组件强，但高阶组件也同样可以实现。<br>4.Children 的操控。如果 children 不是单一 root，则需要多添加一层来包括所有 children，可能会使你的 markup 变得有点笨重。使用高阶组件可以保证单一 root。<br>5.父组件可以在元素树立随意使用，它们不像高阶组件一样限制于一个组件。</p>
+</blockquote>
+<p>通常来讲，能使用父组件达到的效果，尽量不要用高阶组件，因为高阶组件是一种更 hack 的方法，但同时也有更高的灵活性。<br>下一篇会继续介绍一下II</p>
+<p><a href="https://github.com/iuap-design/blog/issues/128" target="_blank" rel="noopener">高阶组件的es7语法@装饰器</a></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

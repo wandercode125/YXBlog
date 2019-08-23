@@ -5,27 +5,33 @@ tags: JS
 categories: 总结
 ---
 
-_proto_是什么含义，以及_proto_与prototype是什么关系，下面就是解释
+
 
 <!--more-->
+## 0 摘要
+
+前面原型1主要讲述了几个概念，分为函数对象和普通对象，从函数对象引申出来的实例对象和原型对象。函数对象和普通对象就是所有的对象分类，实例对象和原型对象的是函数对象还是普通对象？ 答案是：既可以是普通对象，但是也可能是函数对象。具体看前面，不再细讲
 
 ## 1 _proto_
+前面主要讲了proptype属性和constructor属性，那么什么是_proto_
+
 ### 1.1 _proto_指向原型对象
+
 JS 在创建对象（不论是普通对象还是函数对象）的时候，都有一个叫做__proto__ 的内置属性，**用于指向创建它的构造函数的原型对象**。
 
 对象 person1 有一个__proto__属性，创建它的构造函数是 Person，构造函数的原型对象是 Person.prototype ，所以：
 
-```
+```javascript
 person1.__proto__ == Person.prototype
 ```
 请看下图
 
-![《JavaScript 高级程序设计》的图 6-1](https://note.youdao.com/favicon.ico)
+![流程图](https://raw.githubusercontent.com/XYooo/image/master/yuanxing2.jpg)
 
 根据上面这个连接图，我们能得到：
 
 
-```
+```javascript
 Person.prototype.constructor == Person;
 person1.__proto__ == Person.prototype;
 person1.constructor == Person;
@@ -35,39 +41,48 @@ person1.constructor == Person;
 
 > 注意：因为绝大部分浏览器都支持__proto__属性，所以它才被加入了 ES6 里（ES5 部分浏览器也支持，但还不是标准）
 
-> 总结2：
-> 1. _proto_属性存在每个对象中
-> 2. _proto_属性指向++该构造函数的++原型对象
-> 3. prototype属性指向++自身的++原型对象
-> 4. 都可以有_proto_属性，但是prototype属性只有函数对象才有
+
+### 1.2 总结-总结2
+
+1._proto_属性存在每个对象中
+2._proto_属性指向---------->该构造函数的原型对象
+3.prototype属性指向------->自身的原型对象
+4.都可以有_proto_属性，但是prototype属性只有函数对象才有
+
 
 ## 2 原型链
 
 上述的总结1，总结2，说了种种关系，这些关系构成了原型链
 
+总结1如下：
+1.对象就分为普通对象，函数对象。原型对象属于普通对象（有特例）
+2.new一下就出现了构造函数跟实例，实例是普通对象（有特例6）
+3.实例都有一个contrutor属性，指向构造函数（有特例6）
+4.函数对象都有prototype属性，prototype属性指向原型对象（因此函数对象都有原型对象），原型对象是普通对象，原型对象中都有constructor属性，指向函数对象
+5.由3，4可得到因为都有constructor属性，因此原型对象也是实例
+6.但 Function.prototype 除外，它是函数对象，但它很特殊，他没有prototype属性（前面说道函数对象都有prototype属性）Function.prototype = new Function()//请看第一对象部分
 
-![原型链图](https://upload-images.jianshu.io/upload_images/574093-c03529e3f0943633.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/570/format/webp)
+
+![流程图](https://raw.githubusercontent.com/XYooo/image/master/yuanxing1.jpg)
 
 
-1. （Functions）函数对象一列不仅仅有_proto_属性，还是有prototype属性。
-   1.  _proto_指向构造函数的原型对象
-   2. prototype指向自身的原型对象
-   
-2. （XX.prototype）原型对象那一列只有_proto_属性 
-    1.  _proto_指向构造函数的原型对象
-3. 实例那一列那一列只有_proto_属性 
-    1.  _proto_指向构造函数的原型对象
+- (Functions）函数对象一列都有_proto_属性(只要是对象就有)，还是有prototype属性（因为是函数对象）。
+  - _proto_指向构造函数的原型对象
+  - prototype指向自身的原型对象 
+- （XX.prototype）原型对象那一列都有constructor属性，只有_proto_属性 
+  - _proto_指向构造函数的原型对象
+- 实例那一列那一列只有_proto_属性 
+  - _proto_指向构造函数的原型对象
     
 
 ## 3 实践
 
-
-```
-1. person1.__proto__ 是什么？
-2. Person.__proto__ 是什么？
-3. Person.prototype.__proto__ 是什么？
-4. Object.__proto__ 是什么？
-5. Object.prototype__proto__ 是什么？
+```javascript
+person1.__proto__ 是什么？
+Person.__proto__ 是什么？
+Person.prototype.__proto__ 是什么？
+Object.__proto__ 是什么？
+Object.prototype__proto__ 是什么？
 
 ```
 
