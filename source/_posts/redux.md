@@ -19,16 +19,12 @@ A simple and powerful React framework with minimal API and zero boilerplate. (In
 mirror是一款简洁、高效、易上手的 React 框架，有最少的api和0模板。（受dva 和 jumpstate 启发）
 
 ### 1.2 redux
+
 > Painless React and Redux.
-> 
 > Why?
 
 We love React and Redux.
-
-我们热爱 React 和 Redux。
-
 A typical React/Redux app looks like the following:
-
 一个**典型的** React/Redux 应用看起来像下面这样：
 
 - An actions/ directory to manually create all action types (or action creators)
@@ -64,17 +60,12 @@ That's exactly what Mirror does, encapsulates the tedious or repetitive work in 
 ## 2 redux
 
 **超级重点，样板文件**
-> 2-1 Actions
-
-> 2-2 Action Creators
-
-> 2-3 Generating Action Creators
-
-> 2-4 Async Action Creators
-
-> 2-5 Reducers
-
-> 2-6 Generating Reducers
+2-1 Actions
+2-2 Action Creators
+2-3 Generating Action Creators
+2-4 Async Action Creators
+2-5 Reducers
+2-6 Generating Reducers
 
 ### 2.1 Actions
 #### 2.1.1 Reducing Boilerplate
@@ -94,7 +85,8 @@ There are frameworks claiming to be similar to Flux, but without a concept of ac
 
 有些框架声称类似Flux，但是没有action概念。就可预测而言，这些框架相比Flux和react是一种倒退。如果没有action对象， it is impossible to record and replay user sessions, or to implement hot reloading with time travel. 。如果你宁愿选择直接修改数据，则不需要使用Redux。
 
-#### 2.1.3 Actions 格
+#### 2.1.3 Actions 格式
+
 <span id="action">Actions look like this:</span>
 ```javascript
 { type: 'ADD_TODO', text: 'Use Redux' }
@@ -139,7 +131,8 @@ It is up to you to choose the conventions for your project. You may start by usi
 
 这取决于你，在项目中使用约定习俗 。你可以使用inline strings, and later transition to constants 或者把他们都放入一个单独文件中。redux在这里没做任何要求。
 
-#### 2.1.4 Actions in Diwork
+#### 2.1.4  **Actions in Diwork
+**（个人公司实际项目使用，这部分不是英文文档）**
 **（把它们放入一个单独文件中使我们项目中使用方式，就是diwork工作台）**
 在diwork中一个store中会有四个文件
 ```javascript

@@ -637,7 +637,7 @@ body {
 .post-content p {
   color: #404040;
   font-size: 14px;
-  line-height: 30px;
+  /* line-height: 30px; */
   text-indent: 2em;
   letter-spacing: 1px;
 }

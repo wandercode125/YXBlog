@@ -12,12 +12,13 @@ tags:
 
 ## 2 摘要
 实现的原理：通过html中使用link引入less文件，使用script引入less.js文件，使用less.modifyVars，动态修改less变量值，从而修改css样式
-用途：实现样式定制
+
+** 用途：实现在线样式定制 **
 
 ## 4 项目中实际使用
 原理在section3中有讲到，这里直接先看实际使用。...cdnPath是公司cdn路径，隐私去掉。
 
-主题定制功能使用这个了，实现代码如下:
+在线主题定制功能使用这个了，实现代码如下:
 
 ### 4.1 html
 
@@ -36,6 +37,7 @@ tags:
 </head>
 <body>
   <div id="theme-app"></div>
+  <!-- start: 关键的代码在这里 -->
   <link id='color-less' rel="stylesheet/less" type="text/css"  href="...cdnPath/color.less">
  <script>
       window.less = {
@@ -44,10 +46,17 @@ tags:
       };
     </script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
-
+ <!-- end: 关键的代码在这里 -->
 </body>
 </html>
 ```
+
+> 关键点有两个： color.less的生成和调用window.less.modifyVars 修改color.less中的使用到的参数。color.less的内容在Less(2)中讲解
+
+注意
+- link的 rel="stylesheet/less"
+- 两个script
+
 
 ### 4.2 js
 
@@ -68,7 +77,14 @@ window.less.modifyVars(
  this.lessChangeStyle的格式
 ```
 
+{"@primary-color":"#e1bee7",
+"@border-radius":"10px",
+"@border-color":"#c62828",
+.....
+} 
 ```
+
+
 
 ## 3 官网上浏览器端的用法
 

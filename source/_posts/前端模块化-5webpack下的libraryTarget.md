@@ -96,11 +96,11 @@ output: {
 
 4.4.其他类型
 
-## 4.1 暴露一个变量
+### 4.1 暴露一个变量
 
 以下选项会把打包返回的值（无论暴露的是什么）**绑定到一个由output.library指定的变量上**，无论包是被如何引用。
 
-### 4.1.1 libraryTarget: "var"- (default)
+#### 4.1.1 libraryTarget: "var"- (default)
 
 使用这个配置，当库被加载时，那么库的返回值会被分配到使用用var申明的变量上。
 
@@ -117,7 +117,7 @@ myDemo();
 
 亲测：可以通过script标签音如，library挂载在window上
 
-###  4.1.2 libraryTarget: "assign"
+####  4.1.2 libraryTarget: "assign"
 
 使用这个设置，会把库返回值分配给一个没使用var申明的变量中，如果这个变量没有在引入作用域中提前申明过，**那么将会挂载在全局作用域中**。（注意，这个行为有可能会覆盖全局作用域中的已有变量）
 
@@ -126,7 +126,7 @@ myDemo();
 myDemo = _entry_return_;
 ```
 
-## 4.2 通过对象属性暴露
+### 4.2 通过对象属性暴露
 
 以下选项将库的返回值（无论返回值是什么）分配给特定对象的指定属性，属性由`output.library`指定，对象由`output.libraryTarget`指定。
 
@@ -140,7 +140,7 @@ myDemo = _entry_return_;
 
 **注意，发生这个行为的时候 webpack 并不会检查对象中是否已经存在这些属性值，也就是会发生覆盖行为。**
 
-### 4.2.1libraryTarget: "this" 
+#### 4.2.1libraryTarget: "this" 
 
 > 将库的返回值分配给`this`对象的由`output.library`指定的属性。其中`this`的意义由用户决定。
 
@@ -155,7 +155,7 @@ myDemo(); // if this is window
 ```
 
 
-### 4.2.2 libraryTarget: "window" 
+#### 4.2.2 libraryTarget: "window" 
 
 将库的返回值分配给`window`对象的由output.library指定的属性。
 
@@ -168,7 +168,7 @@ window["myDemo"] = _entry_return_;
 window.myDemo.doSomething();
 ```
 
-### 4.4.3 libraryTarget: "global" 
+#### 4.4.3 libraryTarget: "global" 
 
 将库的返回值分配给global对象的由output.library指定的属性。
 
@@ -183,7 +183,7 @@ global.myDemo();
 ```
 > 实际经测试与window是一样的，不会出现global
 
-### 4.4.4 libraryTarget: "commonjs" 
+#### 4.4.4 libraryTarget: "commonjs" 
 
 将库的返回值分配给exports对象的由output.library指定的属性。正如名字所指，这个选项可以使用在 CommonJS 环境。
 
@@ -196,11 +196,11 @@ require("myDemo").doSomething();
 ```
 > myDemo是webpack中library的值
 
-## 4.3模块定义系统
+### 4.3模块定义系统
 
 以下选项将产生一个**包含更完整兼容代码的包**，以确保与各种模块系统的兼容性。 此时`output.library`选项在不同的`output.libraryTarget`选项下具有不同的含义。
 
-### 4.3.1 libraryTarget: "commonjs2" 
+#### 4.3.1 libraryTarget: "commonjs2" 
 
 > 将库的返回值分配给module.exports。正如名字所指，这个选项可以使用在 CommonJS 环境。
 
@@ -221,7 +221,7 @@ myDemo();
 > 注意：如果使用的方式不对，如不是require进来的，会报错module is not defined
 
 
-### 4.3.2 libraryTarget: "umd"  
+#### 4.3.2 libraryTarget: "umd"  
 
 这个选项会尝试把库暴露给前使用的模块定义系统，这使其和CommonJS、AMD兼容或者暴露为全局变量。 
 
@@ -282,7 +282,7 @@ libraryTarget: "umd"
 }
 ```
 
-### 4.3.3 libraryTarget: "amd"  
+#### 4.3.3 libraryTarget: "amd"  
 
 这个选项会把库作为 AMD 模块导出。 
 
@@ -326,9 +326,9 @@ return _entry_return_;
 
 
 
-## 4.4 其他类型
+### 4.4 其他类型
 
-### 4.4.1libraryTarget: "jsonp" - 
+#### 4.4.1libraryTarget: "jsonp" - 
 > 这个方法会使用 jsonp 的方式把结果包裹起来。 
 js 
 
