@@ -56,7 +56,7 @@
             <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
+                    <span>HOME</span>
                 </a>
             </li>
             <li >
@@ -194,9 +194,9 @@
 <p>location的8个属性都是可读写的，但是只有href与hash的写才有意义。</p>
 <p>例如改变location.href会重新定位到一个URL，</p>
 <p>而修改location.hash会跳到当前页面中的anchor(<code>&lt;a id=&quot;name&quot;&gt;或者&lt;div id=&quot;id&quot;&gt;</code>等)名字的标记(如果有)，而且页面不会被重新加载</p>
-<h2 id="2-为什么-window-location-search-为空"><a href="#2-为什么-window-location-search-为空" class="headerlink" title="2 为什么 window.location.search 为空?"></a>2 为什么 window.location.search 为空?</h2><p>答：注意上面的search和hash的区别，如果URL中“？”之前有一个“#”，比如：<code>http://localhost:63342/index.html#/version?type=35&amp;id=5</code>。</p>
-<p>那么使用<code>window.location.search</code>得到的就是空（“”）。</p>
-<p>因为<code>？type=35&amp;id=5</code>串字符是属于<code>#/version?type=35&amp;id=5</code>这个串字符的，<strong>也就是说查询字符串search只能在取到“？”后面和“#”之前的内容，如果“#”之前没有“？”search取值为空。</strong></p>
+<h2 id="2-为什么-window-location-search-为空"><a href="#2-为什么-window-location-search-为空" class="headerlink" title="2 为什么 window.location.search 为空?"></a>2 为什么 window.location.search 为空?</h2><p>答： <strong>查询字符串search只能在取到“？”后面和“#”之前的内容，如果“#”之前没有“？”search取值为空。</strong></p>
+<p>注意上面的search和hash的区别，如果URL中“？”之前有一个“#”，比如：<code>http://localhost:63342/index.html#/version?type=35&amp;id=5</code>。<br>那么使用<code>window.location.search</code>得到的就是空（“”）。</p>
+<p>因为<code>？type=35&amp;id=5</code>串字符是属于<code>#/version?type=35&amp;id=5</code>这个串字符的，</p>
 
         
             <div class="donate-container">

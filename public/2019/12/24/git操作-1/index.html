@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端匍匐前进">
+    <meta name="keyword"  content="前端">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        git操作-合并和暂存篇 - ......
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> less code more art. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>......</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-合并"><span class="toc-text">1 合并</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-git-merge：合并整个分支"><span class="toc-text">1.1 git merge：合并整个分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-fastforward模式"><span class="toc-text">1.1.1 fastforward模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-–no-ff模式"><span class="toc-text">1.1.2 –no-ff模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-git-cherry-pick-：合并某次提交"><span class="toc-text">1.2 git cherry-pick ：合并某次提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-git-checkout-合并某些文件或文件夹"><span class="toc-text">1.3 git checkout: 合并某些文件或文件夹</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-暂存代码"><span class="toc-text">2 暂存代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-git-push-前"><span class="toc-text">3 git push 前</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> less code more art. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        git操作-合并和暂存篇
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-12-24 20:50:25</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#git" title="git">git</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>因为业务需求，有个工程开辟很多分支导致每个分支的开发进度不一致。有时候需要在自己的分支上合并其他分支的代码，某个文件夹或者具体到某次提交。</p>
+<p>git的操作先从功能展示，在深入其原理</p>
+<h2 id="1-合并"><a href="#1-合并" class="headerlink" title="1 合并"></a>1 合并</h2><p>场景： 把B分支的代码合并到A分支，当前在A分支</p>
+<h3 id="1-1-git-merge：合并整个分支"><a href="#1-1-git-merge：合并整个分支" class="headerlink" title="1.1 git merge：合并整个分支"></a>1.1 git merge：合并整个分支</h3><p>git merge 可以合并代码</p>
+<h4 id="1-1-1-fastforward模式"><a href="#1-1-1-fastforward模式" class="headerlink" title="1.1.1 fastforward模式"></a>1.1.1 fastforward模式</h4><p>这种模式下，删除分支后，会丢掉分支信息。(简言而知在A上看不到B上commit信息都没有)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git merge B</span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有冲突</span></span><br><span class="line">git push origin A</span><br><span class="line"></span><br><span class="line"><span class="comment">//有冲突，解决完之后</span></span><br><span class="line">Git add .</span><br><span class="line">Git commit -m’fix 冲突’</span><br><span class="line">git push origin A</span><br></pre></td></tr></table></figure>
+<p>用git log –graph命令可以看到分支合并图</p>
+<h4 id="1-1-2-–no-ff模式"><a href="#1-1-2-–no-ff模式" class="headerlink" title="1.1.2 –no-ff模式"></a>1.1.2 –no-ff模式</h4><p>如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。（可以在A上查看到B的commit信息）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff -m <span class="string">"merge with no-ff"</span> B</span><br></pre></td></tr></table></figure>
+<p>因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。<br>合并后，我们用git log看看分支历史：</p>
+<h3 id="1-2-git-cherry-pick-：合并某次提交"><a href="#1-2-git-cherry-pick-：合并某次提交" class="headerlink" title="1.2 git cherry-pick ：合并某次提交"></a>1.2 git cherry-pick ：合并某次提交</h3><p>合并某次提交</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick </span><br><span class="line">例如</span><br><span class="line">git cherry-pick <span class="number">4</span>c805e2</span><br></pre></td></tr></table></figure>
+<p>合并某次提交记录</p>
+<h3 id="1-3-git-checkout-合并某些文件或文件夹"><a href="#1-3-git-checkout-合并某些文件或文件夹" class="headerlink" title="1.3 git checkout: 合并某些文件或文件夹"></a>1.3 git checkout: 合并某些文件或文件夹</h3><p>合并某些文件或文件夹</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout B 某些文件  某些目录<span class="comment">/**</span></span><br></pre></td></tr></table></figure>
+<p>注意：上面这个并不好，应该改成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b A_temp</span><br><span class="line"><span class="comment">//当前分支A_temp</span></span><br><span class="line">git checkout B <span class="string">`某些文件`</span>  <span class="string">`某些目录/**`</span></span><br><span class="line"><span class="comment">// 注意目录后面的两个*表示深层拷贝</span></span><br><span class="line"></span><br><span class="line">git checkout A</span><br><span class="line">git merge A_temp</span><br></pre></td></tr></table></figure>
+<p>原因：使用checkout会把B分支的代码原原本本合并到A_temp,哪怕A_temp也有改动代码</p>
+<h2 id="2-暂存代码"><a href="#2-暂存代码" class="headerlink" title="2 暂存代码"></a>2 暂存代码</h2><p>场景：比如在develop开发着新功能，突然急需解决其他分支如master的代码的bug</p>
+<p>解决方案：暂存develop代码，切到其他分支，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当前分支develop </span></span><br><span class="line">git stash</span><br><span class="line">git status  <span class="comment">//本次操作无意义</span></span><br><span class="line"><span class="comment">//此时 git status 肯定是空的</span></span><br><span class="line">git checkout master</span><br><span class="line">Git pull</span><br><span class="line">Git checkout -b bugfix_master</span><br><span class="line"><span class="comment">// 修改完</span></span><br><span class="line">git add .</span><br><span class="line">Git commit -m’bugfix’</span><br><span class="line">Git checkout master</span><br><span class="line">Git merge —no-diff -m <span class="string">"merged bug fix "</span>  bugfix_master</span><br></pre></td></tr></table></figure>
+<p>回到develop，怎么取出</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+<p>一是用<code>git stash apply</code>恢复，但是恢复后，stash内容并不删除，你需要用<code>git stash drop</code>来删除；<br>另一种方式是用<code>git stash pop</code>，恢复的同时把stash内容也删了：</p>
+<p>你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ git stash apply stash@&#123;<span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-git-push-前"><a href="#3-git-push-前" class="headerlink" title="3 git push 前"></a>3 git push 前</h2><p>git push操作顺利推到远程没什么好说的，如果该分支线上有人提前提交了代码，git push应该会失败，需要先git pull.</p>
+<p>此时 你确定直接 git pull   </p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

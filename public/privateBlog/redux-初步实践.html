@@ -11,7 +11,7 @@
 
     <title>
         
-        你不知道js上卷--提升 - ......
+        redux-初步实践 - ......
         
     </title>
 
@@ -56,7 +56,7 @@
             <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
+                    <span>HOME</span>
                 </a>
             </li>
             <li >
@@ -88,10 +88,6 @@
         </ul>
     </div>
     
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-你不知道的这些话"><span class="toc-text">1 你不知道的这些话</span></a></li></ol>
-</div>
-    
 </div>
 
 
@@ -115,59 +111,6 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-
-
-<div class="post-container">
-    <div class="post-title">
-        你不知道js上卷--提升
-    </div>
-
-    <div class="post-meta">
-        <span class="attr">发布于：<span>2019-09-17 01:28:57</span></span>
-        
-        <span class="attr">标签：/
-        
-        <a class="tag" href="/tags/#总结" title="总结">总结</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
-    </div>
-    <div class="post-content no-indent">
-        <p>第四章，这是一个很重要的讲的是提升，这部分肯定牵扯到作用域啦</p>
-<h2 id="1-你不知道的这些话"><a href="#1-你不知道的这些话" class="headerlink" title="1 你不知道的这些话"></a>1 你不知道的这些话</h2><ol>
-<li>直觉上会认为JavaScript代码在执行时是由上到下一行一行执行的。但是实际上并不完全这样</li>
-<li>只有声明提升，函数声明优先变量声明</li>
-<li>函数声明vs函数表到时</li>
-</ol>
-<p>##2 解答上述问题</p>
-<p>1.编译器再次来袭<br>引擎在解释JavaScript代码之前会对齐进行编译（三步参考第一章）。编译阶段中的一部分工作就是找到所有的声明，并用合适的作用域将它们关联起来。<br><strong>因此：包括变量和函数在内的所有声明都会任何代码被执行前首先被处理</strong><br><code>var a = 2</code>。JavaScript实际上会将其看成两个声明 <code>var a</code> 和 <code>a = 2</code>;<br>第一个定义声明是在编译阶段进行的，第二个赋值声明会留在原地等待执行阶段</p>
-<p>注意：只有声明会被提升，赋值或者其他运行逻辑会留在原地。注意函数声明和函数表达式</p>
-
-        
-            <div class="donate-container">
-    <div class="donate-button">
-        <button id="donate-button">赞赏</button>
-    </div>
-    <div class="donate-img-container hide" id="donate-img-container">
-        <img id="donate-img" src="" data-src="/img/donate.jpg">
-        <p> 感谢鼓励 </p>
-    </div>
-</div>
-        
-        <br />
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
-
-        <div id="lv-container">
-        </div>
-
-    </div>
-</div>
     </div>
 </div>
 
@@ -206,7 +149,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = true
+    window.isPost = false
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
