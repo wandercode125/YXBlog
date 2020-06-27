@@ -33,8 +33,9 @@ location的8个属性都是可读写的，但是只有href与hash的写才有意
 
 
 ## 2 为什么 window.location.search 为空?
-答：注意上面的search和hash的区别，如果URL中“？”之前有一个“#”，比如：`http://localhost:63342/index.html#/version?type=35&id=5`。
+答： **查询字符串search只能在取到“？”后面和“#”之前的内容，如果“#”之前没有“？”search取值为空。**
 
+注意上面的search和hash的区别，如果URL中“？”之前有一个“#”，比如：`http://localhost:63342/index.html#/version?type=35&id=5`。
 那么使用`window.location.search`得到的就是空（“”）。
 
-因为`？type=35&id=5`串字符是属于`#/version?type=35&id=5`这个串字符的，**也就是说查询字符串search只能在取到“？”后面和“#”之前的内容，如果“#”之前没有“？”search取值为空。**
+因为`？type=35&id=5`串字符是属于`#/version?type=35&id=5`这个串字符的，
