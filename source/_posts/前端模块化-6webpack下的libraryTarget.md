@@ -1,7 +1,7 @@
 ---
 title: 前端模块化-6webpack下的libraryTarget
 date: 2019-03-28 20:03:45
-tags: 模块化
+tags: webpack
 ---
 
 

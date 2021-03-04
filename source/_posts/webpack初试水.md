@@ -1,5 +1,5 @@
 ---
-title: webpack单页应用和多页应用搭建初试水（一）
+title: webpack搭建初试水（一）
 date: 2018-08-27 16:05:40
 tags: webpack
 categories: 实践
@@ -18,29 +18,31 @@ categories: 实践
 #### 1.1 index.js
 随便你想怎么拆分都行，随便你想引入什么文件都可以，请最后一定要有一句
 
+```javascript
     ReactDOM.render(
         <h1>haha</h1>,
         document.querySelector('#main')
     );
-
+```
 注意：
     1.import ReactDOM  from 'react-dom';
     2.index.html一定要有`<div id="main"></div>`
 
 #### 1.2 index.html
-
+```html
     <html>
       <body>
         <div id="main"></div>
         <script type="text/javascript" src="./bundle.js"></script>
       </body>
     </html>
+```
 
  注意：
  1.bundle.js命名以及路径与webpack.config.js有关系
  
  #### 1.3 webpack.config.js
-
+```javascript
     var path  = require('path');
     module.exports = {
       devtool: '#source-map',
@@ -77,14 +79,16 @@ categories: 实践
         ]
       },
     };
+```
 
 #### 1.4 packgae.json
 
+```json
     "scripts": {
         "start": "webpack-dev-server --inline   --open",
         "build": "webpack --config webpack.config.js -p"
       },
-
+```
   
 ### 2.多页应用
 
@@ -98,15 +102,15 @@ htmlwebpackplugin，为了生成多个html
 建立一个单独的文件夹，login/, 下面需有index.js 和 index.html
 
 #### 2.2 index.js
-
+```javascript
     import ReactDOM  from 'react-dom';
     import React, { Component } from 'react';
     import './index.css';
     
     ReactDOM.render(<h1>这里是page1</h1>, document.getElementById('main'));
-
+```
 #### 2.3 index.html
-
+```html
     <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -118,9 +122,9 @@ htmlwebpackplugin，为了生成多个html
         <div id="main"></div>
       </body>
     </html>
-
+```
 #### 2.4 webpack.config.js
-
+```javascript
     var path = require('path');
     var glob = require('glob');
     // const webpack = require('webpack');
@@ -194,11 +198,13 @@ htmlwebpackplugin，为了生成多个html
         open:true,
       }
     };
+```
 
 #### 2.5 package.json
-
+```json
     "scripts": {
         "dev": "webpack-dev-server --hot",
         "build": "webpack "
       },
+```
 

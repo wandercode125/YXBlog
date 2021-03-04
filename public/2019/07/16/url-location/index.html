@@ -11,7 +11,7 @@
 
     <title>
         
-        window.location.search为什么是空的 - ......
+        window.location.search - ......
         
     </title>
 
@@ -53,30 +53,30 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li >
+            <!-- <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
                 </a>
-            </li>
+            </li> -->
+            <!-- <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>目录</span>
+                </a>
+            </li> -->
             <li >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
                     <span>标签</span>
                 </a>
             </li>
-            <li >
-                <a href="/archive">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
-                </a>
-            </li>
-            <li >
+            <!-- <li >
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>关于</span>
                 </a>
-            </li>
+            </li> -->
             
             <li>
                 <a id="search">
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是window-location"><span class="toc-text">1. 什么是window.location ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-为什么-window-location-search-为空"><span class="toc-text">2 为什么 window.location.search 为空?</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-定义"><span class="toc-text">1. 定义 ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-为什么为空"><span class="toc-text">2 为什么为空?</span></a></li></ol>
 </div>
     
 </div>
@@ -119,7 +119,7 @@
 
 <div class="post-container">
     <div class="post-title">
-        window.location.search为什么是空的
+        window.location.search
     </div>
 
     <div class="post-meta">
@@ -139,7 +139,7 @@
     <div class="post-content no-indent">
         <p>有时候需要从window.location.search去掉的值是空的，配合一些方法就会报错。甚至有时候不是空有的时候是空的，那么原因是因为是什么？</p>
 <a id="more"></a>
-<h2 id="1-什么是window-location"><a href="#1-什么是window-location" class="headerlink" title="1. 什么是window.location ?"></a>1. 什么是window.location ?</h2><p>URL：<a href="http://b.a.com:88/index.php?name=kang&amp;when=2016#first" target="_blank" rel="noopener">http://b.a.com:88/index.php?name=kang&amp;when=2016#first</a></p>
+<h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义 ?"></a>1. 定义 ?</h2><p>URL：<a href="http://b.a.com:88/index.php?name=kang&amp;when=2016#first" target="_blank" rel="noopener">http://b.a.com:88/index.php?name=kang&amp;when=2016#first</a></p>
 <table>
 <thead>
 <tr>
@@ -194,7 +194,7 @@
 <p>location的8个属性都是可读写的，但是只有href与hash的写才有意义。</p>
 <p>例如改变location.href会重新定位到一个URL，</p>
 <p>而修改location.hash会跳到当前页面中的anchor(<code>&lt;a id=&quot;name&quot;&gt;或者&lt;div id=&quot;id&quot;&gt;</code>等)名字的标记(如果有)，而且页面不会被重新加载</p>
-<h2 id="2-为什么-window-location-search-为空"><a href="#2-为什么-window-location-search-为空" class="headerlink" title="2 为什么 window.location.search 为空?"></a>2 为什么 window.location.search 为空?</h2><p>答： <strong>查询字符串search只能在取到“？”后面和“#”之前的内容，如果“#”之前没有“？”search取值为空。</strong></p>
+<h2 id="2-为什么为空"><a href="#2-为什么为空" class="headerlink" title="2 为什么为空?"></a>2 为什么为空?</h2><p>答： <strong>查询字符串search只能在取到“？”后面和“#”之前的内容，如果“#”之前没有“？”search取值为空。</strong></p>
 <p>注意上面的search和hash的区别，如果URL中“？”之前有一个“#”，比如：<code>http://localhost:63342/index.html#/version?type=35&amp;id=5</code>。<br>那么使用<code>window.location.search</code>得到的就是空（“”）。</p>
 <p>因为<code>？type=35&amp;id=5</code>串字符是属于<code>#/version?type=35&amp;id=5</code>这个串字符的，</p>
 

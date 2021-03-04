@@ -1,5 +1,5 @@
 ---
-title: Less（1）-浏览器端的用法
+title: less浏览器端的用法
 date: 2019-06-26 00:37:13
 tags:
 ---
@@ -62,7 +62,7 @@ tags:
 
 动态修改css样式
 
-```js
+```javascript
 
 window.less.modifyVars(
         this.lessChangeStyle
@@ -75,12 +75,12 @@ window.less.modifyVars(
 ```
 
  this.lessChangeStyle的格式
-```
+ 
+```json
 
 {"@primary-color":"#e1bee7",
 "@border-radius":"10px",
 "@border-color":"#c62828",
-.....
 } 
 ```
 

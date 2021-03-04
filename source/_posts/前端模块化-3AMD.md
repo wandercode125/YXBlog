@@ -2,7 +2,7 @@
 title: 前端模块化-3AMD
 date: 2018-08-27 14:11:00
 tags: 模块化
-categories: 总结 工作
+categories: 
 
 ---
  Commonjs,AMD,CMD,ES6的模块化总结

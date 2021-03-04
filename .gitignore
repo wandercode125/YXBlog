@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+node_modules
+public
+package-lock.json
+db.json
+.deploy_git

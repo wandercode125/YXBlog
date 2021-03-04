@@ -1,7 +1,7 @@
 ---
 title: JS作用域系列-apply/bind/call
 date: 2019-07-21 21:05:03
-tags: JS
+tags: javascript
 categories: 总结
 ---
 

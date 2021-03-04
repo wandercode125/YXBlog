@@ -1,7 +1,7 @@
 ---
 title: JS作用域系列—闭包
 date: 2018-09-28 14:57:04
-tags:
+tags: javascript
 categories: 总结
 ---
 

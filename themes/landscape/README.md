@@ -30,7 +30,8 @@ git pull
 ``` yml
 # Header
 menu:
-  Home: /
+  # Home: /
+  Home: /archives
   Archives: /archives
 rss: /atom.xml
 

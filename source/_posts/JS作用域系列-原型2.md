@@ -1,7 +1,7 @@
 ---
 title: JS作用域系列—原型2
 date: 2018-09-28 15:55:59
-tags: JS
+tags: javascript
 categories: 总结
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: JS作用域系列—this
 date: 2018-09-28 11:55:09
-tags: JS
+tags: javascript
 categories: 总结
 ---
 综述：关于this最想知道的内容估计就是this的指向了，但是再js中，this的指向的确定不是在定义时候，而是在执行的时候，因为执行方式（调用方式）有多种。

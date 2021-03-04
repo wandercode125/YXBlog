@@ -4,7 +4,6 @@ date: 2018-10-1 12:00:00
 tags: 
 	- "react"
 	- "react-hoc"
-categories: 工作
 ---
 
 
@@ -69,7 +68,7 @@ WrappedComponent中的参数，这里不仅仅有从HOC传来的参数，还有W
 （3.2）抽象 state 
 这里不是通过ref获取state， 而是通过 { props, 回调函数 } 传递给wrappedComponent组件，通过回调函数获取state。这里用的比较多的就是react处理表单的时候。通常react在处理表单的时候，一般使用的是受控组件（[官方文档](https://reactjs.org/docs/forms.html#controlled-components)），即把input都做成受控的，改变value的时候，用onChange事件同步到state中。*当然这种操作通过Container组件也可以做到，具体的区别放到后面去比较（这点我也没有弄明白呢）*。看一下代码就知道怎么回事了：
 
-```
+```javascript
 // 普通组件Login，这里充当WrappedComponent
 import React, { Component } from 'react';
 import formCreate from './form-create';
@@ -146,7 +145,7 @@ export default formCreate;
 （3.3）通过 refs 获取组件实例
 当我们包装WrappedComponent的时候，想获取到它的实例怎么办，可以通过引用(ref),在WrappedComponent组件挂载的时候，会执行ref的回调函数，在HOC中取到组件的实例。通过打印，可以看到它的props， state，都是可以取到的。
 
-```
+```javascript
 import React, { Component } from 'react';
 
 const refHoc = WrappedComponent => class extends Component {

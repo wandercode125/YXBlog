@@ -1,7 +1,7 @@
 ---
 title: 前端模块化-5webpack下的libraryTarget
 date: 2019-03-28 19:59:42
-tags: 模块化
+tags: webpack
 ---
 output.library和output.libraryTarget属性可能大家都会比较陌生，因为一般如果只在项目中使用 webpack 不需要关注这两个属性，但是如果是开发类库，那么这两个属性就是必须了解的。说白了就是发包
 

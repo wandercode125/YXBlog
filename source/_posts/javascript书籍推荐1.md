@@ -1,7 +1,7 @@
 ---
 title: javascript书籍推荐1
 date: 2019-09-22 23:05:49
-tags: 总结
+tags: javascript
 ---
 
 有些书籍看了才知道是真的好

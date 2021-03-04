@@ -1,5 +1,5 @@
 ---
-title: window.location.search为什么是空的
+title: window.location.search
 date: 2019-07-16 11:03:08
 tags: window 
 ---
@@ -9,7 +9,7 @@ tags: window
 <!-- more -->
 
 
-## 1. 什么是window.location ?
+## 1. 定义 ?
 
 URL：http://b.a.com:88/index.php?name=kang&when=2016#first
 
@@ -32,7 +32,7 @@ location的8个属性都是可读写的，但是只有href与hash的写才有意
 而修改location.hash会跳到当前页面中的anchor(`<a id="name">或者<div id="id">`等)名字的标记(如果有)，而且页面不会被重新加载
 
 
-## 2 为什么 window.location.search 为空?
+## 2 为什么为空?
 答： **查询字符串search只能在取到“？”后面和“#”之前的内容，如果“#”之前没有“？”search取值为空。**
 
 注意上面的search和hash的区别，如果URL中“？”之前有一个“#”，比如：`http://localhost:63342/index.html#/version?type=35&id=5`。

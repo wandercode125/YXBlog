@@ -2,7 +2,7 @@
 layout: javascript
 title: javascript语言的历史
 date: 2019-07-15 19:34:14
-tags:
+tags: javascript
 ---
 
 刚接触前端的时候，在搜集资料的时候会看见es5和javascript还是很迷糊。下面就介绍一下js和

@@ -1,9 +1,8 @@
 ---
 title: 前端模块化-2CommonJS
 date: 2018-08-27 14:08:43
-tags: 模块化
-categories: 总结 工作
-
+tags: javascript
+categories: 
 ---
 
 上一篇讲了前端模块化中的旧方法，下面就讲我们常见但是易混的三个前端模块化。这里先讲commonjs

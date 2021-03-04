@@ -1,7 +1,7 @@
 ---
 title: chrome--调试技巧1
 date: 2019-06-29 10:54:16
-tags: chrome
+tags: 浏览器
 ---
 
 ## 1 前提

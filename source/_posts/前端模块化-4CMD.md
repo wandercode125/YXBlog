@@ -1,8 +1,8 @@
 ---
 title: 前端模块化-4CMD
 date: 2018-08-27 14:11:00
-tags: 模块化
-categories: 总结 工作
+tags: javascript
+categories:
 
 ---
  Commonjs,AMD,CMD,ES6的模块化总结

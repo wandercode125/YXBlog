@@ -1,7 +1,7 @@
 ---
 title: JS作用域系列—作用域链
 date: 2018-09-28 13:55:24
-tags: JS
+tags: javascript
 categories: 总结
 ---
 

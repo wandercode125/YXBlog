@@ -1,7 +1,7 @@
 ---
 title: 前端模块化-总结Commonjs和AMD和CMD
 date: 2019-08-19 11:04:21
-tags:
+tags: javascript
 ---
 
 主要代码粘贴，说那么多语法不如直接看使用

@@ -5,7 +5,7 @@ tags: less
 ---
 
 前面讲了在线修改样式调用的方法是window.less.modifyVars，这边讲一下color.less的生成。
-
+下面的代码来源于我的项目组
 
 ## 1 color.less
 
@@ -274,10 +274,10 @@ tags: less
   background-color: #EEEEEE;
   border-color: #EEEEEE;
 }
-...
-省略
+
 
 ```
 
 
 color.less的难点在于需要将整个组件库（50多个组件）的样式放到这里，而且组件库使用的scss的语法，所以需要这部分的工程量较大。后续可能会上传如何从scss生成less
+

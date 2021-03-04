@@ -4,8 +4,6 @@ date: 2018-10-1 12:00:00
 tags: 
 	- "react"
 	- "react-hoc"
-categories: 工作
-
 ---
 
 （一）前篇回顾
@@ -46,7 +44,7 @@ categories: 工作
 > 本质就是EnhacedComponent继承了WrappedComponent组件的生命周期函数，尤其是render()函数
 
 
-```
+```javascript
 //Wrappedcomponent
 import React, { Component } from 'react';
 class Usual extends Component {
@@ -77,7 +75,7 @@ export default Usual;
 ```
 
 
-```
+```javascript
 //下面是HOC
 import React, { Component } from 'react';
 const iiHoc = WrappedComponent => class extends WrappedComponent {
@@ -154,7 +152,7 @@ EnhacedComponent的state覆盖了Wrapped Component的state。这时候的怎么�
 （4.5）要给hoc添加class名，便于debugger。
 当我们在chrome里应用React-Developer-Tools的时候，组件结构可以一目了然，所以DisplayName最好还是加上。
 
-```
+```javascript
 const getDisplayName = component => component.displayName || component.name
 function hoc(WrappedComponent){
     return class HOC extends Component {
