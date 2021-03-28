@@ -13,7 +13,7 @@ body {
   //background-size: cover;
 background-size: contain;
 
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: left top;
 }
 .red {
