@@ -7,13 +7,10 @@ tags:
 
 ## 1 前言
 
-这里不讲less的用法，也不讲如何使用gulp、webpack编译less生成css文件，而是less的浏览器端用法。
-目的是为了动态修改css样式。
+这里不讲less的用法，也不讲如何使用gulp、webpack编译less生成css文件，而是less的浏览器端用法。目的是为了动态修改css样式。
 
 ## 2 摘要
-实现的原理：通过html中使用 `link`引入less文件，使用`script`引入less.js文件，使用`less.modifyVars`，动态修改less变量值，从而修改css样式
-
-** 用途：实现在线样式定制 **
+实现的原理：通过html中使用 `link`引入less文件，使用`script`引入less.js文件，使用`less.modifyVars`，动态修改less变量值，从而修改css样式 。**用途：实现在线样式定制**
 
 
 ## 3 官方文档
