@@ -8,182 +8,80 @@ categories: 总结
 
 <!--more-->
 
-综述：前面讲了作用域vs作用域链，可以知道作用域链是作用域的部分内容。下面讲原型和原型链～～。涉及几个概念，普通对象vs函数对象；构造函数vs实例，prototype属性vs原型对象
-
-注意：原型链总有例外，这里讲的都是100%可以推出来的，不存在特例
+作用域链是作用域的部分内容。下面讲原型和原型链。涉及几个概念，
+1. **普通对象vs函数对象**；
+2. **构造函数vs实例**，
+3. **prototype属性vs原型对象**
+这些概念经常在各种博客见到，我只想说，全是障眼法，一堆文字堆砌，造成各种理解困难。
 
 ## 1 对象
+### 1.1 内置对象
 
-### 1.1 对象就分两种
+Ecmascript中涉及到很多内置对象，其中有两个Object和Function。（注意大写）。可以参考[19 Fundamental Objects](https://262.ecma-international.org/11.0/#sec-fundamental-objects)
 
-在此之前，先普及一下js中的对象分类：**JavaScript中，万物皆对象！**
-
-但对象也是有区别的，**分为普通对象和函数对象**。Object 、Function 是 JS 自带的函数对象。
+**JavaScript中，万物皆对象！**，理解如下：
+1. 隐式转换，基础类型可以转换成对应的内置对象
+2. null和undefined特殊，没有对应的内置对象
 
 ### 1.2 对象创建方式
+两种形式定义:
+1. 声明(文字)形式
+2. 构造形式。
 
-我们可以简单的将创建对象的方式分为三种：
-1. 函数创建对象、
-2. 字面量创建、
-3. Object创建。
+> 《你不知道javascript上-对象》真的讲的很好
+### 1.3 typeof语法
+[sec-typeof-operator](https://262.ecma-international.org/11.0/#sec-typeof-operator)
+UnaryExpression:typeof UnaryExpression
+1. Let val be the result of evaluating UnaryExpression.
+2. If Type(val) is Reference, then
+   1. If IsUnresolvableReference(val) is true, return "undefined".
+3. Set val to ? GetValue(val).
+4. Return a String according to Table 35.
 
-### 1.3 普通对象和函数对象
+Table 35: typeof Operator Results
 
+|Type of val |	Result|
+|--|--|
+|Undefined	|"undefined"
+|Null	|"object"
+|Boolean|	"boolean"
+|Number|	"number"
+|String|	"string"
+|Symbol|	"symbol"
+|BigInt|	"bigint"
+|Object (does not implement [[Call]])|	"object"
+|Object (implements [[Call]])|	"function"
 
-```javascript
+**个人不太喜欢将对象分成：XX对象这种，函数对象也是Object，只不过实现了一个属性，这个属性叫做[[Call]]。还有[[]]这种双方括号包裹的属性，大部分都是不能通过dot（.）引用到的，只是Ecma语法**
+### 1.4 new Function
+ [19.2.1.1 Function ( p1, p2, … , pn, body )](https://262.ecma-international.org/11.0/#sec-function-constructor)
+## 2 构造函数：
 
-typeOf(普通对象) === object
-typeOf(函数对象）====Function
-
-```
-
-```javascript
-//demo1.js
-var o1 = {}; 
-var o2 =new Object();
-var o3 = new f1();
-
-function f1(){}; 
-var f2 = function(){};
-var f3 = new Function('str','console.log(str)');
-
-console.log(typeof Object); //function 
-console.log(typeof Function); //function  
-
-console.log(typeof f1); //function 
-console.log(typeof f2); //function 
-console.log(typeof f3); //function   
-
-console.log(typeof o1); //object 
-console.log(typeof o2); //object 
-console.log(typeof o3); //object
-
-```
-
-在上面的例子中 o1 o2 o3 为普通对象，f1 f2 f3 为函数对象。
->怎么区分，其实很简单，凡是通过 new Function() 创建的对象都是函数对象，其他的都是普通对象。
-
-**f1,f2,归根结底都是通过 new Function()的方式进行创建的。Function Object 也都是通过 New Function()创建的。**
-
-
-### 1.4 new Function是个特例
-
-建议看完全篇之后再看这里
-
-
-```javascript
-
-var f3 = new Function('str','console.log(str)');
-console.log(typeof f3); //function
-f3.constructor === Function; //true
-
-
-```
-
-1. f3是实例，是函数对象而不是普通对象
-
-```javascript
-
-console.log(typeof Function.prototype) ;//function
-
-Function.prototype.construtor == Function; //true
-
-Function.prototype.prototype; //undefine
-
-```
-2. 原型对象，是函数对象不是普通对象，且这个函数对象没有protype属性
-
-以上全都不符合总结部分的3.4.5条，请注意
-
-
-
-
-## 2 构造函数：函数对象变身构造函数
-
-一定要分清楚普通对象和函数对象，下面我们会常常用到它。
-
+构造函数就是函数，所有的函数都能当构造函数，只要你想。
 ### 2.1 new操作 vs 实例对象
-
-我们先复习一下构造函数的知识：
-
-new一下就出现构造函数和实例了。
+new + 函数，产生一个对象。（不清楚的可以去看new 操作）。
 
 ```javascript
 function Person(name, age, job) {
- this.name = name;
- this.age = age;
- this.job = job;
- this.sayName = function() { alert(this.name) } 
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.sayName = function() { alert(this.name) } 
 }
 var person1 = new Person('Zaxlct', 28, 'Software Engineer');
-var person2 = new Person('Mick', 23, 'Doctor');
-
 ```
-
-上面的例子中 person1 和 person2 都是 Person 的**实例**。
-这**两个实例都有一个 constructor** （构造函数）属性，该属性（是一个指针）指向 Person。 即：
-
-```javascript
-
-console.log(person1.constructor == Person); //true
-console.log(person2.constructor == Person); //true
-
-```
-
-我们要记住两个概念（构造函数，实例）：
-
-- person1 和 person2都是 **构造函数 Person**  的实例。
-- 一个公式：实例的构造函数属性（constructor）指向构造函数。
-
-逆向理解，如果你用函数A去创造了A的实例a，那么A就化身成为‘构造函数’，实例a有个constructor属性（这个属性称之为构造函数属性）指向A
-
+**非得有人闲得，给函数改名为构造函数，给对象改名为实例对象，函数还是那个函数，对象还是那个对象**
 ### 2.2 实例对象是普通对象还是函数对象？
+**多脑残会有这么多名字**
+
+> 实例对象是普通对象还是函数对象，都是对象呀。
 
 ## 3.原型对象：函数对象指定原型对象
-
 ### 3.1 原型对象
 
-前面讲了普通对象、函数对象，下面是原型对象
-**原型对象，本质它就是一个 普通对象，从现在开始你要牢牢记住原型对象就是 A.prototype 。**
+**原型对象，本质它就是一个普通对象，从现在开始你要牢牢记住原型对象就是 A.prototype**
 
-```javascript
-//demo
-function Person() {}
-    Person.prototype.name = 'Zaxlct';
-    Person.prototype.age  = 28;
-    Person.prototype.job  = 'Software Engineer';
-    Person.prototype.sayName = function() {
-    alert(this.name);
-}
-  
-var person1 = new Person();
-person1.sayName(); // 'Zaxlct'
-
-var person2 = new Person();
-person2.sayName(); // 'Zaxlct'
-
-console.log(person1.sayName == person2.sayName); //true
-
-```
-
-那什么是原型对象呢？
-
-我们把上面的例子改一改你就会明白了：
-
-```javascript
-Person.prototype = {
-   name:  'Zaxlct',
-   age: 28,
-   job: 'Software Engineer',
-   sayName: function() {
-     alert(this.name);
-   }
-}
-```
-上述代码非常简单，Person原型对象定义了公共的say方法。
-
-
-### 3.2 原型对象 vs prototype属性
+### 3.2 原型对象 vs `.prototype` vs `.__proto__`
 
 在 JavaScript 中，每当定义一个对象（函数也是对象）时候，对象中都会包含一些预定义的属性 。
 **其中每个对象都有_propto_属性，但是只有函数对象才有prototype 属性，这个属性指向函数的原型对象。**

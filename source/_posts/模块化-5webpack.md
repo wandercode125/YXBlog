@@ -1,5 +1,5 @@
 ---
-title: 前端模块化-5webpack下的libraryTarget
+title: 模块化-5webpack
 date: 2019-03-28 19:59:42
 tags: webpack
 ---

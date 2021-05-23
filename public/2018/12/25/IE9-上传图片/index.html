@@ -140,7 +140,7 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里记录一下上传功能，，不仅仅适用于ie9</p>
 <h2 id="1-上传"><a href="#1-上传" class="headerlink" title="1 上传"></a>1 上传</h2><p>上传一直是很麻烦的事情，还好我有源码</p>
 <h3 id="1-1-非IE9，利用input的upload来上传图片"><a href="#1-1-非IE9，利用input的upload来上传图片" class="headerlink" title="1.1 非IE9，利用input的upload来上传图片"></a>1.1 非IE9，利用input的upload来上传图片</h3><p>在chrome firefox下面的上传图片可以采用input的upload操作.代码如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;span className=<span class="string">"iconOuter"</span> onClick=&#123;e =&gt; uploadImage(e)&#125;&gt;</span><br><span class="line">    &lt;input type=<span class="string">"file"</span> id=<span class="string">"btn_file2"</span> accept=<span class="string">"image/x-png,image/gif,image/jpeg,image/bmp"</span> onChange=&#123;imgChange&#125; style=&#123;&#123; <span class="attr">display</span>: <span class="string">'none'</span> &#125;&#125; /&gt;</span><br><span class="line">    &lt;Icon type=<span class="string">"add"</span> className=<span class="string">"iconAdd"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">Icon</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/span&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;span className=<span class="string">"iconOuter"</span> onClick=&#123;e =&gt; uploadImage(e)&#125;&gt;</span><br><span class="line">    &lt;input type=<span class="string">"file"</span> id=<span class="string">"btn_file2"</span> accept=<span class="string">"image/x-png,image/gif,image/jpeg,image/bmp"</span> onChange=&#123;imgChange&#125; style=&#123;&#123; <span class="attr">display</span>: <span class="string">'none'</span> &#125;&#125; /&gt;</span><br><span class="line">    &lt;Icon type=<span class="string">"add"</span> className=<span class="string">"iconAdd"</span>&gt;&lt;/Icon&gt;</span><br><span class="line">&lt;<span class="regexp">/span&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p> 其实上面的代码只显示icon 加号➕</p>
 </blockquote>
@@ -229,4 +229,5 @@
 
 
 
+</script>
 </html>

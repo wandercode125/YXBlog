@@ -1,19 +1,16 @@
 ---
 title: JS作用域系列—作用域
-date: 2018-09-28 12:55:03
+date: 2018-09-28 11:57:09
 tags: javascript
 categories: 总结
 ---
 
 综述：
-在《JS作用域系列—this》中所讲的整个流程就是一个执行环境的创建。
-执行环境又称为作用域又称为执行上下文。
+在《JS作用域系列—this》中所讲的整个流程就是一个执行环境的创建。执行环境又称为作用域又称为执行上下文。
 
 <!-- more -->
 ## 1. 执行上下文(执行环境)
-
-> 涉及到上下文，函数的作用域或者说是执行环境
-
+但是关于创建ExecutionContext不如直接看Ecmascript的官方文档[《8Executable Code and Execution Contexts》](https://262.ecma-international.org/11.0/#sec-executable-code-and-execution-contexts)
 ### 1.1 this的指向
 
 略，在《JS作用域系列1——this》
@@ -54,10 +51,15 @@ categories: 总结
 
 > 进入执行上下文（创建阶段）和执行阶段（激活/执行阶段）
 
-（1）进入上下文阶段：就是执行环境的创建，**发生在函数调用时，但在执行具体代码之前**(上面图的最后一步)。具体完成创建，作用域链；创建变量、函数和参数以及求this的值 
-（2）执行代码阶段：主要完成变量赋值、函数引用和解释/执行其他代码
+1. 进入上下文阶段：就是执行环境的创建，**发生在函数调用时，但在执行具体代码之前**(上面图的最后一步)。
+   1. 具体完成创建，作用域链；
+   2. 创建变量、函数和参数以及求this的值 
+2. 执行代码阶段：
+      1. 主要完成变量赋值、
+      2. 函数引用
+      3. 和解释/执行其他代码
    
-  **总的来说可以将执行上下文看作是一个对象**
+**总的来说可以将执行上下文看作是一个对象**
   
    
 ```JavaScript
@@ -68,25 +70,9 @@ EC = {
        
     }
 ```
-
-    
- **EC的组成正好将执行环境创建的过程给拆分了**
+**EC的组成正好将执行环境创建的过程给拆分了**
 
 #### 1.3.2 函数表达式
- 这里需要说明一下：函数表达式不包含在变量对象之中
-   
-```
-function bar() {} // function declaration, FD  
-    (function baz() {}); // function expression, FE  
-
-    console.log(  
-        this.foo == foo, // true  
-        window.bar == bar // true  
-     );  
-
-   console.log(baz); // ReferenceError, "baz" is not defined
-```
-
 ## 2 实战
 
 如果上面的过程你真的会了，下面几道道题。
@@ -95,7 +81,8 @@ function bar() {} // function declaration, FD
 创建：初始化形参a
 执行：逐行执行，a是形参
 ```javascript
-t(null);function t(a){console.log(a);}
+t(null);
+function t(a){console.log(a);}
 // null
 
 ```
@@ -119,7 +106,12 @@ function t(a){
 创建：初始化形参a；局部变量a重名不覆盖（因为不赋值是undefined）
 执行：逐行执行，a是形参，输出a，作用域找a给a赋值2，输出a
 ```javascript
-t(null);function t(a){console.log(a);var a = 2;console.log(a);}
+t(null);
+function t(a){
+    console.log(a);
+    var a = 2;
+    console.log(a);
+}
 //null
 // 2
 ```
@@ -128,7 +120,12 @@ t(null);function t(a){console.log(a);var a = 2;console.log(a);}
 创建：初始化形参a，局部变量a重名不覆盖
 执行：逐行执行，a是形参，形参a等于null，找a给a赋值2，输出a
 ```javascript
-t(null);function t(a){var a = 2;console.log(a);console.log(a);}
+t(null);
+function t(a){
+    var a = 2;
+    console.log(a);
+    console.log(a);
+}
 // 2
 // 2
 ```
@@ -136,7 +133,12 @@ t(null);function t(a){var a = 2;console.log(a);console.log(a);}
 创建：初始化形参a，局部变量a重名不覆盖
 执行：逐行执行，a是形参，形参a等于null，输出a；找a，a存在且是形参，输出a
 ```javascript
-t(null);function t(a){console.log(a);var a ;console.log(a);}
+t(null);
+function t(a){
+    console.log(a);
+    var a ;
+    console.log(a);
+}
 // null
 // null
 ```
@@ -144,7 +146,12 @@ t(null);function t(a){console.log(a);var a ;console.log(a);}
 创建：初始化形参a，同名局部变量a是undefined不覆盖
 执行：逐行执行，形参a等于null，输出a
 ```javascript
-t(null);function t(a){var a ;console.log(a);console.log(a);}
+t(null);
+function t(a){
+    var a ;
+    console.log(a);
+    console.log(a);
+}
 // null
 // null
 ```

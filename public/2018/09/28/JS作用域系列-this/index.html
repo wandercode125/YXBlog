@@ -137,10 +137,14 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <p>综述：关于this最想知道的内容估计就是this的指向了，但是再js中，this的指向的确定不是在定义时候，而是在执行的时候，因为执行方式（调用方式）有多种。<br><a id="more"></a></p>
-<h3 id="1-1-this的指向"><a href="#1-1-this的指向" class="headerlink" title="1.1 this的指向"></a>1.1 this的指向</h3><p>首先必须要说的是，this的指向在<strong>函数定义的时候</strong>是确定不了的，<strong>只有函数执行的时候才能确定</strong> this到底指向谁<br>下面是决策树，至于文字看面试2<br><img src="https://raw.githubusercontent.com/XYooo/image/master/this1.png" alt="此处输入图片的描述"></p>
+        <p>综述：关于this最想知道的内容估计就是this的指向了，但是在js中，this的指向的确定不是在定义时候，而是在执行的时候，因为执行方式（调用方式）有多种。<br><a id="more"></a></p>
+<h3 id="1-1-this的指向"><a href="#1-1-this的指向" class="headerlink" title="1.1 this的指向"></a>1.1 this的指向</h3><p>首先必须要说的是，this的指向在<strong>函数定义的时候</strong>是确定不了的，<strong>只有函数执行的时候才能确定</strong> this到底指向谁</p>
+<p>学习了很多文章，觉得《你不知道的javascript》上册中描述的最好。这里不做摘抄。</p>
 <h3 id="1-2为什么this的指向不定呢"><a href="#1-2为什么this的指向不定呢" class="headerlink" title="1.2为什么this的指向不定呢"></a>1.2为什么this的指向不定呢</h3><p>总结的一段话：<strong>（IBM developerworks文档库来源）JavaScript 中的函数既可以被当作普通函数执行，也可以作为对象的方法执行，这是导致 this 含义如此丰富的主要原因。</strong></p>
 <p>一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有的行为均发生在此执行环境中。</p>
+<blockquote>
+<p>上面那句话也是来自某篇博客，但是关于创建ExecutionContext不如直接看Ecmascript的官方文档《8Executable Code and Execution Contexts》</p>
+</blockquote>
 <p><strong>构建该执行环境时：</strong></p>
 <pre><code>1. JavaScript 首先会创建 arguments变量，其中包含调用函数时传入的参数。
 2. 接下来创建作用域链。（很关键的内容，但是不是本篇blog的关键，请读者们忽略）
@@ -247,4 +251,5 @@
 
 
 
+</script>
 </html>

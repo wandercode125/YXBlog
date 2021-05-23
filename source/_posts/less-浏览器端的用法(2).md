@@ -1,13 +1,65 @@
 ---
-title: Less（2）-colorless生成
-date: 2019-12-24 20:36:09
+title: less-浏览器端的用法(2)
+date: 2021-04-14 00:37:13
 tags: less
 ---
+11
+<!--more-->
 
-前面讲了在线修改样式调用的方法是window.less.modifyVars，这边讲一下color.less的生成。
-下面的代码来源于我的项目组
+前面讲了在线修改样式调用的方法是less在浏览器端使用可以配置的一些参数。下面将整个项目中需要的工作
+  1. 在html引入对应项目组件样式的less文件，本项目是color.less文件
+  2. 在html引入less.js的cdn资源
+  3. 
 
-## 1 color.less
+## 1 项目中使用
+`...cdnPath`是公司cdn路径，隐私去掉。在线主题定制功能使用这个了，实现代码如下:
+
+### 1.1 html
+```html
+<!-- start: 关键的代码在这里 -->
+ <link id='color-less' rel="stylesheet/less" type="text/css"  href="...cdnPath/color.less">
+ <script>
+      window.less = {
+        async: false,
+        env: 'production'
+      };
+    </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+ <!-- end: 关键的代码在这里 -->
+
+```
+注意
+- link的 rel="stylesheet/less"中rel内容特殊
+- 两个`script`标签，都要有。
+
+
+### 1.2 js
+
+动态修改css样式
+
+```javascript
+window.less.modifyVars({
+    "@primary-color":"#e1bee7",
+    "@border-radius":"10px",
+    "@border-color":"#c62828",
+  }).then(() => { console.log('change success') })
+  .catch(error => {
+    console.log(`Failed to update theme`, error);
+});
+```
+
+### 1.3 项目数据结构
+
+编辑面板
+
+type：字段编辑方式，仅支持color（取色器），number（数字输入框），string（输入框）
+label：标签名，编辑器右侧展示label
+key：要修改的less变量（关键，对应.less文件的变量名）
+style：简单描述，暂无实际含义
+level：暂无实际含义
+
+
+##  2 color.less
 
 下面展示一下实际项目中现在使用的less的是什么样子的
 
@@ -30,29 +82,12 @@ tags: less
 @table-border-color-base: #e9e9e9;
 @table-row-hover-bg-color: #ebecf0;
 //vars.less
-
 @palette-grey-100: 	#F5F5F5;
 @palette-grey-200: 	#EEEEEE;
 @palette-grey-300: #E0E0E0;
 @palette-grey-400: #BDBDBD ;
 @palette-grey-900: #212121;
-
 @palette-cyan-500: #00BCD4;
-
-@color-black: #000001;
-@color-white: #FFFFF1;
-
-//colors.scss
-@styleguide-generate-template: false ;
-
-// The two possible colors for overlayed text.
-@color-dark-contrast: @color-white ;
-@color-light-contrast: @color-black ;
-
-// 主题色
-
-
-
 
 // 默认色
 @default-color: @palette-grey-300;
@@ -66,73 +101,21 @@ tags: less
 // 主文本色
   
 
-// 圆角，包括：button、select等
-
-// 边框色，包括按钮、输入框、分页
-
-// 条目hover背景色，包括：select、dropdown、table、datepicker、tree、menu、calendar
-
-// 条目selected背景色，包括：select、menu等
-
-// Button 细化样式变量:
-// 次按钮背景色
-
-// 次按钮文本色
-
-
-// Table 细化样式变量：
-// 表头背景色
-
-// 表头文字颜色
-
-// 表格分割线颜色
-
-// 表格行hover背景色
-
-@unit: 10px ;
-
-@gray-light:    @palette-grey-400 ;
-@gray-lighter:   @palette-grey-300 ;
-@gray-lightest: @palette-grey-200 ;
-
-// 边框圆角
-@border-radius-base:         @border-radius;
-
-//-- Indexes
-@zindex-menubar:          1400;
-
-// hover时的背景色，包括select、dropdown、table、datepicker、tree、menu等组件
-@hover-bg-color-base:  @item-hover-bg-color-base ;
-// // selected背景色，包括：select、menu等
-@selected-bg-color-base:  @item-selected-bg-color-base ;
-
 // 品牌色
 @brand-default:  @gray-lighter;
 @brand-default-hover:  @gray-lightest;
 @brand-default-active:   @gray-light;
-
 @brand-primary :  @primary-color ;
 @brand-primary-hover:  @primary-color-light ;
 @brand-primary-active:  @primary-color-dark ;
-
 @brand-secondary :  @secondary-color ;
 @brand-secondary-hover:  @secondary-color-light ;
 @brand-secondary-active:  @secondary-color-dark ;
-
-@brand-info:  @palette-cyan-500 ;
-
-@brand-light :  @color-dark-contrast ;
-
-//不同背景下对应的文字颜色
-@color-info:  @palette-cyan-500 ;
-
-//全局不同状态颜色
 
 //disable颜色
 @disabled-color-base:  @gray-light;
 @disabled-border-color:  @gray-lighter;
 @disabled-bg-color:  @gray-lightest;
-
 @border-color-base:   @border-color  ;
 
 // UButton
@@ -144,45 +127,11 @@ tags: less
 
 // Button 不同状态下的背景色 ：hover、active、focus状态.
 @button-hover-color:  @default-color-light ;
-@button-active-color: @default-color-dark ;
-@button-focus-color:  @default-color-light;
-
-// Button 配置不同colors属性时的背景色.
-@button-primary-color:   @brand-primary;
-@button-primary-active-color:   @brand-primary-active;
-@button-primary-hover-color:   @brand-primary-hover;
-@button-secondary-color:   @brand-secondary;
-@button-secondary-active-color:   @brand-secondary-active;
-@button-secondary-hover-color:   @brand-secondary-hover;
-// Button 文字颜色.
-// 主按钮(colors:'primary')
-@button-primary-text-color:  @text-color-base;
-@button-text-color:  @button-primary-text-color;
-// 次按钮(colors:'secondary')
-@button-second-text-color:  @button-secondary-text-color;
-// 默认按钮(<Button></Button>)
-@button-default-text-color: @palette-grey-900;
-
-// Button 边框样式及颜色.
-@button-border-style:  solid;
-@button-border-color:  @border-color-base;
-@button-default-border-color:  @button-default-color ;
-
-// Button 不同状态下的边框颜色 ：hover、active、focus状态.
-@button-hover-border-color:  @brand-default-hover;
-@button-active-border-color:  @brand-default-active;
-@button-focus-border-color:  @brand-default-active;
-
-// Button 最小宽度、高度、内边距、外边距、行高、边框粗细、圆角.
-@button-border-width: 1/10 *  @unit ;
-
+// ...省略
 // UText
 
 @form-control-border-radius:  @border-radius-base;
-@form-control-color: #424242;
-@form-control-bg-color: #fff;
-@form-control-border-color:  @border-color-base;
-
+//...省略
 //progresbar
 @progress-primary-bg:   @brand-primary;
 
@@ -235,16 +184,10 @@ tags: less
 // Radio
 
 @radio-color:  @primary-color ;
-
-@radio-primary-bg:             @brand-primary;
-
+@radio-primary-bg: @brand-primary;
 @radio-border-color: #d9d9d9;
 @radio-bg-color: #fff;
 @radio-color: rgba(0, 0, 0, 0.65);
-
-@radio-checked-bg-color: #fff;
-@radio-checked-color:  @brand-primary;
-@radio-checked-border-color:  @brand-primary;
 
 //select
 
@@ -275,9 +218,7 @@ tags: less
   border-color: #EEEEEE;
 }
 
-
 ```
 
-
-color.less的难点在于需要将整个组件库（50多个组件）的样式放到这里，而且组件库使用的scss的语法，所以需要这部分的工程量较大。后续可能会上传如何从scss生成less
+color.less的难点在于需要将整个组件库（50多个组件）的样式放到这里，而且组件库使用的scss的语法，所以需要这部分的工程量较大。g
 
